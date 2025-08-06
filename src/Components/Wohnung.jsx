@@ -47,21 +47,17 @@ export default function Wohnung() {
             modules={[Navigation, Pagination, Autoplay]}
             navigation
             pagination={{ clickable: true }}
-            // autoplay={{
-            //   delay: 3000,
-            //   disableOnInteraction: false,
-            // }}
             spaceBetween={30}
             slidesPerView={1}
             onSlideChange={(swiper) => setCurrentWohnung(wohnungen[swiper.activeIndex])}
           >
             {wohnungen.map((wohnung, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-gray-100 p-4 rounded-xl shadow-lg">
+                <div className="aspect-[4/3] bg-gray-100 p-4 rounded-xl shadow-lg">
                   <img
                     src={wohnung.img}
                     alt={wohnung.title}
-                    className="w-full h-[600px] object-cover rounded-xl"
+                    className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
               </SwiperSlide>
@@ -74,20 +70,20 @@ export default function Wohnung() {
           <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">
             Standort: {currentWohnung.title}
           </h2>
-          <div className="h-[600px] rounded-xl overflow-hidden shadow-lg">
+          <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
             <MapContainer
               center={currentWohnung.position}
               zoom={10}
               scrollWheelZoom={false}
               className="h-full w-full"
-              key={currentWohnung.title} // 🔁 لإعادة تحميل الخريطة عند التغيير
+              key={currentWohnung.title}
             >
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               <Marker position={currentWohnung.position}>
-                <Popup>{currentWohnung.title}</Popup>
+                <Popup className='text-red-500'>{currentWohnung.title}</Popup>
               </Marker>
             </MapContainer>
           </div>
