@@ -1,0 +1,42 @@
+{
+  "heroTitle": "Finde die perfekte Unterkunft oder vermiete deine Immobilie",
+  "heroDescription": "Wir bringen Mieter und Vermieter zusammen – schnell, einfach und zuverlässig in Hamburg & Schleswig-Holstein.",
+  "heroFindAccommodation": "Unterkunft finden",
+  "heroRentNow": "Jetzt vermieten",
+  "heroTrustedCustomers": "⭐️ Bereits über <1> 1.000 zufriedene Kunden </1> vertrauen auf uns",
+
+  "nav": {
+    "findApartment": "Wohnung finden",
+    "listProperty": "Immobilie inserieren",
+    "forEmployers": "Für Arbeitgeber",
+    "help": "Hilfe"
+  },
+
+  "about": {
+    "title": "Über uns",
+    "intro": "Wir sind ein engagiertes Team aus Hamburg, das sich auf die Vermittlung von möblierten Wohnungen für Firmen spezialisiert hat. Unser Ziel ist es, die Suche nach Mitarbeiterunterkünften so einfach und effizient wie möglich zu gestalten.",
+    "whatWeOfferTitle": "Was wir bieten",
+    "offer": {
+      "fastApartment": "Schnelle Vermittlung von Wohnungen",
+      "directContact": "Direkter Kontakt mit Vermietern",
+      "transparentPrices": "Transparente Preise & einfache Buchung"
+    },
+    "missionTitle": "Unsere Mission",
+    "missionText": "Wir glauben, dass jede Firma Zugang zu passenden Unterkünften für ihre Mitarbeiter haben sollte – unkompliziert, zuverlässig und lokal.",
+    "contactButton": "Kontakt aufnehmen"
+  },
+
+  "cart": {
+    "apartmentHamburg": "Wohnung in Hamburg",
+    "apartmentLuebeck": "Wohnung in Lübeck",
+    "apartmentKiel": "Wohnung in Kiel",
+    "price1200": "€1.200 / Monat",
+    "price950": "€950 / Monat",
+    "locationHamburg": "Hamburg, Deutschland",
+    "locationLuebeck": "Lübeck, Deutschland",
+    "locationKiel": "Kiel, Deutschland",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "viewDetails": "Details ansehen"
+  }
+}

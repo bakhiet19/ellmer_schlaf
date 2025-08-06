@@ -1,0 +1,42 @@
+{
+  "heroTitle": "Find the perfect accommodation or rent out your property",
+  "heroDescription": "We bring tenants and landlords together – fast, easy and reliable in Hamburg & Schleswig-Holstein.",
+  "heroFindAccommodation": "Find Accommodation",
+  "heroRentNow": "Rent Now",
+  "heroTrustedCustomers": "⭐️ Over  <1> 1,000 satisfied customers </1> trust us",
+
+  "nav": {
+    "findApartment": "Find Apartment",
+    "listProperty": "List Property",
+    "forEmployers": "For Employers",
+    "help": "Help"
+  },
+
+  "about": {
+    "title": "About Us",
+    "intro": "We are a dedicated team from Hamburg specializing in the placement of furnished apartments for companies. Our goal is to make the search for employee accommodations as easy and efficient as possible.",
+    "whatWeOfferTitle": "What We Offer",
+    "offer": {
+      "fastApartment": "Fast placement of apartments",
+      "directContact": "Direct contact with landlords",
+      "transparentPrices": "Transparent prices & easy booking"
+    },
+    "missionTitle": "Our Mission",
+    "missionText": "We believe that every company should have access to suitable accommodations for their employees – uncomplicated, reliable, and local.",
+    "contactButton": "Get in Touch"
+  },
+
+  "cart": {
+    "apartmentHamburg": "Apartment in Hamburg",
+    "apartmentLuebeck": "Apartment in Lübeck",
+    "apartmentKiel": "Apartment in Kiel",
+    "price1200": "€1,200 / month",
+    "price950": "€950 / month",
+    "locationHamburg": "Hamburg, Germany",
+    "locationLuebeck": "Lübeck, Germany",
+    "locationKiel": "Kiel, Germany",
+    "previous": "Previous",
+    "next": "Next",
+    "viewDetails": "View Details"
+  }
+}
