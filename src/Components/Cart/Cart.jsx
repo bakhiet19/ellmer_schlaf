@@ -4,6 +4,9 @@ import wohnung3 from '../../assets/wohnung3.jpeg';
 import wohnung4 from '../../assets/wohnung4.jpg';
 import hero from '../../assets/hero.jpg';
 import Cities from './Cities';
+import PriceSlider from './PreisFilterInput';
+import FilterSection from './FiltersSection';
+import { useQuery } from '@tanstack/react-query';
 // import wohnung6 from '../../assets/wohnung6.jpeg';
 
 const wohnungen = [
@@ -64,6 +67,15 @@ const wohnungen = [
 ];
 
 export default function Cart() {
+
+
+  // const {data , isLoading , mu} = useQuery({
+  //   queryFn : 
+    
+  // })
+
+
+
   return (
     <div className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 px-4">
         
@@ -71,7 +83,7 @@ export default function Cart() {
     <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
       🏠 Unsere Unterkünften
     </h2>
-        <Cities />
+        <FilterSection />
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {wohnungen.map((wohnung, index) => (
         <div

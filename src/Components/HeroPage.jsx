@@ -3,8 +3,19 @@ import { NavLink } from "react-router-dom";
 
 export default function HeroPage() {
   return (
-    <section className="h-screen w-full bg-gradient-to-br from-rose-100 via-white to-blue-50 px-6 sm:px-12 lg:px-24 flex items-center justify-center">
-      <div className="max-w-5xl mx-auto text-center animate-fade-in">
+
+    // <section className="h-screen w-full bg-gradient-to-br from-rose-100 via-white to-blue-50 px-6 sm:px-12 lg:px-24 flex items-center justify-center">
+    //   <div className="max-w-5xl mx-auto text-center animate-fade-in">
+
+    <section
+      className="h-screen w-full bg-cover bg-center relative px-6 sm:px-12 lg:px-24 flex items-center justify-center"
+    >
+      {/* طبقة التدرج اللوني الشفافة فوق الصورة */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/50 to-blue-100/30 backdrop-blur-sm"></div>
+
+      {/* المحتوى */}
+      <div className="relative z-10 max-w-5xl mx-auto text-center animate-fade-in">
+
         <h1 className="text-5xl sm:text-6xl font-extrabold text-rose-700 mb-6 drop-shadow-lg">
           Finde die perfekte Unterkunft <br /> oder vermiete deine Immobilie
         </h1>

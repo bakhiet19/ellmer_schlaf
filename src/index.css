@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .hero{
-    background-image: url('./assets/hero.jpg');
+    background-image: url('../src/assets/hero.jpg');
 }
 
 @keyframes fade-in {
