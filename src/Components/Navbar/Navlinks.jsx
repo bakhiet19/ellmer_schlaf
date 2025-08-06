@@ -1,15 +1,15 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-
+import { useTranslation } from "react-i18next";
 export default function Navlinks() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { t } = useTranslation();
   const links = [
-    { label: "Wohnung finden", url: "#" },
-    { label: "Immobilie inserieren", url: "#" },
-    { label: "Für Arbeitgeber", url: "#" },
-    { label: "Hilfe", url: "#" },
+    { label: t("nav.findApartment"), url: "#" },
+    { label: t("nav.listProperty"), url: "#" },
+    { label: t("nav.forEmployers"), url: "#" },
+    { label: t("nav.help"), url: "#" },
   ];
 
   return (

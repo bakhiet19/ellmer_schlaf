@@ -38,5 +38,22 @@
     "previous": "Previous",
     "next": "Next",
     "viewDetails": "View Details"
+  },  
+  "about_us": {
+    "title": "About Us",
+    "description": "We are a dedicated team based in Hamburg, specializing in the rental of furnished apartments for companies. Our goal is to make the search for employee accommodation as simple and efficient as possible.",
+    "what_we_offer": "What We Offer",
+    "offer_list": [
+      "Fast rental of apartments",
+      "Direct contact with landlords",
+      "Transparent prices & easy booking"
+    ],
+    "our_mission": "Our Mission",
+    "mission_text": "We believe that every company should have access to suitable accommodations for their employees – straightforward, reliable, and local.",
+    "contact_button": "Get in Touch"
+  },
+  "buttons": {
+    "login": "Login"
   }
+
 }
