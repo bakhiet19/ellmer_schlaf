@@ -32,6 +32,12 @@ const testimonials = [
 const Kunden = () => {
   return (
     <div className="testimonial-container">
+
+    <h2 class="text-2xl font-semibold text-center mb-6 text-red-500 ">
+      Was unsere Kunden sagen
+      {/* <div className='bg-red-500 text-center w-10 h-1'></div> */}
+    </h2> 
+
       <Swiper
   effect={'coverflow'}
   grabCursor={true}

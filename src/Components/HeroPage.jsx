@@ -32,7 +32,7 @@ export default function HeroPage() {
         <div className="flex flex-col sm:flex-row justify-center gap-6 mb-6">
           <NavLink
             to="/mieter"
-            className="flex items-center gap-2 bg-rose-500 text-white px-10 py-3 rounded-full text-lg font-semibold hover:bg-rose-600 transition-transform duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+            className="flex items-center justify-center gap-2 bg-rose-500 text-white px-10 py-3 rounded-full text-lg font-semibold hover:bg-rose-600 transition-transform duration-300 ease-in-out transform hover:scale-105 shadow-lg"
           >
             <span>{t('heroFindAccommodation')}</span>
             <HiSearchCircle className="w-6 h-6" />

@@ -59,7 +59,7 @@ const wohnungen = [
   },
 ];
 
-export default function Cart() {
+export default function Carts() {
   return (
     <div className="bg-gray-100 py-16 px-4">
       <div className="max-w-7xl mx-auto">

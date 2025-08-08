@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-
+import wohnung1 from '../../assets/wohnung1.jpg';
 // إعداد أيقونات leaflet
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -79,6 +79,7 @@ const ApartmentMap = () => {
                   <strong>{apt.name}</strong><br />
                   Stadt: {apt.city}<br />
                   <em>Klick für Details</em>
+                  <img src={wohnung1} className='w-100 h-30 object-cover' />
                 </div>
               </Popup>
             </Marker>

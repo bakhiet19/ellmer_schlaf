@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import { ToastBar } from "react-hot-toast";
 import './i18n'
+import MieterHome from "./Mieter/MieterHome";
 
 const queryClient = new QueryClient();
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
       <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/mieter" element={<MieterHome />} />
           {/* <Route element path="">
             <Route element path="/:id" />
           </Route> */}
