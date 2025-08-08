@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -22,54 +22,41 @@ const APARTMENTS = [
 ];
 
 const ApartmentMap = () => {
+
+  const handleViewDetails = () => {
+    if (selectedApartment) {
+      navigate(`/apartment/${selectedApartment.id}`);
+    }
+  };
+
+
+
   const mapCenter = [52.5, 10.5];
-  const cities = [...new Set(APARTMENTS.map((apt) => apt.city))];
+  const [selectedApartment, setSelectedApartment] = useState(null);
 
   return (
-    <div className='bg-gray-100' style={{
+    <div style={{
       padding: '2rem',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
       fontFamily: 'Segoe UI, sans-serif',
+      backgroundColor: '#f9f9f9',
     }}>
-      <h2 style={{
-        marginBottom: '1rem',
-        color: '#2c3e50',
-        fontSize: '1.8rem',
-        fontWeight: '600',
-      }}>
-        🗺️ Wohnungen auf der Karte
-      </h2>
+        <h2 style={{ fontSize: '1.6rem', color: '#e74c3c', marginBottom: '1rem', textAlign : 'center' }}>
+          🗺️ Wohnungen auf der Karte
+        </h2>
+      {/* 🗺️ قسم الخريطة */}
 
-      <div style={{
-        backgroundColor: '#ffffff',
-        padding: '1.5rem',
-        borderRadius: '16px',
-        boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
-        width: '100%',
-        maxWidth: '720px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1rem',
-      }}>
-        <div style={{
-          backgroundColor: '#eaf4ff',
-          padding: '0.75rem 1rem',
-          borderRadius: '10px',
-          textAlign: 'center',
-          color: '#34495e',
-          fontSize: '1rem',
-        }}>
-          <strong>{APARTMENTS.length}</strong> verfügbare Wohnungen in&nbsp;
-          <strong>{cities.join(', ')}</strong>
-        </div>
 
+
+      <div className="grid gap-8 grid-cols-1 lg:grid-cols-[2fr_1fr]">
+        <div>
+      
         <MapContainer
+          className='order-2 md:order-1'
           center={mapCenter}
           zoom={6}
           style={{
-            height: '400px',
+            zIndex : 2,
+            height: '350px',
             width: '100%',
             borderRadius: '12px',
             boxShadow: '0 2px 12px rgba(0,0,0,0.1)',
@@ -77,20 +64,77 @@ const ApartmentMap = () => {
           scrollWheelZoom={true}
         >
           <TileLayer
-            attribution='© <a href="https://osm.org/copyright">OpenStreetMap</a>'
+            attribution='© OpenStreetMap'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-
           {APARTMENTS.map((apt) => (
             <Marker key={apt.id} position={[apt.lat, apt.lng]}>
               <Popup>
-                <strong>{apt.name}</strong><br />
-                Stadt: {apt.city}
+                <div onClick={() => setSelectedApartment(apt)} style={{ cursor: 'pointer' }}>
+                  <strong>{apt.name}</strong><br />
+                  Stadt: {apt.city}<br />
+                  <em>Klick für Details</em>
+                </div>
               </Popup>
             </Marker>
           ))}
         </MapContainer>
       </div>
+
+      {/* 📋 قسم المعلومات */}
+       <div className='order-1 md:order-2' style={{
+      backgroundColor: '#ffffff',
+      padding: '1.5rem',
+      borderRadius: '16px',
+      boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
+      height: 'fit-content',
+    }}>
+      <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: '#34495e' }}>
+        📋 Informationen zur Wohnung
+      </h3>
+      {selectedApartment !== null ? (
+        <div>
+          <p><strong>🏠 Name:</strong> {selectedApartment.name}</p>
+          <p><strong>🌆 Stadt:</strong> {selectedApartment.city}</p>
+          <p><strong>📍 Lage:</strong> {selectedApartment.lat}, {selectedApartment.lng}</p>
+          <p><strong>🧭 Nahe Orte:</strong></p>
+          <ul style={{ paddingLeft: '1.2rem' }}>
+            <li>🛒 Supermarkt: 5 Min entfernt</li>
+            <li>🏥 Krankenhaus: 10 Min entfernt</li>
+            <li>🚉 Bahnhof: 8 Min entfernt</li>
+          </ul>
+
+          <button
+            onClick={handleViewDetails}
+            style={{
+              marginTop: '1rem',
+              color: '#fff',
+              padding: '0.6rem 1.2rem',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              fontSize: '1rem',
+            }}
+            className='bg-red-500'
+          >
+            🔍 Details anzeigen
+          </button>
+        </div>
+      ) : (
+        <p style={{ color: '#7f8c8d' }}>Klicke auf eine Wohnung in der Karte, um Details zu sehen.</p>
+      )}
+    </div>
+
+
+
+      
+      </div>
+
+
+   
+
+
+
     </div>
   );
 };

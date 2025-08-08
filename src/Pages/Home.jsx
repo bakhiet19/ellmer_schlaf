@@ -15,8 +15,7 @@ export default function Home(){
          <Cart /> 
         <UberUns />
         <ApartmentMap />
-        <Kunden />
-        
+        <Kunden />      
         {/* <Wohnung /> */}
         </>
     )

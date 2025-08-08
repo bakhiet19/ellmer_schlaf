@@ -34,24 +34,40 @@ const Kunden = () => {
   return (
     <div className="testimonial-container">
       <Swiper
-        effect={'coverflow'}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={3}
-        spaceBetween={30}
-        loop={true}
-        navigation={true}
-        pagination={{ clickable: true }}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 100,
-          modifier: 2.5,
-          slideShadows: false,
-        }}
-        modules={[EffectCoverflow, Pagination, Navigation]}
-        className="mySwiper"
-      >
+  effect={'coverflow'}
+  grabCursor={true}
+  centeredSlides={true}
+  loop={true}
+  navigation={true}
+  pagination={{ clickable: true }}
+  coverflowEffect={{
+    rotate: 0,
+    stretch: 0,
+    depth: 100,
+    modifier: 2.5,
+    slideShadows: false,
+  }}
+  breakpoints={{
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    640: {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+    },
+    1024: {
+      slidesPerView: 2.5,
+      spaceBetween: 30,
+    },
+    1280: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    },
+  }}
+  modules={[EffectCoverflow, Pagination, Navigation]}
+  className="mySwiper"
+>
         {testimonials.map((testimonial, index) => (
           <SwiperSlide key={index}>
             <div className="testimonial-card">
