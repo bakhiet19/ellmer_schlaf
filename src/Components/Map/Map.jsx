@@ -19,6 +19,11 @@ const APARTMENTS = [
   { id: 4, city: 'Berlin', name: 'Stylisches Studio in Mitte', lat: 52.5200, lng: 13.4050 },
   { id: 5, city: 'Kiel', name: 'Helle Wohnung nahe Uni', lat: 54.3233, lng: 10.1228 },
   { id: 6, city: 'Hannover', name: 'Ruhiges Apartment mit Balkon', lat: 52.3759, lng: 9.7320 },
+  { id: 7, city: 'Kiel', name: 'Modernes Apartment nahe dem Hafen', lat: 54.3233, lng: 10.1228 },
+  { id: 8, city: 'Lübeck', name: 'Charmante Altbauwohnung im Zentrum', lat: 53.8655, lng: 10.6866 },
+  { id: 9, city: 'Flensburg', name: 'Gemütliches Studio mit Meerblick', lat: 54.7930, lng: 9.4469 },
+  { id: 10, city: 'Neumünster', name: 'Helles Apartment in ruhiger Lage', lat: 54.0736, lng: 9.9816 },
+  { id: 11, city: 'Itzehoe', name: 'Zentrales Apartment mit Terrasse', lat: 53.9279, lng: 9.5156 }
 ];
 
 const ApartmentMap = () => {
