@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import { ToastBar } from "react-hot-toast";
 import './i18n'
 import MieterHome from "./Mieter/MieterHome";
+import ApartmentDetails from "./Components/Cart/CartDetails";
 
 const queryClient = new QueryClient();
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/mieter" element={<MieterHome />} />
+          <Route path="/details" element={<ApartmentDetails />} />
           {/* <Route element path="">
             <Route element path="/:id" />
           </Route> */}
