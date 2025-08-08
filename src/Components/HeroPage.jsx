@@ -13,7 +13,7 @@ export default function HeroPage() {
     //   <div className="max-w-5xl mx-auto text-center animate-fade-in">
 
     <section
-      className="min-h-[calc(100vh-100px)] w-full bg-cover bg-center relative px-6 sm:px-12 lg:px-24 flex items-center justify-center"
+      className="min-h-[calc(100vh-100px)] w-full bg-cover bg-center relative px-6 py-25 sm:px-12 lg:px-24 flex items-center justify-center"
     >
       {/* طبقة التدرج اللوني الشفافة فوق الصورة */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/50 to-blue-100/30 backdrop-blur-sm"></div>
@@ -21,11 +21,11 @@ export default function HeroPage() {
       {/* المحتوى */}
       <div className="relative z-10 max-w-5xl mx-auto text-center animate-fade-in">
 
-        <h1 className="text-5xl sm:text-6xl font-extrabold text-rose-700 mb-6 drop-shadow-lg">
+        <h1 className="text-3xl lg:text-6xl font-extrabold text-rose-700 mb-6 drop-shadow-lg">
          {t('heroTitle')}
         </h1>
 
-        <p className="text-lg sm:text-xl text-gray-700 mb-10 max-w-3xl mx-auto">
+        <p className="text-md sm:text-xl text-gray-700 mb-10 max-w-3xl mx-auto">
           {t('heroDescription')}
         </p>
 

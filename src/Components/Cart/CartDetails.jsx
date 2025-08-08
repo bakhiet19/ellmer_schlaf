@@ -97,72 +97,73 @@ const ApartmentDetails = () => {
           </header>
 
           {/* Details */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
-            {/* Info Cards */}
-            
-            <div className='gap-4'>
-                  <h2 className="text-xl font-semibold text-gray-800 tracking-wide gap-4">
-                🧭 Wohnung Details
-              </h2>
-                  <div className="grid grid-cols-2 gap-4">
-                
-              {[
-                { icon: '🛏️', label: 'Zimmer', value: apartment.rooms },
-                { icon: '🛁', label: 'Badezimmer', value: apartment.bathrooms },
-                { icon: '📐', label: 'Fläche', value: apartment.area },
-                { icon: '💰', label: 'Preis', value: apartment.price },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-gray-100 p-4 rounded-lg shadow-sm hover:shadow-md transition flex items-center gap-2"
-                >
-                  <span className="text-xl">{item.icon}</span>
-                  <span className="font-medium text-gray-700">
-                    {item.label}: {item.value}
-                  </span>
-                </div>
-              ))}
-            </div>
+       <section className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
+  {/* تفاصيل الشقة */}
+  <div>
+    <h2 className="text-xl font-semibold text-gray-800 tracking-wide mb-4">
+      🧭 Wohnung Details
+    </h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {[
+        { icon: '🛏️', label: 'Zimmer', value: apartment.rooms },
+        { icon: '🛁', label: 'Badezimmer', value: apartment.bathrooms },
+        { icon: '📐', label: 'Fläche', value: apartment.area },
+        { icon: '💰', label: 'Preis', value: apartment.price },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="bg-gray-100 p-4 rounded-lg shadow-sm hover:shadow-md transition flex items-center gap-2"
+        >
+          <span className="text-xl">{item.icon}</span>
+          <span className="font-medium text-gray-700">
+            {item.label}: {item.value}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
 
-            </div>
-            {/* Nahe Orte */}
-            <div className="space-y-4">
-              <h2 className="text-xl font-semibold text-gray-800 tracking-wide">
-                🧭 Nahe Orte:
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  { icon: '🛒', title: 'Supermarkt', time: '5 Min entfernt' },
-                  { icon: '🏥', title: 'Krankenhaus', time: '10 Min entfernt' },
-                  { icon: '🚉', title: 'Bahnhof', time: '8 Min entfernt' },
-                ].map((place, i) => (
-                  <div
-                    key={i}
-                    className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition flex items-center gap-3"
-                  >
-                    <span className="text-2xl">{place.icon}</span>
-                    <div>
-                      <p className="font-medium text-gray-700">{place.title}</p>
-                      <p className="text-sm text-gray-500">{place.time}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+  {/* أماكن قريبة */}
+  <div>
+    <h2 className="text-xl font-semibold text-gray-800 tracking-wide mb-4">
+      🧭 Nahe Orte
+    </h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {[
+        { icon: '🛒', title: 'Supermarkt', time: '5 Min entfernt' },
+        { icon: '🏥', title: 'Krankenhaus', time: '10 Min entfernt' },
+        { icon: '🚉', title: 'Bahnhof', time: '8 Min entfernt' },
+      ].map((place, i) => (
+        <div
+          key={i}
+          className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition flex items-center gap-3"
+        >
+          <span className="text-2xl">{place.icon}</span>
+          <div>
+            <p className="font-medium text-gray-700">{place.title}</p>
+            <p className="text-sm text-gray-500">{place.time}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
 
-            {/* Beschreibung */}
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 col-span-2">
-              <p className="text-gray-700 leading-relaxed">{apartment.description}</p>
-            </div>
+  {/* الوصف */}
+  <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 md:col-span-2">
+    <p className="text-gray-700 leading-relaxed">{apartment.description}</p>
+  </div>
 
-            {/* Kontakt Button */}
-            <div className="col-span-2">
-              <button className="bg-red-500 text-white px-6 py-3 rounded-full shadow-md hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-300 transition flex items-center gap-3 cursor-pointer">
-                Kontakt aufnehmen
-                <FaPhone size={18} />
-              </button>
-            </div>
-          </section>
+  {/* زر الاتصال */}
+  <div className="md:col-span-2">
+    <button className="bg-red-500 text-white px-6 py-3 rounded-full shadow-md hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-300 transition flex items-center gap-3 cursor-pointer">
+      Kontakt aufnehmen
+      <FaPhone size={18} />
+    </button>
+  </div>
+</section>
+
+
+
         </div>
 
         {/* Modal für Bild */}
@@ -176,6 +177,7 @@ const ApartmentDetails = () => {
               &times;
             </button>
             <img
+              loading='lazy'
               src={modalImage}
               alt="Großansicht"
               className="max-w-6xl max-h-[90vh] object-contain rounded-lg shadow-2xl"
