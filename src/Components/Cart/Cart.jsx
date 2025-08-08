@@ -61,7 +61,7 @@ const wohnungen = [
 
 export default function Cart() {
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 px-4">
+    <div className="bg-gray-100 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <CartLogo />
         <FilterSection />

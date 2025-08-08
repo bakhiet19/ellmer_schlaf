@@ -1,0 +1,43 @@
+/* TestimonialsSwiper.css */
+.testimonial-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.mySwiper {
+  padding-bottom: 2rem;
+}
+
+.testimonial-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  opacity: 0.5;
+  transform: scale(0.9);
+}
+
+.swiper-slide-active .testimonial-card {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.message {
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-weight: bold;
+  color: #EF4444;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #EF4444; /* ← هنا غيّر اللون حسب ما بدك */
+}
