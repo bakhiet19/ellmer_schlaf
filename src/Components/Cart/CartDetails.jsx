@@ -70,7 +70,7 @@ const ApartmentDetails = () => {
           </Swiper>
 
           {/* Titel */}
-          <header className="space-y-2 border-b pb-4">
+          <header className="space-y-2 border-b border-b-red-500 pb-4">
             <h1 className="text-4xl font-bold text-gray-900 tracking-wide">
               {apartment.name}
             </h1>
