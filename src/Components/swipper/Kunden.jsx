@@ -31,9 +31,9 @@ const testimonials = [
 
 const Kunden = () => {
   return (
-    <div className="testimonial-container">
+    <div className="testimonial-container py-16">
 
-    <h2 class="text-2xl font-semibold text-center mb-6 text-red-500 ">
+    <h2 class="lg:text-4xl text-2xl font-bold mb-6 text-rose-500 text-center m-10">
       Was unsere Kunden sagen
       {/* <div className='bg-red-500 text-center w-10 h-1'></div> */}
     </h2> 

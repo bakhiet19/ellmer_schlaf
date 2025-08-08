@@ -7,7 +7,7 @@ export default function UberUns(){
 
     return(
         <section className="max-w-4xl mx-auto px-6 py-16 text-gray-800">
-  <h2 className="text-4xl font-bold mb-6 text-rose-600 text-center">{t('about_us.title')}</h2>
+        <h2 className="lg:text-4xl text-2xl font-bold mb-6 text-rose-500 text-center m-10">{t('about_us.title')}</h2>
 
   <p className="text-lg mb-6">
   {t('about_us.description')}

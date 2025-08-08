@@ -13,7 +13,7 @@ export default function HeroPage() {
     //   <div className="max-w-5xl mx-auto text-center animate-fade-in">
 
     <section
-      className="h-screen w-full bg-cover bg-center relative px-6 sm:px-12 lg:px-24 flex items-center justify-center"
+      className="min-h-[calc(100vh-100px)] w-full bg-cover bg-center relative px-6 sm:px-12 lg:px-24 flex items-center justify-center"
     >
       {/* طبقة التدرج اللوني الشفافة فوق الصورة */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/50 to-blue-100/30 backdrop-blur-sm"></div>

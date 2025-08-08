@@ -45,7 +45,7 @@ const ApartmentMap = () => {
       fontFamily: 'Segoe UI, sans-serif',
       backgroundColor: '#f9f9f9',
     }}>
-        <h2 style={{ fontSize: '1.6rem', color: '#e74c3c', marginBottom: '1rem', textAlign : 'center' }}>
+        <h2 className="font-bold mb-6 text-rose-500 text-center m-10 lg:text-4xl text-2xl">
           🗺️ Wohnungen auf der Karte
         </h2>
       {/* 🗺️ قسم الخريطة */}
