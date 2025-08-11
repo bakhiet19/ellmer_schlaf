@@ -5,6 +5,8 @@ import Kunden from "../Components/swipper/Kunden";
 import ApartmentMap from "../Components/Map/Map";
 import Footer from "../Components/Footer";
 import Carts from "../Components/Cart/Carts";
+import ScrollToTopButton from "../ScrollToTopButton";
+import ContactForm from "../ContaktForm";
 
 
 export default function Home(){
@@ -15,7 +17,9 @@ export default function Home(){
         <Carts /> 
         <UberUns />
         <ApartmentMap />
+        <ContactForm />
         <Kunden />      
+        <ScrollToTopButton />
         <Footer />
         {/* <Wohnung /> */}
         </>
