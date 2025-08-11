@@ -10,6 +10,7 @@ const MieterHome = () => {
     <Navbar />
     <HeroPage />
     <SingleQuestion />
+    <Fragen />
     <Footer />
     </>
   )
