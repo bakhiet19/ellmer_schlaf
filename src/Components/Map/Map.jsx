@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvent } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import wohnung1 from '../../assets/wohnung1.jpg';
@@ -34,33 +34,41 @@ const ApartmentMap = () => {
     }
   };
 
+  function MapClickHandler({ onMapClick }) {
+  useMapEvent({
+    click: () => {
+      onMapClick(); // هذا بيعمل setSelectedApartment(null)
+    },
+  });
+  return null;
+}
 
 
   const mapCenter = [52.5, 10.5];
   const [selectedApartment, setSelectedApartment] = useState(null);
 
   return (
-    <div style={{
+  <div
+    style={{
       padding: '2rem',
       fontFamily: 'Segoe UI, sans-serif',
       backgroundColor: '#f9f9f9',
-    }}>
-        <h2 className="font-bold mb-6 text-rose-500 text-center m-10 lg:text-4xl text-2xl">
-          🗺️ Wohnungen auf der Karte
-        </h2>
-      {/* 🗺️ قسم الخريطة */}
+    }}
+  >
+    <h2 className="font-bold mb-6 text-rose-500 text-center m-10 lg:text-4xl text-2xl">
+      🗺️ Wohnungen auf der Karte
+    </h2>
 
-
-
-      <div className="grid gap-8 grid-cols-1 lg:grid-cols-[2fr_1fr]">
-        <div>
-      
+    {/* 🗺️ قسم الخريطة والمعلومات */}
+    <div className="grid gap-8 grid-cols-1 lg:grid-cols-[2fr_1fr]">
+      {/* 🗺️ الخريطة */}
+      <div>
         <MapContainer
-          className='order-2 md:order-1'
+          className="order-2 md:order-1"
           center={mapCenter}
           zoom={6}
           style={{
-            zIndex : 2,
+            zIndex: 2,
             height: '350px',
             width: '100%',
             borderRadius: '12px',
@@ -68,18 +76,31 @@ const ApartmentMap = () => {
           }}
           scrollWheelZoom={true}
         >
+          {/* ✅ مكون لمعالجة الضغط على الخريطة */}
+          <MapClickHandler onMapClick={() => setSelectedApartment(null)} />
+
           <TileLayer
-            attribution='© OpenStreetMap'
+            attribution="© OpenStreetMap"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+
           {APARTMENTS.map((apt) => (
-            <Marker key={apt.id} position={[apt.lat, apt.lng]}>
+            <Marker
+              key={apt.id}
+              position={[apt.lat, apt.lng]}
+              eventHandlers={{
+                // mousemove : () => setSelectedApartment(apt),
+                click: () => setSelectedApartment(apt),
+                popupclose: () => setSelectedApartment(null),
+              }}
+            >
               <Popup>
-                <div onClick={() => setSelectedApartment(apt)} style={{ cursor: 'pointer' }}>
-                  <strong>{apt.name}</strong><br />
-                  Stadt: {apt.city}<br />
-                  <em>Klick für Details</em>
-                  <img src={wohnung1} className='w-100 h-30 object-cover' />
+                <div style={{ cursor: 'pointer' }}>
+                  <strong>{apt.name}</strong>
+                  <br />
+                  Stadt: {apt.city}
+                  <br />                
+                  <img src={wohnung1} className="w-100 h-30 object-cover" />
                 </div>
               </Popup>
             </Marker>
@@ -88,60 +109,71 @@ const ApartmentMap = () => {
       </div>
 
       {/* 📋 قسم المعلومات */}
-       <div className='order-1 md:order-2' style={{
-      backgroundColor: '#ffffff',
-      padding: '1.5rem',
-      borderRadius: '16px',
-      boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
-      height: 'fit-content',
-    }}>
-      <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: '#34495e' }}>
-        📋 Informationen zur Wohnung
-      </h3>
-      {selectedApartment !== null ? (
-        <div>
-          <p><strong>🏠 Name:</strong> {selectedApartment.name}</p>
-          <p><strong>🌆 Stadt:</strong> {selectedApartment.city}</p>
-          <p><strong>📍 Lage:</strong> {selectedApartment.lat}, {selectedApartment.lng}</p>
-          <p><strong>🧭 Nahe Orte:</strong></p>
-          <ul style={{ paddingLeft: '1.2rem' }}>
-            <li>🛒 Supermarkt: 5 Min entfernt</li>
-            <li>🏥 Krankenhaus: 10 Min entfernt</li>
-            <li>🚉 Bahnhof: 8 Min entfernt</li>
-          </ul>
+      <div
+        className="order-1 md:order-2"
+        style={{
+          backgroundColor: '#ffffff',
+          padding: '1.5rem',
+          borderRadius: '16px',
+          boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
+          height: 'fit-content',
+        }}
+      >
+        <h3
+          style={{
+            fontSize: '1.4rem',
+            marginBottom: '1rem',
+            color: '#34495e',
+          }}
+        >
+          📋 Informationen zur Wohnung
+        </h3>
 
-          <button
-            onClick={handleViewDetails}
-            style={{
-              marginTop: '1rem',
-              color: '#fff',
-              padding: '0.6rem 1.2rem',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              fontSize: '1rem',
-            }}
-            className='bg-red-500'
-          >
-            🔍 Details anzeigen
-          </button>
-        </div>
-      ) : (
-        <p style={{ color: '#7f8c8d' }}>Klicke auf eine Wohnung in der Karte, um Details zu sehen.</p>
-      )}
-    </div>
+        {selectedApartment !== null ? (
+          <div>
+            <p>
+              <strong>🏠 Name:</strong> {selectedApartment.name}
+            </p>
+            <p>
+              <strong>🌆 Stadt:</strong> {selectedApartment.city}
+            </p>
+            <p>
+              <strong>📍 Lage:</strong> {selectedApartment.lat},{' '}
+              {selectedApartment.lng}
+            </p>
+            <p>
+              <strong>🧭 Nahe Orte:</strong>
+            </p>
+            <ul style={{ paddingLeft: '1.2rem' }}>
+              <li>🛒 Supermarkt: 5 Min entfernt</li>
+              <li>🏥 Krankenhaus: 10 Min entfernt</li>
+              <li>🚉 Bahnhof: 8 Min entfernt</li>
+            </ul>
 
-
-
-      
+            <button
+              onClick={handleViewDetails}
+              style={{
+                marginTop: '1rem',
+                color: '#fff',
+                padding: '0.6rem 1.2rem',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontSize: '1rem',
+              }}
+              className="bg-red-500"
+            >
+              🔍 Details anzeigen
+            </button>
+          </div>
+        ) : (
+          <p style={{ color: '#7f8c8d' }}>
+            Klicke auf eine Wohnung in der Karte, um Details zu sehen.
+          </p>
+        )}
       </div>
-
-
-   
-
-
-
     </div>
+  </div>
   );
 };
 
