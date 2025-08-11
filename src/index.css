@@ -34,3 +34,7 @@
     @apply text-indigo-600 hover:text-indigo-800 transition-colors duration-300;
   }
 }
+
+.questions{
+  background-image: url('./assets/wohnung3.jpeg');
+}
