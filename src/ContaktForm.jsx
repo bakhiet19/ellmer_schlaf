@@ -26,17 +26,48 @@ export default function KontaktSection() {
 
       <div className="grid md:grid-cols-2 gap-10">
         {/* 🧾 Firmeninfos */}
-        <div className="bg-gray-50 p-8 rounded-lg shadow-md text-base text-gray-700 space-y-5">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-2">Firmeninformationen</h3>
-          <p><strong>Firmenname:</strong> Ellmer Schlaf GmbH</p>
-          <p><strong>Adresse:</strong> Musterstraße 12, 20095 Hamburg</p>
-          <p><strong>Telefon:</strong> +49 40 123456789</p>
-          <p><strong>E-Mail:</strong> kontakt@ellmer-schlaf.de</p>
-          <p><strong>Öffnungszeiten:</strong> Montag – Freitag, 09:00 – 17:00 Uhr</p>
-          <p className="italic text-gray-600">
-            Haben Sie Fragen? Sie können Ihre Nachricht und Kontaktdaten hier hinterlassen – wir melden uns schnellstmöglich bei Ihnen.
-          </p>
-        </div>
+      <div className="bg-gray-50 p-8 rounded-lg shadow-md text-base text-gray-700 space-y-5">
+  <h3 className="text-2xl font-semibold text-gray-800 mb-2">Firmeninformationen</h3>
+
+  <p><strong>Firmenname:</strong> Ellmer Schlaf GmbH</p>
+
+  <p>
+    <strong>Adresse: </strong>
+    <a
+      href="https://www.google.com/maps?q=Ellmer+Schlaf+GmbH,+Musterstraße+12,+20095+Hamburg,+Deutschland"
+      target="_blank"
+      className="text-red-500 hover:underline"
+    >
+      Ellmer Schlaf GmbH, Musterstraße 12, 20095 Hamburg
+    </a>
+  </p>
+
+  <p>
+    <strong>Telefon: </strong>
+    <a
+      href="tel:+4940123456789"
+      className="text-red-500 hover:underline"
+    >
+      +49 40 123456789
+    </a>
+  </p>
+
+  <p>
+    <strong>E-Mail: </strong>
+    <a
+      href="mailto:kontakt@ellmer-schlaf.de"
+      className="text-red-500 hover:underline"
+    >
+      kontakt@ellmer-schlaf.de
+    </a>
+  </p>
+
+  <p><strong>Öffnungszeiten:</strong> Montag – Freitag, 09:00 – 17:00 Uhr</p>
+
+  <p className="italic text-gray-600">
+    Haben Sie Fragen? Sie können Ihre Nachricht und Kontaktdaten hier hinterlassen – wir melden uns schnellstmöglich bei Ihnen.
+  </p>
+</div>
 
         {/* 📩 Kontaktformular */}
         <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200">

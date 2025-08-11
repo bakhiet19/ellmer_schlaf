@@ -14,8 +14,9 @@ export default function FilterSection() {
         <Cities />
         <PropertyType />
         <RoomFilter />
-        <PreisFilterInput />
         <FeaturesFilter />
+        <PreisFilterInput />
+        
       </div>
 
       <div className="flex justify-end">
