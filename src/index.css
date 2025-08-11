@@ -38,3 +38,20 @@
 .questions{
   background-image: url('./assets/wohnung3.jpeg');
 }
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

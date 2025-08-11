@@ -37,6 +37,8 @@ export default function Fragen() {
           </details>
         ))}
       </div>
+
+      
       <div className="mt-10 text-center">
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center shadow-sm">
   <p className="text-gray-800 text-lg font-semibold mb-2">

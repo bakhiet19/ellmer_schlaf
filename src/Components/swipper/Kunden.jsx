@@ -9,81 +9,89 @@ import './kunden.css';
 const testimonials = [
   {
     name: "Anna Müller",
-    message: "Der Kundenservice war ausgezeichnet. Ich habe mich sehr gut betreut gefühlt.",
+    arbeit : 'Software Engineer from UK',
+    message: "Finding accommodation for my 6-month contract in Berlin was so easy with airB2B. The apartment had everything I needed, including a proper desk setup for remote work",
+    stars : '4'
   },
   {
     name: "Lukas Schmidt",
-    message: "Schnelle Lieferung und top Qualität. Jederzeit wieder!",
+    arbeit : 'Project Manager from Spain',
+    message: "My company used airB2B to find me a place in Munich for my 3-month assignment. The process was smooth and the apartment was exactly as advertised.",
   },
   {
     name: "Mia Schneider",
-    message: "Die Website ist sehr benutzerfreundlich und schön gestaltet.",
+    arbeit : 'Financial Analyst from USA',
+    message: "The monthly discount for my 4-month stay in Frankfurt made a big difference. The location was perfect - just a 10-minute walk to my office.",
+  },
+   {
+    name: "Lukas Schmidt",
+    arbeit : 'Project Manager from Spain',
+    message: "My company used airB2B to find me a place in Munich for my 3-month assignment. The process was smooth and the apartment was exactly as advertised.",
   },
   {
-    name: "Tim Becker",
-    message: "Ich hatte ein Problem und es wurde sofort gelöst. Super Support!",
-  },
-  {
-    name: "Lea Weber",
-    message: "Alles hat reibungslos funktioniert. Sehr professionell!",
+    name: "Mia Schneider",
+    arbeit : 'Financial Analyst from USA',
+    message: "The monthly discount for my 4-month stay in Frankfurt made a big difference. The location was perfect - just a 10-minute walk to my office.",
   },
 ];
 
-const Kunden = () => {
+
+export default function Kunden() {
   return (
-    <div className="testimonial-container py-16">
+    <>
+      <div className="text-center">
+        <h2 className="text-3xl font-extrabold text-red-500">What Our Guests Say</h2>
+        <div className="w-20 h-1 bg-black mt-2 rounded text-center mx-auto"></div>
+      </div>
 
-    <h2 class="lg:text-4xl text-2xl font-bold mb-6 text-rose-500 text-center m-10">
-      Was unsere Kunden sagen
-      {/* <div className='bg-red-500 text-center w-10 h-1'></div> */}
-    </h2> 
+      <div className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Swiper
+          loop={true}
+            modules={[Navigation, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="pb-10"
+          >
+            {testimonials.map((kunde, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-gray-50 rounded-xl p-6 shadow-md h-full flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <div className="h-12 w-12 rounded-full bg-rose-100 flex items-center justify-center text-rose-500 font-bold text-xl">
+                        {kunde.name.charAt(0,2).toUpperCase()}
+                      </div>
+                      <div className="ml-4">
+                        <h4 className="font-medium text-gray-900">{kunde.name}</h4>
+                        <p className="text-sm text-gray-600">{kunde.arbeit}</p>
+                      </div>
+                    </div>
+                    <div className="flex mb-3">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                        </svg>
+                      ))}
+                      {/* {kunde.stars.} */}
+                    </div>
+                    <p className="text-gray-700">
+                     {kunde.message}
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </>
 
-      <Swiper
-  effect={'coverflow'}
-  grabCursor={true}
-  centeredSlides={true}
-  loop={true}
-  navigation={true}
-  pagination={{ clickable: true }}
-  coverflowEffect={{
-    rotate: 0,
-    stretch: 0,
-    depth: 100,
-    modifier: 2.5,
-    slideShadows: false,
-  }}
-  breakpoints={{
-    0: {
-      slidesPerView: 1,
-      spaceBetween: 10,
-    },
-    640: {
-      slidesPerView: 1.5,
-      spaceBetween: 20,
-    },
-    1024: {
-      slidesPerView: 2.5,
-      spaceBetween: 30,
-    },
-    1280: {
-      slidesPerView: 3,
-      spaceBetween: 40,
-    },
-  }}
-  modules={[EffectCoverflow, Pagination, Navigation]}
-  className="mySwiper"
->
-        {testimonials.map((testimonial, index) => (
-          <SwiperSlide key={index}>
-            <div className="testimonial-card">
-              <p className="message">"{testimonial.message}"</p>
-              <p className="name">– {testimonial.name}</p>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
   );
-};
-
-export default Kunden;
+}
