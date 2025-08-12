@@ -55,3 +55,27 @@
     }
   }
 }
+
+
+@keyframes bubbleIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  80% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.bubble-anim {
+  animation: bubbleIn 0.6s ease-out forwards;
+}
+
+/* حجم الأسهم الافتراضي */
+.custom-swiper .swiper-button-prev,
+.custom-swiper .swiper-button-next {
+  transform: scale(1);
+}
+
+/* على الشاشات الصغيرة */
+@media (max-width: 640px) {
+  .custom-swiper .swiper-button-prev,
+  .custom-swiper .swiper-button-next {
+    transform: scale(0.6); /* تصغير السهم */
+  }
+}

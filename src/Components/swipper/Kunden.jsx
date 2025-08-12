@@ -38,60 +38,64 @@ const testimonials = [
 
 export default function Kunden() {
   return (
-    <>
-      <div className="text-center">
-        <h2 className="text-3xl font-extrabold text-red-500">What Our Guests Say</h2>
-        <div className="w-20 h-1 bg-black mt-2 rounded text-center mx-auto"></div>
-      </div>
+  <>
+  <div className="text-center">
+    <h2 className="text-3xl font-extrabold text-red-500">What Our Guests Say</h2>
+    <div className="w-20 h-1 bg-black mt-2 rounded text-center mx-auto"></div>
+  </div>
 
-      <div className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Swiper
-          loop={true}
-            modules={[Navigation, Pagination]}
-            spaceBetween={20}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            className="pb-10"
-          >
-            {testimonials.map((kunde, index) => (
-              <SwiperSlide key={index}>
-                <div className="bg-gray-50 rounded-xl p-6 shadow-md h-full flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center mb-4">
-                      <div className="h-12 w-12 rounded-full bg-rose-100 flex items-center justify-center text-rose-500 font-bold text-xl">
-                        {kunde.name.charAt(0,2).toUpperCase()}
-                      </div>
-                      <div className="ml-4">
-                        <h4 className="font-medium text-gray-900">{kunde.name}</h4>
-                        <p className="text-sm text-gray-600">{kunde.arbeit}</p>
-                      </div>
-                    </div>
-                    <div className="flex mb-3">
-                      {[...Array(5)].map((_, i) => (
-                        <svg key={i} className="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                      ))}
-                      {/* {kunde.stars.} */}
-                    </div>
-                    <p className="text-gray-700">
-                     {kunde.message}
-                    </p>
+  <div className="bg-white py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Swiper
+        loop={true}
+        modules={[Navigation, Pagination]}
+        spaceBetween={20}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        className="pb-10 custom-swiper"
+      >
+        {testimonials.map((kunde, index) => (
+          <SwiperSlide key={index}>
+            <div className="bg-gray-50 rounded-xl p-6 shadow-md h-full flex flex-col justify-between">
+              <div>
+                <div className="flex items-center mb-4">
+                  <div className="h-12 w-12 rounded-full bg-rose-100 flex items-center justify-center text-rose-500 font-bold text-xl">
+                    {kunde.name.charAt(0, 2).toUpperCase()}
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="font-medium text-gray-900">{kunde.name}</h4>
+                    <p className="text-sm text-gray-600">{kunde.arbeit}</p>
                   </div>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
-    </>
+                <div className="flex mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className="h-5 w-5 text-yellow-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-gray-700">{kunde.message}</p>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  </div>
+</>
+
 
   );
 }
