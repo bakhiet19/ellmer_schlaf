@@ -40,21 +40,24 @@
     "viewDetails": "Details ansehen"
   },
   "about_us": {
-    "title": "Über uns",
-    "description": "Wir sind ein engagiertes Team aus Hamburg, das sich auf die Vermittlung von möblierten Wohnungen für Firmen spezialisiert hat. Unser Ziel ist es, die Suche nach Mitarbeiterunterkünften so einfach und effizient wie möglich zu gestalten.",
-    "what_we_offer": "Was wir bieten",
-    "offer_list": [
-      "Schnelle Vermittlung von Wohnungen",
-      "Direkter Kontakt mit Vermietern",
-      "Transparente Preise & einfache Buchung"
-    ],
-    "our_mission": "Unsere Mission",
-    "mission_text": "Wir glauben, dass jede Firma Zugang zu passenden Unterkünften für ihre Mitarbeiter haben sollte – unkompliziert, zuverlässig und lokal.",
-    "contact_button": "Kontakt aufnehmen"
+     "title": "Über uns",
+  "description_extended": "Wir bei Ellmer Schlaf glauben, dass Komfort mit dem richtigen Wohnraum beginnt...",
+  "what_we_offer": "Was wir anbieten",
+  "offer_list": {
+    "0": "Möblierte Wohnungen für Unternehmen",
+    "1": "Flexible Mietdauer",
+    "2": "Zentrale Lagen in Hamburg, Lübeck und Kiel",
+    "3": "Persönlicher Kundenservice"
+  },
+  "our_mission": "Unsere Mission",
+  "mission_text_extended": "Unsere Mission ist es, Unternehmen mit hochwertigen, praktischen und komfortablen Wohnlösungen zu unterstützen...",
+  "our_vision": "Unsere Vision",
+  "vision_text": "Wir möchten die erste Wahl für Unternehmen in Deutschland sein, wenn es um möbliertes Wohnen geht...",
+  "contact_button": "Kontaktieren Sie uns"
   },
 
   "buttons": {
     "login": "Anmelden"
   }
-
 }
+

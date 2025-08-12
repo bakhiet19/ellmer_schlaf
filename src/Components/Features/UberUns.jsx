@@ -1,41 +1,53 @@
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 
-export default function UberUns(){
+export default function UberUns() {
+  const { t } = useTranslation();
 
-  const {t} = useTranslation()
+  return (
+    <section className="max-w-4xl mx-auto px-6 py-16 text-gray-800">
+      <h2 className="lg:text-4xl text-2xl font-bold mb-6 text-rose-500 text-center m-10">
+        {t('about_us.title')}
+      </h2>
 
-    return(
-        <section className="max-w-4xl mx-auto px-6 py-16 text-gray-800">
-        <h2 className="lg:text-4xl text-2xl font-bold mb-6 text-rose-500 text-center m-10">{t('about_us.title')}</h2>
-
-  <p className="text-lg mb-6">
-  {t('about_us.description')}
-  </p>
-
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
-    <div>
-      <h3 className="text-xl font-semibold mb-2">🏠 {t('about_us.what_we_offer')}</h3>
-      <ul className="list-disc list-inside text-gray-700">
-        <li>{t('about_us.offer_list.0')}</li>
-        <li>{t('about_us.offer_list.1')}</li>
-        <li>{t('about_us.offer_list.2')}</li>
-      </ul>
-    </div>
-
-    <div>
-      <h3 className="text-xl font-semibold mb-2">🎯   {t('about_us.our_mission')}</h3>
-      <p>
-       {t('about_us.mission_text')}
+      <p className="text-lg mb-6">
+        {t('about_us.description_extended')}
       </p>
-    </div>
-  </div>
 
-  <div className="mt-12 text-center">
-    <NavLink to="/kontakt" className="inline-block bg-rose-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-rose-700 transition">
-        {t('about_us.contact_button')}
-    </NavLink>
-  </div>
-</section>
-    )
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
+        <div>
+          <h3 className="text-xl font-semibold mb-2">🏠 {t('about_us.what_we_offer')}</h3>
+          <ul className="list-disc list-inside text-gray-700">
+            <li>{t('about_us.offer_list.0')}</li>
+            <li>{t('about_us.offer_list.1')}</li>
+            <li>{t('about_us.offer_list.2')}</li>
+            <li>{t('about_us.offer_list.3')}</li> {/* جديد */}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold mb-2">🎯 {t('about_us.our_mission')}</h3>
+          <p className="text-gray-700">
+            {t('about_us.mission_text_extended')}
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-12">
+        <h3 className="text-xl font-semibold mb-4 text-center">🌍 {t('about_us.our_vision')}</h3>
+        <p className="text-gray-700 text-center max-w-3xl mx-auto">
+          {t('about_us.vision_text')}
+        </p>
+      </div>
+
+      <div className="mt-12 text-center">
+        <NavLink
+          to="/kontakt"
+          className="inline-block bg-rose-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-rose-700 transition"
+        >
+          {t('about_us.contact_button')}
+        </NavLink>
+      </div>
+    </section>
+  );
 }
