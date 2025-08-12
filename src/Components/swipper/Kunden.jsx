@@ -38,13 +38,12 @@ const testimonials = [
 
 export default function Kunden() {
   return (
-  <>
+  <div className='pb-8 sm:pb-12 lg:pb-16'>
   <div className="text-center">
-    <h2 className="text-3xl font-extrabold text-red-500">What Our Guests Say</h2>
-    <div className="w-20 h-1 bg-black mt-2 rounded text-center mx-auto"></div>
+    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-red-500 m-6 pt-6 sm:pt-4 text-center">What Our Guests Say</h2>
   </div>
 
-  <div className="bg-white py-16">
+  <div className="bg-white py-6">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Swiper
         loop={true}
@@ -94,7 +93,7 @@ export default function Kunden() {
       </Swiper>
     </div>
   </div>
-</>
+</div>
 
 
   );

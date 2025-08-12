@@ -21,13 +21,14 @@ export default function KontaktSection() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-16">
-      <h2 className="text-4xl font-bold mb-8 text-red-500 text-center">Kontakt</h2>
-
+    <div className="max-w-6xl mx-auto px-6 pb-8 sm:pb-12 lg:pb-16">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-red-500 m-6 pt-6 sm:pt-4 text-center">Kontakt</h2>
+     
+      
       <div className="grid md:grid-cols-2 gap-10">
         {/* 🧾 Firmeninfos */}
       <div className="bg-gray-50 p-8 rounded-lg shadow-md text-base text-gray-700 space-y-5">
-  <h3 className="text-2xl font-semibold text-gray-800 mb-2">Firmeninformationen</h3>
+  <h3 className="text-xl font-semibold text-gray-800 mb-2">Firmeninformationen</h3>
 
   <p><strong>Firmenname:</strong> Ellmer Schlaf GmbH</p>
 

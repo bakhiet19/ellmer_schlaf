@@ -36,9 +36,9 @@ const ApartmentMap = () => {
   }
 
   return (
-    <div className="bg-gray-50 py-12 px-4 lg:px-20 font-sans">
-      <h2 className="text-center text-4xl font-bold text-rose-500 mb-12">
-        🗺️ Wohnungen interaktiv entdecken
+    <div className="bg-gray-50 pb-8 sm:pb-12 lg:pb-16 px-4 lg:px-20 font-sans">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-red-500 m-6 pt-6 sm:pt-4 text-center">
+         Wohnungen interaktiv entdecken
       </h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">

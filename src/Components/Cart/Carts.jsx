@@ -131,7 +131,7 @@ function WohnungCard({ wohnung }) {
 
 export default function Carts() {
   return (
-    <div className="bg-gray-100 py-16 px-4">
+    <div className="bg-gray-100 py-8 sm:pb-12 lg:pb-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* <CartLogo /> */}
         <FilterSection />
