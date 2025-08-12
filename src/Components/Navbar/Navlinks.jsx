@@ -6,7 +6,7 @@ export default function Navlinks() {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
   const links = [
-    { label: t("nav.findApartment"), url: "#" },
+    { label: t("nav.findApartment"), url: "/mieter" },
     { label: t("nav.listProperty"), url: "/details" },
     { label: t("nav.forEmployers"), url: "#" },
     { label: t("nav.help"), url: "#" },

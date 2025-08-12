@@ -36,7 +36,7 @@ const ApartmentMap = () => {
   }
 
   return (
-    <div className="bg-gray-50 pb-8 sm:pb-12 lg:pb-16 px-4 lg:px-20 font-sans">
+    <div className="bg-gray-50 pb-8 sm:pb-12 lg:pb-16 px-4 lg:px-20">
       <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-red-500 m-6 pt-6 sm:pt-4 text-center">
          Wohnungen interaktiv entdecken
       </h2>
@@ -101,7 +101,7 @@ const ApartmentMap = () => {
         </ul>
 
         <NavLink to="/details">
-          <button className="mt-4 bg-rose-500 hover:bg-rose-600 text-white px-5 py-2 rounded-lg transition text-sm">
+          <button className="mt-4 bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg transition text-sm cursor-pointer">
             🔍 Mehr Details anzeigen
           </button>
         </NavLink>

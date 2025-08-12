@@ -33,10 +33,10 @@ function PreisFilterInput({ min = 0, max = 1000, onChange }) {
       </div>
       <button
         onClick={handleChange}
-        className="mt-3 w-full py-2 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600 transition"
+        className="mt-3 w-full py-2 border-2 border-red-500 text-white bg-red-500 font-bold hover:bg-white hover:text-red-500 hover:border-red-500 cursor-pointer rounded-2xl rounded-mdsition"
       >
         Filtern
-      </button>
+      </button> 
     </div>
   );
 }

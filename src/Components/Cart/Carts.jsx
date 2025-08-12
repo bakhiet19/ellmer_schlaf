@@ -87,6 +87,7 @@ function WohnungCard({ wohnung }) {
 
       {/* 🖼️ الصورة المتغيرة مع تأثير Fade */}
       <img
+        loading='lazy'
         src={wohnung.img[currentImgIdx]}
         alt={wohnung.title}
         className={`w-full h-40 sm:h-56 object-cover transition-opacity duration-300 ${

@@ -42,7 +42,7 @@ export default function UberUns() {
       <div className="mt-12 text-center">
         <NavLink
           to="/kontakt"
-          className="inline-block bg-rose-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-rose-700 transition"
+          className="inline-block bg-red-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-red-600 transition"
         >
           {t('about_us.contact_button')}
         </NavLink>

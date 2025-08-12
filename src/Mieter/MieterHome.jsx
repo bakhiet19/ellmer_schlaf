@@ -1,5 +1,5 @@
 import Footer from "../Components/Footer";
-import HeroPage from "../Components/HeroPage";
+import Hero from "../Components/Hero/Hero";
 import Navbar from "../Components/Navbar/Navbar";
 import Fragen from "./Fragen";
 import SingleQuestion from "./Questions";
@@ -8,7 +8,7 @@ const MieterHome = () => {
   return (
     <>
     <Navbar />
-    <HeroPage />
+    <Hero />
     <SingleQuestion />
     <Fragen />
     <Footer />
