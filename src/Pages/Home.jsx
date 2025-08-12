@@ -7,13 +7,15 @@ import Footer from "../Components/Footer";
 import Carts from "../Components/Cart/Carts";
 import ScrollToTopButton from "../ScrollToTopButton";
 import ContactForm from "../ContaktForm";
+import Hero from "../Hero";
 
 
 export default function Home(){
     return(
         <>
         <Navbar />
-        <HeroPage />
+        <Hero />
+        {/* <HeroPage /> */}
         <Carts /> 
         <UberUns />
         <ApartmentMap />
