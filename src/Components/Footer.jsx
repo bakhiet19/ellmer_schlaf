@@ -9,7 +9,7 @@ export default function Footer(){
       
       <div>
         <img src={ellmer} alt="Firmenlogo" className="w-28 mb-3" />
-        <p className="text-sm text-gray-400">Dein Zuhause in <span className='text-red-500'> Schleswig-Holstein</span> und <span className='text-red-500'> Hamburg </span></p>
+        <p className="text-sm text-gray-400">Dein Zuhause in <span className='logoText'> Schleswig-Holstein</span> und <span className='logoText'> Hamburg </span></p>
       </div>
 
       <div className="space-y-2">
@@ -20,9 +20,9 @@ export default function Footer(){
       </div>
 
       <div className="flex space-x-4">
-        <a href="#" className="hover:text-red-500 transition"> <FaFacebook className='md:h-10 md:w-10 w-5 h-5' /> </a>
-        <a href="#" className="hover:text-red-500 transition"> <FaInstagram className='md:h-10 md:w-10 w-5 h-5' /> </a>
-        <a href="#" className="hover:text-red-500 transition"> <FaWhatsapp className='md:h-10 md:w-10 w-5 h-5' /> </a>
+        <a href="#" className="hover:logoText transition"> <FaFacebook className='md:h-10 md:w-10 w-5 h-5' /> </a>
+        <a href="#" className="hover:logoText transition"> <FaInstagram className='md:h-10 md:w-10 w-5 h-5' /> </a>
+        <a href="#" className="hover:logoText transition"> <FaWhatsapp className='md:h-10 md:w-10 w-5 h-5' /> </a>
       </div>
     </div>
 

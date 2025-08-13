@@ -17,7 +17,7 @@ export default function Home(){
         <Hero />
         {/* <HeroPage /> */}
         <Carts /> 
-        <UberUns />
+        <UberUns  />
         <ApartmentMap />
         <ContactForm />
         <Kunden />      

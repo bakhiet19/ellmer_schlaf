@@ -5,6 +5,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './kunden.css';
+import Head from '../Head';
 
 const testimonials = [
   {
@@ -40,7 +41,7 @@ export default function Kunden() {
   return (
   <div className='pb-8 sm:pb-12 lg:pb-16'>
   <div className="text-center">
-    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-red-500 m-6 pt-6 sm:pt-4 text-center">What Our Guests Say</h2>
+    <Head className='texr-center'>What Our Guests Say</Head>
   </div>
 
   <div className="bg-white py-6">

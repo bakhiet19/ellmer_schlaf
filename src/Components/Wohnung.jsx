@@ -83,7 +83,7 @@ export default function Wohnung() {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               <Marker position={currentWohnung.position}>
-                <Popup className='text-red-500'>{currentWohnung.title}</Popup>
+                <Popup className='logoText'>{currentWohnung.title}</Popup>
               </Marker>
             </MapContainer>
           </div>

@@ -38,15 +38,15 @@ function LanguageCurrencyDropdown() {
   const currentLanguage = languages.find(l => l.code === i18n.language) || languages[0];
 
   return (
-    <div className="dropdown cursor-pointer" ref={dropdownRef}>
+    <div className="dropdown cursor-pointer " ref={dropdownRef}>
       <div className="relative">
        <div className="dropdown cursor-pointer" ref={dropdownRef}>
-  <div className="relative">
+    <div className="relative">
     <button
       onClick={() => setOpen(!open)}
       aria-haspopup="true"
       aria-expanded={open}
-      className="cursor-pointer flex items-center text-gray-700 hover:text-rose-500 focus:outline-none gap-1"
+      className="cursor-pointer flex items-center text-gray-700 hover focus:outline-none gap-1"
     >
       {/* العلم يظهر دائمًا */}
       <Flag code={currentLanguage.countryCode} style={{ width: 20, height: 15 }} />
@@ -69,7 +69,7 @@ function LanguageCurrencyDropdown() {
     </button>
 
     {open && (
-      <div className="absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg z-50 p-4 space-y-3 text-sm text-gray-700">
+      <div className="absolute right-0 mt-2 w-56 logoBGWhite border border-gray-200 rounded-md shadow-lg z-50 p-4 space-y-3 text-sm text-gray-700">
         <div>
           <div className="font-semibold mb-1"></div>
           <ul className="space-y-1">
@@ -77,7 +77,7 @@ function LanguageCurrencyDropdown() {
               <li key={code}>
                 <button
                   onClick={() => changeLanguage(code)}
-                  className="cursor-pointer flex items-center w-full text-left px-2 py-1 hover:text-white hover:bg-red-500 rounded gap-2"
+                  className="cursor-pointer flex items-center w-full text-left px-2 py-1  rounded gap-2"
                 >
                   <Flag code={countryCode} style={{ width: 20, height: 15 }} />
                   <span className="hidden md:inline">{name}</span>
@@ -92,7 +92,7 @@ function LanguageCurrencyDropdown() {
 </div>
 
         {open && (
-          <div className="absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg z-50 p-4 space-y-3 text-sm text-gray-700">
+          <div className="absolute right-0 mt-2 w-56 logoBGWhite border border-gray-200 rounded-md shadow-lg z-50 p-4 space-y-3 text-sm text-gray-700">
             <div>
               <div className="font-semibold mb-1"></div>
               <ul className="space-y-1">
@@ -100,7 +100,7 @@ function LanguageCurrencyDropdown() {
                   <li key={code}>
                     <button
                       onClick={() => changeLanguage(code)}
-                      className=" cursor-pointer flex items-center w-full text-left px-2 py-1 hover:text-white hover:bg-red-500 rounded gap-2"
+                      className=" cursor-pointer flex items-center w-full text-left px-2 py-1 hoverLogoWhite rounded gap-2"
                     >
                       <Flag code={countryCode} style={{ width: 20, height: 15 }} />
                       {name}

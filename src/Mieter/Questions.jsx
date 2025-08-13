@@ -127,7 +127,7 @@ export default function QuestionStep() {
             )}
 
             {errors[currentQuestion.key] && (
-              <p className="text-red-500 text-sm mt-1">{errors[currentQuestion.key]?.message}</p>
+              <p className="logoText text-sm mt-1">{errors[currentQuestion.key]?.message}</p>
             )}
           </div>
 
@@ -155,7 +155,7 @@ export default function QuestionStep() {
                 type="submit"
                 disabled={mutation.isLoading}
                 className={`flex items-center gap-2 px-5 py-2 rounded-lg transition ${
-                  mutation.isLoading ? "bg-rose-300 cursor-not-allowed" : "bg-red-500 hover:bg-red-600 text-white"
+                  mutation.isLoading ? "bg-rose-300 cursor-not-allowed" : "logoBG{ hover:bg-red-600 text-white"
                 }`}
               >
                 {mutation.isLoading ? "Wird gesendet..." : <>Absenden <FaArrowRight /></>}

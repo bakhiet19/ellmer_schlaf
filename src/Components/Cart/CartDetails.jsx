@@ -155,7 +155,7 @@ const ApartmentDetails = () => {
 
   {/* زر الاتصال */}
   <div className="md:col-span-2">
-    <button className="bg-red-500 text-white px-6 py-3 rounded-full shadow-md hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-300 transition flex items-center gap-3 cursor-pointer">
+    <button className="logoBG{ text-white px-6 py-3 rounded-full shadow-md hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-300 transition flex items-center gap-3 cursor-pointer">
       Kontakt aufnehmen
       <FaPhone size={18} />
     </button>

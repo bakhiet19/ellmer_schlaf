@@ -4,8 +4,7 @@ import wohnung2 from '../../assets/wohnung2.jpeg';
 import wohnung3 from '../../assets/wohnung3.jpeg';
 import wohnung4 from '../../assets/wohnung4.jpg';
 import hero from '../../assets/hero.jpg';
-import CartLogo from './CartLogo';
-import FilterSection from './FiltersSection';
+import FilterSection from './Filter/FiltersSection';
 import Button from '../Button';
 
 const wohnungen = [
@@ -77,11 +76,11 @@ function WohnungCard({ wohnung }) {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:scale-[1.02] transition duration-300 relative">
+    <div className="logoBGWhite rounded-2xl shadow-xl overflow-hidden hover:scale-[1.02] transition duration-300 relative">
       {/* ♥️ أيقونة القلب */}
       <div className="absolute top-4 right-4 z-10 cursor-pointer">
-        <div className="bg-white px-2 p-1 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-          <button className="text-red-300 hover:text-red-700 text-3xl cursor-pointer">♥</button>
+        <div className="logoBGWhite px-2 p-1 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <button className="logoText text-3xl  cursor-pointer">♥</button>
         </div>
       </div>
 
@@ -100,7 +99,7 @@ function WohnungCard({ wohnung }) {
         <>
           <button
             onClick={() => switchImage('prev')}
-            className="absolute left-3 top-1/4 transform -translate-y-1/2 text-white text-5xl hover:scale-110 transition duration-800 z-10"
+            className="absolute left-3 top-1/4 transform -translate-y-1/2 logoTextWhite text-5xl hover:scale-110 transition duration-800 z-10"
             aria-label="السابق"
           >
             ‹
@@ -108,7 +107,7 @@ function WohnungCard({ wohnung }) {
 
           <button
             onClick={() => switchImage('next')}
-            className="absolute right-3 top-1/4 transform -translate-y-1/2 text-white text-5xl hover:scale-110 transition duration-800 z-10"
+            className="absolute right-3 top-1/4 transform -translate-y-1/2 logoTextWhite text-5xl hover:scale-110 transition duration-800 z-10"
             aria-label="التالي"
           >
             ›
@@ -118,11 +117,11 @@ function WohnungCard({ wohnung }) {
 
       {/* 📋 محتوى البطاقة */}
       <div className="p-4 sm:p-6">
-        <h3 className="text-lg sm:text-xl text-red-500 mb-2">{wohnung.title}</h3>
+        <h3 className="text-lg sm:text-xl logoText mb-2">{wohnung.title}</h3>
         <p className="text-sm sm:text-base text-indigo-600 font-semibold mb-1">{wohnung.price}</p>
         <p className="text-xs sm:text-sm text-gray-500 mb-4">{wohnung.location}</p>
 
-        <Button styles="bg-red-500 text-white text-sm sm:text-base px-3 py-2 rounded-lg hover:bg-red-600 transition duration-300 cursor-pointer">
+        <Button styles="logoBG text-white text-sm sm:text-base px-3 py-2 rounded-lg hoverLogoMehr transition duration-300 cursor-pointer">
           Details ansehen
         </Button>
       </div>

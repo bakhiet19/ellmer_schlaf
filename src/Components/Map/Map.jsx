@@ -4,6 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import wohnung1 from '../../assets/wohnung1.jpg';
 import { NavLink } from 'react-router-dom';
+import Head from '../Head';
 
 // إعداد أيقونات leaflet
 delete L.Icon.Default.prototype._getIconUrl;
@@ -37,9 +38,9 @@ const ApartmentMap = () => {
 
   return (
     <div className="bg-gray-50 pb-8 sm:pb-12 lg:pb-16 px-4 lg:px-20">
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-red-500 m-6 pt-6 sm:pt-4 text-center">
+      <Head className='text-center'>
          Wohnungen interaktiv entdecken
-      </h2>
+      </Head>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* 🗺️ Map Section */}
@@ -101,7 +102,7 @@ const ApartmentMap = () => {
         </ul>
 
         <NavLink to="/details">
-          <button className="mt-4 bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg transition text-sm cursor-pointer">
+          <button className="mt-4 logoBG{ hover:bg-red-600 text-white px-6 py-3 rounded-lg transition text-sm cursor-pointer">
             🔍 Mehr Details anzeigen
           </button>
         </NavLink>

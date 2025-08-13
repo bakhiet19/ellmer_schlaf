@@ -7,14 +7,14 @@ export default function Cities() {
 
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-700 mb-2">Stadt</label>
+      <label className="block text-sm font-medium logoText mb-2">Stadt</label>
       <select
         value={selectedCity}
         onChange={(e) => setSelectedCity(e.target.value)}
         className="w-full px-3 py-2 border rounded-md focus:outline-none cursor-pointer "
       >
         {cities.map((city) => (
-          <option className="cursor-pointer hover:bg-red-500" key={city} value={city}>{city}</option>
+          <option className="cursor-pointer " key={city} value={city}>{city}</option>
         ))}
       </select>
     </div>

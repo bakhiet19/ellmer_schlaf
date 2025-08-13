@@ -22,7 +22,7 @@ export default function KontaktSection() {
 
   return (
     <div className="max-w-6xl mx-auto px-6 pb-8 sm:pb-12 lg:pb-16">
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-red-500 m-6 pt-6 sm:pt-4 text-center">Kontakt</h2>
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold logoText m-6 pt-6 sm:pt-4 text-center">Kontakt</h2>
      
       
       <div className="grid md:grid-cols-2 gap-10">
@@ -37,7 +37,7 @@ export default function KontaktSection() {
     <a
       href="https://www.google.com/maps?q=Ellmer+Schlaf+GmbH,+Musterstraße+12,+20095+Hamburg,+Deutschland"
       target="_blank"
-      className="text-red-500 hover:underline"
+      className="logoText hover:underline"
     >
       Ellmer Schlaf GmbH, Musterstraße 12, 20095 Hamburg
     </a>
@@ -47,7 +47,7 @@ export default function KontaktSection() {
     <strong>Telefon: </strong>
     <a
       href="tel:+4940123456789"
-      className="text-red-500 hover:underline"
+      className="logoText hover:underline"
     >
       +49 40 123456789
     </a>
@@ -57,7 +57,7 @@ export default function KontaktSection() {
     <strong>E-Mail: </strong>
     <a
       href="mailto:kontakt@ellmer-schlaf.de"
-      className="text-red-500 hover:underline"
+      className="logoText hover:underline"
     >
       kontakt@ellmer-schlaf.de
     </a>
@@ -71,7 +71,7 @@ export default function KontaktSection() {
 </div>
 
         {/* 📩 Kontaktformular */}
-        <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200">
+        <div className="logoBGWhite p-8 rounded-lg shadow-md border border-gray-200">
           {submitted ? (
             <p className="text-green-600 text-base font-medium">
               Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
@@ -132,7 +132,7 @@ export default function KontaktSection() {
 
               <button
                 type="submit"
-                className="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600 transition duration-200 cursor-pointer"
+                className="w-full logoBG logoTextWhite py-2 rounded-2xl hoverLogoMehr transition duration-200 cursor-pointer"
               >
                 Nachricht senden
               </button>

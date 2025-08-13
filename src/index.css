@@ -126,3 +126,72 @@
     transform: translateY(0);
   }
 }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+
+
+.fullscreen-dropdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.logoText{
+  color: #bf2330;
+}
+
+.logoTextWhite{
+  color: white;
+}
+
+.logoBG{
+  background-color: #bf2330;
+}
+.logoBGWhite{
+  background-color: white;
+}
+
+.hoverLogo{
+
+}
+.hoverLogoMehr{
+
+}
+.hoverLogowhite{
+
+}
+:hover.hoverLogo{
+    color: #bf2330;
+}
+
+.borderRed{
+  border: #bf2330 solid 2px;
+}
+
+.borderWhite{
+  border: white solid 2px;
+}
+
+:hover.hoverLogoWhite{
+  background-color: #bf2330;
+  color: white;
+}
+:hover.hoverLogoRed{
+  background-color: white;
+  color: #bf2330;
+}
+:hover.hoverLogoMehr{
+    background-color: #e20013;
+}

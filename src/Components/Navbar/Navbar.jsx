@@ -24,9 +24,9 @@ export default function Navbar() {
             
             <LanguageCurrencyDropdown />
 
-            <Button  styles="bg-rose-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-rose-600 focus:outline-none transition-transform duration-300 ease-in-out transform hover:scale-105 cursor-pointer">
+            {/* <Button  styles="bg-rose-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-rose-600 focus:outline-none transition-transform duration-300 ease-in-out transform hover:scale-105 cursor-pointer">
                Anmelden 
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>

@@ -27,7 +27,7 @@ export default function ScrollToTopButton() {
     visible && (
       <button
         onClick={scrollToTop}
-        className="animate-bounce fixed bottom-6 right-6 z-50 bg-red-500 text-white py-2 px-4 rounded-full shadow-lg hover:bg-gray-600 transition-opacity duration-300 cursor-pointer"
+        className="animate-bounce fixed bottom-6 right-6 z-50 logoBG logoTextWhite   py-2 px-4 rounded-full shadow-lg hover:bg-gray-600 transition-opacity duration-300 cursor-pointer"
         title="Zurück nach oben"
       >
         ↑

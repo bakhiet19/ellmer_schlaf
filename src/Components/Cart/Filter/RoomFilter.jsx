@@ -5,11 +5,11 @@ export default function RoomFilter() {
 
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-700 mb-2">Zimmeranzahl</label>
+      <label className="block text-sm font-medium logoText mb-2">Zimmeranzahl</label>
       <select
         value={rooms}
         onChange={(e) => setRooms(e.target.value)}
-        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-300"
+        className="w-full px-3 py-2 border rounded-md focus:outline-none"
       >
         <option value="">Alle</option>
         <option value="1">1 Zimmer</option>

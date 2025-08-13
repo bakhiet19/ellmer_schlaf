@@ -9,14 +9,14 @@ export default function Navlinks() {
     { label: t("nav.findApartment"), url: "/mieter" },
     { label: t("nav.listProperty"), url: "/details" },
     { label: t("nav.forEmployers"), url: "#" },
-    { label: t("nav.help"), url: "#" },
+    { label: t("nav.contact"), url: "#" },
   ];
 
   return (
     <div className="relative">
       {/* Hamburger Icon */}
       <button
-        className="sm:hidden flex items-center px-3 py-2 text-rose-500 hover:text-rose-600 focus:outline-none"
+        className="sm:hidden flex items-center px-3 py-2  hover:text-rose-600 focus:outline-none logoText"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
       >
@@ -30,7 +30,7 @@ export default function Navlinks() {
             <NavLink
               key={index}
               to={link.url}
-              className="block px-4 py-2 text-gray-700 hover:text-rose-500 hover:bg-rose-50 transition-colors duration-200"
+              className="block px-4 py-2 text-gray-700 hover:bg-rose-50 transition-colors duration-200"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
@@ -45,10 +45,10 @@ export default function Navlinks() {
           <NavLink
             key={index}
             to={link.url}
-            className="group relative px-2 py-1 text-[15px] font-medium text-gray-700 hover:text-rose-500 transition-colors duration-200"
+            className="group relative px-2 py-1 text-[15px] font-medium text-gray-700 transition-colors duration-200 hover" 
           >
             {link.label}
-            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-rose-500 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+            <span className="absolute left-0 bottom-0 w-full h-[2px] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 logoBG"></span>
           </NavLink>
         ))}
       </div>
