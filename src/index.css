@@ -195,3 +195,7 @@
 :hover.hoverLogoMehr{
     background-color: #e20013;
 }
+
+.isActive{
+  color: #bf2330;
+}

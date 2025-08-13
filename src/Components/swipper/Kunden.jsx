@@ -41,7 +41,7 @@ export default function Kunden() {
   return (
   <div className='pb-8 sm:pb-12 lg:pb-16'>
   <div className="text-center">
-    <Head className='texr-center'>What Our Guests Say</Head>
+    <Head className='texr-center'>Was unsere Gäste sagen</Head>
   </div>
 
   <div className="bg-white py-6">

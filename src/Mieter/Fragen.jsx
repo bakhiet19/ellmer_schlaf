@@ -29,8 +29,8 @@ export default function Fragen() {
       <h2 className="text-2xl font-bold my-4 text-center logoText">Häufig gestellte Fragen</h2>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
-          <details key={index} className="bg-white border border-gray-200 rounded-md p-4 shadow-sm">
-            <summary className="cursor-pointer text-lg font-medium text-gray-700 hover:logoText transition">
+          <details key={index} className="logoBGWhite border border-gray-200 rounded-md p-4 shadow-sm">
+            <summary className="cursor-pointer text-lg font-medium text-gray-700 hoverLogo transition">
               {faq.question}
             </summary>
             <p className="mt-2 text-gray-600 leading-relaxed">{faq.answer}</p>
@@ -41,13 +41,13 @@ export default function Fragen() {
       
       <div className="mt-10 text-center">
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center shadow-sm">
-  <p className="text-gray-800 text-lg font-semibold mb-2">
+  <p className="logoText text-lg font-semibold mb-2">
     Ihre Frage wurde nicht beantwortet?
   </p>
   <p className="text-gray-600 mb-4">
     Kein Problem – unser Support-Team hilft Ihnen gerne weiter.
   </p>
-  <button className="mt-2 px-6 py-2 logoBG{ text-white rounded hover:bg-red-600 transition cursor-pointer">
+  <button className="mt-2 px-6 py-2 logoBG logoTextWhite rounded hoverLogoMehr transition cursor-pointer">
           Kontak Aufnehmen
         </button>
 </div>

@@ -79,7 +79,7 @@ const ApartmentMap = () => {
 
         {/* 📋 Info Section */}
        <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-  <h3 className="text-2xl font-semibold text-gray-800 mb-6">📋 Wohnungsdetails</h3>
+   <h3 className="text-2xl font-semibold text-gray-800 mb-6">📋 Wohnungsdetails</h3>
 
   {selectedApartment ? (
     <div className="flex flex-col lg:flex-row gap-6">
@@ -101,8 +101,8 @@ const ApartmentMap = () => {
           <li>🚉 Bahnhof: 8 Min entfernt</li>
         </ul>
 
-        <NavLink to="/details">
-          <button className="mt-4 logoBG{ hover:bg-red-600 text-white px-6 py-3 rounded-lg transition text-sm cursor-pointer">
+        <NavLink to="/vermieter">
+          <button className="mt-4 logoBG logoTextWhite px-6 py-3 rounded-lg transition text-sm cursor-pointer">
             🔍 Mehr Details anzeigen
           </button>
         </NavLink>

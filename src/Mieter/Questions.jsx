@@ -78,7 +78,7 @@ export default function QuestionStep() {
             <span>{Math.round(((step + 1) / totalSteps) * 100)}%</span>
           </div>
           <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div className="h-full bg-rose-500 transition-all duration-300" style={{ width: `${((step + 1) / totalSteps) * 100}%` }}></div>
+            <div className="h-full logoBG transition-all duration-300" style={{ width: `${((step + 1) / totalSteps) * 100}%` }}></div>
           </div>
         </div>
 
@@ -91,7 +91,7 @@ export default function QuestionStep() {
               <select
                 {...register(currentQuestion.key)}
                 defaultValue={getValues(currentQuestion.key) || ""}
-                className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
+                className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 hoverLogoMehr"
               >
                 <option value="">Bitte wählen</option>
                 {currentQuestion.options.map((option) => (

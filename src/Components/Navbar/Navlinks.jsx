@@ -2,21 +2,24 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+
 export default function Navlinks() {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
+
   const links = [
+    { label: "Startseite", url: "/#" },
     { label: t("nav.findApartment"), url: "/mieter" },
-    { label: t("nav.listProperty"), url: "/details" },
-    { label: t("nav.forEmployers"), url: "#" },
-    { label: t("nav.contact"), url: "#" },
+    { label: t("nav.listProperty"), url: "/vermieter" },
+    // { label: t("nav.forEmployers"), url: "#" },
+    // { label: t("nav.contact"), url: "" },
   ];
 
   return (
     <div className="relative">
       {/* Hamburger Icon */}
       <button
-        className="sm:hidden flex items-center px-3 py-2  hover:text-rose-600 focus:outline-none logoText"
+        className="sm:hidden flex items-center px-3 py-2 hover:text-rose-600 focus:outline-none logoText"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
       >
@@ -42,15 +45,23 @@ export default function Navlinks() {
       {/* Desktop Menu */}
       <div className="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-6">
         {links.map((link, index) => (
-          <NavLink
-            key={index}
-            to={link.url}
-            className="group relative px-2 py-1 text-[15px] font-medium text-gray-700 transition-colors duration-200 hover" 
-          >
-            {link.label}
-            <span className="absolute left-0 bottom-0 w-full h-[2px] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 logoBG"></span>
-          </NavLink>
-        ))}
+  <NavLink key={index} to={link.url}>
+    {({ isActive }) => (
+      <div
+        className={`group relative px-2 py-1 text-[15px] font-medium transition-colors duration-200 ${
+          isActive ? "isActive" : ""
+        }`}
+      >
+        {link.label.toLocaleUpperCase()}
+        <span
+          className={`absolute left-0 bottom-0 w-full h-[2px] origin-left transition-transform duration-300 logoBG ${
+            isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+          }`}
+        ></span>
+      </div>
+    )}
+  </NavLink>
+))}
       </div>
     </div>
   );

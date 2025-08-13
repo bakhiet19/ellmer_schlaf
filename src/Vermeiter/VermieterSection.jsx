@@ -19,7 +19,7 @@ const VermieterSection = () => {
           Inserieren, verwalten und verdienen – ganz einfach.
         </p>
         <button className="mx-auto block font-bold px-4 sm:px-12 py-2 sm:py-3 rounded-full transition mb-4 opacity-0 animate-fade-in delay-50 text-sm sm:text-base cursor-pointer logoBG borderWhite hoverLogoRed logoTextWhite">
-          Jetzt inserieren
+          {'Jetzt inserieren'.toUpperCase()}
         </button>
       </div>
 

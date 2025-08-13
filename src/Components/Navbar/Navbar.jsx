@@ -1,6 +1,5 @@
 import Logo from "./Logo";
 import Navlinks from "./Navlinks";
-import Button from "../Button";
 import LanguageCurrencyDropdown from "./LanguageCurrencyDropdown";
 
 export default function Navbar() {

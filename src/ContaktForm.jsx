@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Head from "./Components/Head";
 
 export default function KontaktSection() {
   const [formData, setFormData] = useState({
@@ -21,8 +22,8 @@ export default function KontaktSection() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-6 pb-8 sm:pb-12 lg:pb-16">
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold logoText m-6 pt-6 sm:pt-4 text-center">Kontakt</h2>
+    <div className="max-w-6xl mx-auto px-6 pb-8 sm:pb-12 lg:pb-16" id="Kontakt">
+      <Head className='text-center'>Kontakt</Head>
      
       
       <div className="grid md:grid-cols-2 gap-10">
