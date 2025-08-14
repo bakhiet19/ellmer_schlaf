@@ -7,6 +7,7 @@ import Carts from "../Components/Cart/Carts";
 import ScrollToTopButton from "../ScrollToTopButton";
 import ContactForm from "../ContaktForm";
 import Hero from "../Components/Hero/Hero";
+import FilterSection from "../Components/Cart/Filter/FiltersSection";
 
 
 
@@ -16,9 +17,10 @@ export default function Home(){
         <Navbar />
         <Hero />
         {/* <HeroPage /> */}
+         {/* <FilterSection /> */}
         <Carts /> 
         <UberUns  />
-        <ApartmentMap />
+        {/* <ApartmentMap /> */}
         <ContactForm />
         <Kunden />      
         <ScrollToTopButton />

@@ -1,16 +1,10 @@
 import { useState } from "react";
+import FilterButton from "./FilterButton";
 
 const features = ['Balkon', 'Garten', 'Parkplatz', 'Möbliert'];
 
 export default function FeaturesFilter() {
 
-    const handleChange = () => {
-    const vonWert = Math.max(min, Number(von));
-    const bisWert = Math.min(max, Number(bis));
-    if (vonWert <= bisWert && onChange) {
-      onChange([vonWert, bisWert]);
-    }
-  };
 
   const [selectedFeatures, setSelectedFeatures] = useState([]);
   const toggleFeature = (feature) => {
@@ -23,9 +17,11 @@ export default function FeaturesFilter() {
 
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-700 mb-2">Extras</label>
+      {/* <label className=" text-sm font-medium text-gray-700 mb-2">Extras</label> */}
+      
       <div className="flex flex-wrap gap-2">
         {features.map((feature) => (
+          <>
           <button
             key={feature}
             onClick={() => toggleFeature(feature)}
@@ -38,14 +34,11 @@ export default function FeaturesFilter() {
             {feature}
           </button>
           
+          </>
         ))}
+        
       </div>
-      <button
-        onClick={handleChange}
-        className="mt-3 w-full py-2 border-2 logoTextWhite logoBG font-bold hoverLogoMehr cursor-pointer rounded-2xl rounded-mdsition"
-      >
-        Filtern
-      </button> 
+     
     </div>
   );
 }

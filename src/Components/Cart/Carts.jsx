@@ -6,6 +6,7 @@ import wohnung4 from '../../assets/wohnung4.jpg';
 import hero from '../../assets/hero.jpg';
 import FilterSection from './Filter/FiltersSection';
 import Button from '../Button';
+import ApartmentMap from '../Map/Map';
 
 const wohnungen = [
   {
@@ -134,7 +135,10 @@ export default function Carts() {
     <div className="bg-gray-100 py-8 sm:pb-12 lg:pb-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* <CartLogo /> */}
-        <FilterSection />
+       <div className='grid grid-cols-1 md:grid-cols-2 w-full max-w-6xl mx-auto mb-10 p-6 bg-gray-50 rounded-xl shadow space-y-8 md:space-y-0 md:gap-8'>
+         <FilterSection />
+         <ApartmentMap />
+       </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 cursor-pointer">
           {wohnungen.map((wohnung, index) => (
