@@ -37,7 +37,7 @@ const ApartmentMap = () => {
   }
 
   return (
-   <div className="bg-gray-50 pb-8 sm:pb-12 lg:pb-16 px-4 lg:px-8 w-full shadow-xl">
+   <div className="logoBGWhite pb-8 sm:pb-12 lg:pb-16 px-4 lg:px-8 w-full shadow-xl">
   <div className="max-w-none w-full">
     <div className="grid grid-cols-1 lg:grid-cols-1 gap-5">
       {/* 🗺️ Map Section */}

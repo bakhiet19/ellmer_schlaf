@@ -14,7 +14,7 @@ const FilterButton = () => {
     <div>
        <button
   onClick={handleChange}
-  className="px-6 py-3 border-2 font-bold text-white bg-red-600 hover:bg-red-700 cursor-pointer rounded-xl transition duration-300 ease-in-out w-full">
+  className="px-6 py-3 border-2 font-bold  cursor-pointer rounded-xl transition duration-300 ease-in-out w-full logoTextWhite logoBG hoverLogoMehr">
   Filtern
 </button>
 </div>

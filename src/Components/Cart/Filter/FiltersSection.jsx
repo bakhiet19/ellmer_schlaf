@@ -10,22 +10,33 @@ import FilterButton from "./FilterButton";
 
 export default function FilterSection() {
   return (
-    <div className="">
-      <Head>{'Immobilien filtern'.toUpperCase()}</Head>
-       <div className="w-16 sm:w-24 h-1 bg-gray-600 rounded"></div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <SearchBox />
-        <Cities />
-        <PropertyType />
-        <RoomFilter />
-        {/* <PreisFilterInput /> */}    
-        <FeaturesFilter />
-        <FilterButton />      
-      </div>
+   <div className="w-full max-w-4xl mx-auto px-4 py-1 space-y-3">
 
-      <div className="flex justify-end">
-        <ResetFilters />
-      </div>
-    </div>
+
+  {/* صندوق الفلاتر */}
+  <div className="bg-white rounded-2xl shadow-xl p-1 space-y-3 pb-8  px-4 lg:px-8 w-full ">
+    <SearchBox />
+    <Cities />
+    <PropertyType />
+    <RoomFilter />
+    <FeaturesFilter />
+    <FilterButton />
+    <ResetFilters />
+  </div>
+
+  {/* زر إعادة التصفية */}
+  {/* <div className="flex justify-end">
+    
+  </div> */}
+</div>
   );
 }
+
+
+  {/* العنوان */}
+  {/* <div className="text-center">
+    <Head className="text-2xl font-bold text-gray-800 tracking-wide">
+      {'IMMOBILIEN FILTERN'}
+    </Head>
+    <div className="w-16 h-1 bg-gray-600 rounded mx-auto mt-2"></div>
+  </div> */}

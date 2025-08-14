@@ -6,7 +6,7 @@ export default function ResetFilters() {
   return (
     <button
       onClick={handleReset}
-      className="text-sm text-blue-600 underline hover:text-blue-800 transition"
+      className="text-sm logoText underline hoverLogo transition cursor-pointer"
     >
       Alle Filter zurücksetzen
     </button>
