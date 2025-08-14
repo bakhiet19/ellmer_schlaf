@@ -32,7 +32,7 @@ export default function KontaktSidebar() {
         className="fixed top-1/2 right-4 transform -translate-y-1/2  p-3 rounded-full shadow-lg z-50 cursor-pointer transition logoBG logoTextWhite"
         aria-label="Kontakt öffnen"
       >
-        <FaPhoneAlt size={28} />
+        <FaPhoneAlt size={22} className='icon' />
       </button>
 
       {/* Leichte transparente Überlagerung */}

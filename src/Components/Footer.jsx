@@ -27,9 +27,9 @@ export default function Footer(){
       </div>
 
       <div className="flex space-x-4">
-        <a href="#" className="hoverLogo transition"> <FaFacebook className='md:h-10 md:w-10 w-5 h-5' /> </a>
-        <a href="#" className="hoverLogo transition"> <FaInstagram className='md:h-10 md:w-10 w-5 h-5' /> </a>
-        <a href="#" className="hoverLogo transition"> <FaWhatsapp className='md:h-10 md:w-10 w-5 h-5' /> </a>
+        <a href="#" className="hoverLogo transition"> <FaFacebook className='md:h-8 md:w-8 w-5 h-5' /> </a>
+        <a href="#" className="hoverLogo transition"> <FaInstagram className='md:h-8 md:w-8 w-5 h-5' /> </a>
+        <a href="#" className="hoverLogo transition"> <FaWhatsapp className='md:h-8 md:w-8 w-5 h-5' /> </a>
       </div>
     </div>
 

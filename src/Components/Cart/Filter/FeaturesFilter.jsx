@@ -1,27 +1,30 @@
-import { useState } from "react";
-import FilterButton from "./FilterButton";
+import { useState, useContext } from "react";
+import { FilterContext } from "../../../Hooks/FilterContext";
 
 const features = ['Balkon', 'Garten', 'Parkplatz', 'Möbliert'];
 
 export default function FeaturesFilter() {
-
-
+  const { filterData, setFilterData } = useContext(FilterContext);
   const [selectedFeatures, setSelectedFeatures] = useState([]);
+
   const toggleFeature = (feature) => {
-    setSelectedFeatures((prev) =>
-      prev.includes(feature)
-        ? prev.filter((f) => f !== feature)
-        : [...prev, feature]
-    );
+    let newSelected;
+    if (selectedFeatures.includes(feature)) {
+      newSelected = selectedFeatures.filter(f => f !== feature);
+    } else {
+      newSelected = [...selectedFeatures, feature];
+    }
+    setSelectedFeatures(newSelected);
+    setFilterData({
+      ...filterData,
+      extra: newSelected
+    });
   };
 
   return (
     <div>
-      {/* <label className=" text-sm font-medium text-gray-700 mb-2">Extras</label> */}
-      
       <div className="flex flex-wrap gap-2">
         {features.map((feature) => (
-          <>
           <button
             key={feature}
             onClick={() => toggleFeature(feature)}
@@ -33,12 +36,8 @@ export default function FeaturesFilter() {
           >
             {feature}
           </button>
-          
-          </>
         ))}
-        
       </div>
-     
     </div>
   );
 }

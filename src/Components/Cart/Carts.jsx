@@ -81,7 +81,7 @@ function WohnungCard({ wohnung }) {
       {/* ♥️ أيقونة القلب */}
       <div className="absolute top-4 right-4 z-10 cursor-pointer">
         <div className="logoBGWhite px-2 p-1 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-          <button className="logoText text-3xl  cursor-pointer">♥</button>
+          <button className="logoText text-3xl  cursor-pointer hoverLogo nur">♥</button>
         </div>
       </div>
 

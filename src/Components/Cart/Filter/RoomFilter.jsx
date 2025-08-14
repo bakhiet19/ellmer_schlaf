@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { FilterContext } from "../../../Hooks/FilterContext";
 
 export default function BedFilter() {
-  const [beds, setBeds] = useState('');
+const {filterData , setFilterData} = useContext(FilterContext)
 
   return (
     <div>
       <label className="block text-sm font-medium logoText mb-2">Anzahl der Betten</label>
       <select
-        value={beds}
-        onChange={(e) => setBeds(e.target.value)}
+        onChange={(e) => setFilterData({
+          ...filterData,
+          anzahl : e.target.value
+        })}
         className="w-full px-3 py-2 border rounded-md focus:outline-none"
       >
         <option value="">Alle</option>

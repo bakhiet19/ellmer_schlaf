@@ -1,11 +1,24 @@
+import { useContext } from "react";
+import { FilterContext } from "../../../Hooks/FilterContext";
+
 export default function ResetFilters() {
-  const handleReset = () => {
-    window.location.reload(); // أو استخدم setState لكل فلتر
-  };
+
+  const { filterData, setFilterData } = useContext(FilterContext);
+
+  function handleFilter(){
+     setFilterData({
+       stadt : 'Alle Städte',
+    typ : 'Alle Typen',
+    anzahl : 'Alle',
+    extra : [],
+    reset : true
+    })
+  }
+
 
   return (
     <button
-      onClick={handleReset}
+      onClick={() => handleFilter()}
       className="text-sm logoText underline hoverLogo transition cursor-pointer"
     >
       Alle Filter zurücksetzen

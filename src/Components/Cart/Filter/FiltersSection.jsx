@@ -1,19 +1,14 @@
 import Cities from "./Cities";
-import PreisFilterInput from "./PreisFilterInput";
 import PropertyType from "../PropertyType";
 import RoomFilter from "./RoomFilter";
 import FeaturesFilter from "./FeaturesFilter";
 import ResetFilters from "./ResetFilters";
-import Head from "../../Head";
 import SearchBox from "./Searchbox";
 import FilterButton from "./FilterButton";
 
 export default function FilterSection() {
   return (
    <div className="w-full max-w-4xl mx-auto px-4 py-1 space-y-3">
-
-
-  {/* صندوق الفلاتر */}
   <div className="bg-white rounded-2xl shadow-xl p-1 space-y-3 pb-8  px-4 lg:px-8 w-full ">
     <SearchBox />
     <Cities />
@@ -23,12 +18,7 @@ export default function FilterSection() {
     <FilterButton />
     <ResetFilters />
   </div>
-
-  {/* زر إعادة التصفية */}
-  {/* <div className="flex justify-end">
-    
-  </div> */}
-</div>
+  </div>
   );
 }
 

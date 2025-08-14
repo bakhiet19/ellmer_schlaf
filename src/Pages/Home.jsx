@@ -7,12 +7,13 @@ import ScrollToTopButton from "../ScrollToTopButton";
 import ContactForm from "../ContaktForm";
 import Hero from "../Components/Hero/Hero";
 import ContactSidebar from "../Sidebar";
+import { Filter } from "../Hooks/FilterContext";
 
 
 
 export default function Home(){
     return(
-        <>
+        <Filter>
         <Navbar />
         <Hero />
         <Carts /> 
@@ -22,6 +23,6 @@ export default function Home(){
         <ScrollToTopButton />
         <ContactSidebar />
         <Footer />
-        </>
+        </Filter>
     )
 }   
