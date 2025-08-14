@@ -1,6 +1,13 @@
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import ellmer from '../assets/ellmer.png';
 
+
+// const Links = [
+//   {url : '' , }
+// ]
+
+
+
 export default function Footer(){
     return(
         <footer className="bg-gray-900 text-gray-200 py-10">
@@ -20,9 +27,9 @@ export default function Footer(){
       </div>
 
       <div className="flex space-x-4">
-        <a href="#" className="hover:logoText transition"> <FaFacebook className='md:h-10 md:w-10 w-5 h-5' /> </a>
-        <a href="#" className="hover:logoText transition"> <FaInstagram className='md:h-10 md:w-10 w-5 h-5' /> </a>
-        <a href="#" className="hover:logoText transition"> <FaWhatsapp className='md:h-10 md:w-10 w-5 h-5' /> </a>
+        <a href="#" className="hoverLogo transition"> <FaFacebook className='md:h-10 md:w-10 w-5 h-5' /> </a>
+        <a href="#" className="hoverLogo transition"> <FaInstagram className='md:h-10 md:w-10 w-5 h-5' /> </a>
+        <a href="#" className="hoverLogo transition"> <FaWhatsapp className='md:h-10 md:w-10 w-5 h-5' /> </a>
       </div>
     </div>
 

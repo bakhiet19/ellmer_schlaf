@@ -17,7 +17,7 @@ export default function FilterSection() {
         <Cities />
         <PropertyType />
         <RoomFilter />
-        <PreisFilterInput />
+        {/* <PreisFilterInput /> */}
         <FeaturesFilter />
         
         
