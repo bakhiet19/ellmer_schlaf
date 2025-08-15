@@ -1,5 +1,6 @@
 import hero2 from '../assets/hero2.png';
 import Head from '../Components/Head';
+import Bubble from '../Mieter/Bubble';
 
 const bubbles = [
   { text: 'Kostenlose Anzeige', position: 'top-[-0.5rem] left-1/2 -translate-x-1/2' },
@@ -9,7 +10,7 @@ const bubbles = [
 
 const VermieterSection = () => {
   return (
-    <div className="flex flex-col justify-around items-center text-logoTextWhite p-5 sm:p-10 relative overflow-hidden logoBG">
+    <div className="flex flex-col justify-around items-center logoTextWhite p-5 sm:p-10 relative overflow-hidden logoBG">
       <div className="text-center">
         <Head className="animate-fade-in logoTextWhite">
           Ich möchte vermieten
@@ -31,7 +32,10 @@ const VermieterSection = () => {
           loading="lazy"
         />
 
-        {bubbles.map(({ text, position }, i) => (
+        <Bubble className='top-[-0.5rem] left-1/2 -translate-x-1/2 logoBGWhite logoText'>Kostenlose Anzeige</Bubble>
+         <Bubble className='top-1/2 -translate-y-1/2 -left-[6.5rem] logoBGWhite logoText'>Qualifizierte Mieter</Bubble>
+          <Bubble className='bottom-0 right-0 logoBGWhite logoText'>Sichere Zahlungen</Bubble>
+        {/* {bubbles.map(({ text, position }, i) => (
           <div
             key={i}
             className={`absolute ${position} logoBGWhite logoText px-2 sm:px-3 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs shadow-lg borderRed hidden lg:block bubble-anim`}
@@ -42,7 +46,7 @@ const VermieterSection = () => {
           >
             {text}
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );

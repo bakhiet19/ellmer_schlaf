@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import hero1 from '../assets/hero1.png'
 import Head from "../Components/Head";
+import Bubble from "./Bubble";
 const MieterSection = () => {
   return (
 
     
-     <div className="flex flex-col justify-around items-center bg-white logoText p-5 sm:p-10 relative overflow-hidden">
+     <div className="flex flex-col justify-around items-center logoBGWhite logoText p-5 sm:p-10 relative overflow-hidden">
             <div className="text-center">
               <Head className="animate-fade-in">
                 Ich suche eine Wohnung
@@ -24,30 +25,20 @@ const MieterSection = () => {
               <img src={hero1} alt="Suche Illustration" className="w-full h-full object-contain p-3 sm:p-5 z-10 relative" />
     
               {/* فقاعات */}
-              <div  style={{
-        animation: 'bubbleFloat 3s ease-in-out infinite',
-        animationDelay: '0.3s',
-        animationDelay: '0.1s'
-      }}
-     className="absolute -top-8 sm:-top-10 left-6 sm:left-12 px-2 sm:px-3 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs shadow-lg transition-transform duration-300 hidden lg:block bubble-anim borderRed logoBG logoTextWhite" >
+              
+              <Bubble className='-top-8 sm:-top-10 left-6 sm:left-12 logoTextWhite'>
                 10.000+ Wohnungen
-              </div>
+              </Bubble>
     
-              <div   style={{
-        animation: 'bubbleFloat 3s ease-in-out infinite',
-        animationDelay: '0.3s',
-        animationDelay: '0.1s'
-      }} className="absolute top-6 sm:top-10 -left-[70px] sm:-left-[100px] sm:px-3 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs shadow-lg transition-transform duration-300 hidden lg:block bubble-anim borderRed logoBG logoTextWhite">
+              <Bubble  className="top-6 sm:top-10 -left-[70px] sm:-left-[100px] logoTextWhite">
                 Einfache Buchung
-              </div>
+              </Bubble>
     
-              <div   style={{
-        animation: 'bubbleFloat 3s ease-in-out infinite',
-        animationDelay: '0.3s',
-        animationDelay: '0.1s'
-      }} className="absolute top-6 sm:top-10 right-0 px-2 sm:px-3 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs shadow-lg transition-transform duration-300 hidden lg:block bubble-anim logoText borderRed logoBG logoTextWhite">
+              <Bubble className="top-6 sm:top-10 right-0 px-2 sm:px-3 sm:py-3 logoTextWhite">
                 24/7 Support
-              </div>
+              </Bubble>
+
+
             </div>
           </div>
   );

@@ -42,7 +42,7 @@ const AirbnbStyleCalendar = () => {
 
   return (
     <div className="flex justify-center mt-10">
-      <div className="bg-white p-6 rounded-xl shadow-xl max-w-[800px] w-full">
+      <div className="bg-white p-6 rounded-xl shadow-xl w-full">
         <h2 className="text-md mb-6 text-left">Wähle deine Reisedaten</h2>
 
         <DayPicker
@@ -54,7 +54,7 @@ const AirbnbStyleCalendar = () => {
           locale={de}
           disabled={disabledDays}
           renderDay={renderDay}
-          className="mx-auto"
+          className="w-full"
         />
 
         {range.from && range.to && (

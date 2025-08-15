@@ -11,6 +11,7 @@ export default function Navlinks() {
     { label: "Startseite", url: "/#" },
     { label: t("nav.findApartment"), url: "/mieter" },
     { label: t("nav.listProperty"), url: "/vermieter" },
+    {label : 'details' , url : '/details'}
     // { label: t("nav.forEmployers"), url: "#" },
     // { label: t("nav.contact"), url: "" },
   ];
@@ -19,7 +20,7 @@ export default function Navlinks() {
     <div className="relative">
       {/* Hamburger Icon */}
       <button
-        className="sm:hidden flex items-center px-3 py-2 hover:text-rose-600 focus:outline-none logoText"
+        className="sm:hidden flex items-center px-3 py-2 focus:outline-none hoverLogoMehr logoText"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
       >
@@ -44,8 +45,8 @@ export default function Navlinks() {
 
       {/* Desktop Menu */}
       <div className="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-6">
-        {links.map((link, index) => (
-  <NavLink key={index} to={link.url}>
+      {links.map((link, index) => (
+      <NavLink key={index} to={link.url}>
     {({ isActive }) => (
       <div
         className={`group relative px-2 py-1 text-[15px] font-medium transition-colors duration-200 ${
