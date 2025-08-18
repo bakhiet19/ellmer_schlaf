@@ -8,8 +8,8 @@ import FilterButton from "./FilterButton";
 
 export default function FilterSection() {
   return (
-   <div className="w-full max-w-4xl mx-auto px-4 py-1 space-y-3">
-  <div className="bg-white rounded-2xl shadow-xl p-1 space-y-3 pb-8  px-4 lg:px-8 w-full ">
+   <div className="w-full max-w-4xl mx-auto px-1 py-1 space-y-3">
+    <div className="bg-white rounded-2xl shadow-xl p-1 space-y-3 pb-8  px-2 lg:px-8 w-full ">
     <SearchBox />
     <Cities />
     <PropertyType />
