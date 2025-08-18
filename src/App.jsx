@@ -7,6 +7,7 @@ import MieterHome from "./Mieter/MieterHome";
 import VermieterHome from "./Vermeiter/VermieterHome";
 import WohnungDetails from "./WohnongDetails/WohnungDetails";
 import WohnungHome from "./WohnongDetails/WohnungHome";
+import NotFound from "./Pages/NotFound";
 
 const queryClient = new QueryClient();
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/mieter" element={<MieterHome />} />
           <Route path="/vermieter" element={<VermieterHome />} />
           <Route path="/details" element={<WohnungHome />} />
+          <Route path="*" element={<NotFound />} />
           {/* <Route element path="">
             <Route element path="/:id" />
           </Route> */}

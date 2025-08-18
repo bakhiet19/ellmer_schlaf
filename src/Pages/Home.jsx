@@ -19,8 +19,9 @@ export default function Home(){
         <Hero />
         <Carts /> 
         <UberUns  />
+         <Kunden />      
         <KontaktSection />
-        <Kunden />      
+       
         <ScrollToTopButton />
         <KontaktSidebar />
         <Footer />
