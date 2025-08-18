@@ -89,7 +89,7 @@ const WohnungDetails = () => {
               center={position}
               zoom={13}
               scrollWheelZoom={false}
-              style={{ height: "400px", width: "100%", borderRadius: "0.5rem" }}
+              style={{ height: "400px", width: "100%", borderRadius: "0.5rem" , zIndex : '0'  }}
             >
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
@@ -126,7 +126,7 @@ const WohnungDetails = () => {
 
           {/* تقويم الحجز */}
           <div className="bg-white rounded-xl shadow-md p-6 border border-gray-200 w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
-            <h3 className="text-xl font-semibold mb-4 text-gray-800">Verfügbarkeit</h3>
+            <h3 className="text-xl font-semibold mb-1 p-3 logoText">Verfügbarkeit</h3>
             <AirbnbStyleCalendar />
           </div>
 

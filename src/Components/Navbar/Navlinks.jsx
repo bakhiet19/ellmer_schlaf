@@ -20,7 +20,7 @@ export default function Navlinks() {
     <div className="relative">
       {/* Hamburger Icon */}
       <button
-        className="sm:hidden flex items-center px-3 py-2 focus:outline-none hoverLogoMehr logoText"
+        className="sm:hidden flex items-center px-3 py-2 focus:outline-none logoText"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
       >

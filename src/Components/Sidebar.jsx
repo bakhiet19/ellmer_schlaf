@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaPhoneAlt, FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaTimes } from 'react-icons/fa';
+import Head from './Head';
 
 export default function KontaktSidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,7 +58,7 @@ export default function KontaktSidebar() {
             </button>
           </div>
 
-          <h2 className="text-xl font-semibold text-gray-800">Kontaktmöglichkeiten</h2>
+          <Head>Kontaktmöglichkeiten</Head>
 
           <div className="space-y-4 text-gray-700">
             <a href="tel:+49123456789" className="flex items-center gap-3 logoText transition">

@@ -37,8 +37,8 @@ const ApartmentMap = () => {
   }
 
   return (
-   <div className="logoBGWhite pb-8 sm:pb-12 lg:pb-16 px-4 lg:px-8 w-full shadow-xl">
-  <div className="max-w-none w-full">
+   <div className="logoBGWhite pb-2 sm:pb-12 lg:pb-16 px-4 lg:px-8 w-full shadow-3xl">
+  <div className="max-w-none w-full pt-4">
     <div className="grid grid-cols-1 lg:grid-cols-1 gap-5">
       {/* 🗺️ Map Section */}
       <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 z-0">
@@ -46,7 +46,7 @@ const ApartmentMap = () => {
           center={mapCenter}
           zoom={6}
           scrollWheelZoom={true}
-          className="h-[450px] w-full"
+          className="h-[450px] w-full z-0"
         >
           <MapClickHandler onMapClick={() => setSelectedApartment(null)} />
           <TileLayer

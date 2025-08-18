@@ -41,9 +41,9 @@ const AirbnbStyleCalendar = () => {
   };
 
   return (
-    <div className="flex justify-center mt-10">
-      <div className="bg-white p-6 rounded-xl shadow-xl w-full">
-        <h2 className="text-md mb-6 text-left">Wähle deine Reisedaten</h2>
+    <div className="flex justify-center mt-4">
+      <div className="bg-white p-4  rounded-xl shadow-xl w-full">
+        <h2 className="text-md mb-2 text-left">Wähle deine Reisedaten</h2>
 
         <DayPicker
           mode="range"

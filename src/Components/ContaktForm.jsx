@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Head from "./Components/Head";
+import Head from "./Head";
 
 export default function KontaktSection() {
   const [formData, setFormData] = useState({
