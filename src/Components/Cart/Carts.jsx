@@ -64,11 +64,11 @@ function WohnungCard({ wohnung }) {
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition duration-300 relative">
+    <div className="logoBGWhite rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition duration-300 relative">
       {/* ♥️ أيقونة القلب */}
      <div className="absolute top-4 right-4 z-10">
   <button
-    className="group bg-white p-2 rounded-full shadow hover:shadow-md transition duration-300 cursor-pointer"
+    className="group logoBGWhite p-2 rounded-full shadow hover:shadow-md transition duration-300 cursor-pointer"
     aria-label="Favorit"
   >
     <FaHeart className="text-gray-400 group-hover:text-red-500 text-xl transition duration-300 group-active:scale-110" />
@@ -79,7 +79,7 @@ function WohnungCard({ wohnung }) {
       <img
         src={wohnung.img[currentImgIdx]}
         alt={wohnung.title}
-        className="w-full h-48 object-cover transition-opacity duration-300"
+        className="cursor-pointer w-full h-48 object-cover transition-opacity duration-300"
       />
 
       {/* 🖼️ شريط الصور المصغرة */}
@@ -90,8 +90,8 @@ function WohnungCard({ wohnung }) {
             src={img}
             alt={`thumb-${idx}`}
             onClick={() => setCurrentImgIdx(idx)}
-            className={`w-16 h-16 object-cover rounded-lg cursor-pointer border-2 ${
-              currentImgIdx === idx ? 'border-indigo-500' : 'border-transparent'
+            className={` w-16 h-16 object-cover rounded-lg cursor-pointer border-2 ${
+              currentImgIdx === idx ? 'borderRed' : 'border-transparent'
             }`}
           />
         ))}
@@ -111,7 +111,7 @@ function WohnungCard({ wohnung }) {
           </span>
         </div>
 
-        <Button styles="bg-indigo-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+        <Button styles="logoBG text-white text-sm px-4 py-2 rounded-lg hover:bg-indigo-700 transition cursor-pointer">
           Details ansehen
         </Button>
       </div>
