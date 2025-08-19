@@ -32,7 +32,7 @@ const AirbnbStyleCalendar = () => {
       <div className="relative group">
         <div>{date.getDate()}</div>
         {price && (
-          <div className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity z-10 whitespace-nowrap">
+          <div className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 bg-black logoTextWhite text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity z-10 whitespace-nowrap">
             {price}
           </div>
         )}
@@ -42,7 +42,7 @@ const AirbnbStyleCalendar = () => {
 
   return (
     <div className="flex justify-center mt-4">
-      <div className="bg-white p-4  rounded-xl shadow-xl w-full">
+      <div className="logoBGWhite p-4  rounded-xl shadow-xl w-full">
         <h2 className="text-md mb-2 text-left">Wähle deine Reisedaten</h2>
 
         <DayPicker
@@ -54,7 +54,7 @@ const AirbnbStyleCalendar = () => {
           locale={de}
           disabled={disabledDays}
           renderDay={renderDay}
-          className="w-full"
+          className="flex flex-wrap justify-center items-center w-full"
         />
 
         {range.from && range.to && (

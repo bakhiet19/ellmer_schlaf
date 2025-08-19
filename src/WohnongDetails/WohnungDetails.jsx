@@ -64,6 +64,7 @@ const WohnungDetails = () => {
                   />
                 </div>
               </SwiperSlide>
+              
             ))}
           </Swiper>
 
@@ -78,10 +79,13 @@ const WohnungDetails = () => {
                   alt={`Wohnung Small ${idx + 2}`}
                   className="w-full aspect-[3/2] max-h-[200px] object-cover cursor-pointer"
                   onClick={() => setSelectedIndex(idx + 2)}
-                />
+                />                
               </div>
             ))}
           </div>
+
+
+
 
            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-200 z-0">
             <h3 className="text-xl font-semibold mb-4 text-gray-800">Standort</h3>
@@ -100,8 +104,6 @@ const WohnungDetails = () => {
               </Marker>
             </MapContainer>
           </div>
-
-
         </div>
 
         {/* ✅ العمود الثاني: معلومات الشقة */}
@@ -170,13 +172,20 @@ const WohnungDetails = () => {
               className="h-full"
             >
               {ALL_IMAGES.map((img, idx) => (
-                <SwiperSlide key={idx}>
-                  <img
-                    src={img}
-                    alt={`Zoomed ${idx}`}
-                    className="max-w-full max-h-[95vh] object-contain rounded-xl shadow-[0_0_40px_rgba(0,0,0,0.6)]"
-                  />
-                </SwiperSlide>
+              <SwiperSlide key={idx} className="flex items-center justify-center">
+  <div className="relative w-full h-[95vh] flex items-center justify-center">
+    <img
+      src={img}
+      alt={`Zoomed ${idx}`}
+      className="max-w-full max-h-full object-contain rounded-xl shadow-[0_0_40px_rgba(0,0,0,0.6)]"
+    />
+
+    {/* ✅ النص فوق الصورة */}
+    <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white px-6 py-3 rounded-lg text-md font-semibold max-w-[90%] text-center">
+      Helle, stilvoll eingerichtete Wohnung mit Balkon – perfekt für entspannte Abende in Hamburg.
+    </div>
+  </div>
+</SwiperSlide>
               ))}
             </Swiper>
           </div>
