@@ -20,8 +20,7 @@ export default function Home(){
         <Carts /> 
         <UberUns  />
          <Kunden />      
-        <KontaktSection />
-       
+        <KontaktSection />     
         <ScrollToTopButton />
         <KontaktSidebar />
         <Footer />
