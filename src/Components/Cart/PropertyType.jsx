@@ -7,7 +7,7 @@ export default function PropertyType() {
     const {filterData , setFilterData} = useContext(FilterContext)
 
   return (
-    <div>
+    <div className="mb-4">
       <label className="block text-sm font-medium logoText mb-2">Typ</label>
       <select
         onChange={(e) => setFilterData({

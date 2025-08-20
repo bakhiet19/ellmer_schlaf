@@ -28,7 +28,7 @@ export default function FeaturesFilter() {
           <button
             key={feature}
             onClick={() => toggleFeature(feature)}
-            className={`px-3 py-1 rounded-full border cursor-pointer ${
+            className={`px-3 py-1 rounded-full border cursor-pointer mb-2 mt-2 ${
               selectedFeatures.includes(feature)
                 ? 'logoBG text-white border-red-500'
                 : 'logoBGWhite text-gray-700 border-gray-300 hover:bg-gray-100'

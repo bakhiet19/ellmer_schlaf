@@ -41,7 +41,7 @@ const AirbnbStyleCalendar = () => {
   };
 
   return (
-    <div className="flex justify-center mt-4">
+    <div className="flex justify-center mt-2">
       <div className="logoBGWhite p-4  rounded-xl shadow-xl w-full">
         <h2 className="text-md mb-2 text-left">Wähle deine Reisedaten</h2>
 

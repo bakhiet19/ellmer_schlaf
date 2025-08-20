@@ -75,7 +75,7 @@ export default function Carts() {
     <div className="bg-gray-100 py-8 sm:pb-12 lg:pb-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* الفلاتر والخريطة */}
-        <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-6xl mx-auto mb-10 p-4 md:p-6 bg-gray-50 rounded-xl shadow space-y-8 md:space-y-0 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-7xl mx-auto mb-10 p-1 md:p-6 bg-gray-50 rounded-xl shadow space-y-8 md:space-y-0 md:gap-8">
           <FilterSection />
           <ApartmentMap />
         </div>

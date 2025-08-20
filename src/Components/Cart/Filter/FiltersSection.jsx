@@ -8,17 +8,15 @@ import FilterButton from "./FilterButton";
 
 export default function FilterSection() {
   return (
-   <div className="w-full max-w-4xl mx-auto px-1 py-1 space-y-3">
-    <div className="logoBGWhite rounded-2xl shadow-xl p-1 space-y-3 pb-8  px-2 lg:px-8 w-full">
-    <SearchBox />
-    <Cities />
-    <PropertyType />
-    <RoomFilter />
-    <FeaturesFilter />
-    <FilterButton />
-    <ResetFilters />
-  </div>
-  </div>
+  <div className="w-full max-w-4xl mx-auto px-3 py-3 space-y-3 logoBGWhite rounded-2xl shadow-xl p-1 pb-8  lg:px-8">
+  <SearchBox />
+  <Cities />
+  <PropertyType />
+  <RoomFilter />
+  <FeaturesFilter />
+  <FilterButton />
+  <ResetFilters />
+</div>
   );
 }
 

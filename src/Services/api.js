@@ -20,13 +20,13 @@ const instance = axios.create({
 
 
 //get the wohnDetails
- async function wohnungDetails(endpoint , params = {}) {
-  try{
-    const response = await instance.get(endpoint , {params})
-    return response.data
-  }catch(er){
-    console.log(er);
-  }}
+//  async function wohnungDetails(endpoint , params = {}) {
+//   try{
+//     const response = await instance.get(endpoint , {params})
+//     return response.data
+//   }catch(er){
+//     console.log(er);
+//   }}
 
 
 //get the result from the filtering
@@ -67,4 +67,4 @@ async function allLocations(endpoint , params = {}) {
   }
 
 
-export {getAllApartment , contact , wohnungDetails , filter}
+export {getAllApartment , contact  , filter}

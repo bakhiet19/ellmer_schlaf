@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
+import { motion, AnimatePresence } from "framer-motion";
 import Api from "../Services/api";
 
 const Questions = [
@@ -25,7 +26,7 @@ const schema = z.object({
   preferredRoom: z.enum(["Einzelzimmer", "Doppelzimmer", "Apartment"]),
 });
 
-export default function QuestionStep() {
+export default function QuestionStep({className}) {
   const [step, setStep] = useState(0);
   const currentQuestion = Questions[step];
   const totalSteps = Questions.length;
@@ -42,16 +43,14 @@ export default function QuestionStep() {
   });
 
   const mutation = useMutation({
-    mutationFn: (data) => get("/data", data),
+    mutationFn: (data) => Api.get("/data", data),
     onSuccess: () => toast.success("Daten erfolgreich gesendet!"),
     onError: () => toast.error("Fehler beim Senden der Daten."),
   });
 
   const onNext = async () => {
     const valid = await trigger(currentQuestion.key);
-    if (valid) {
-      setStep((prev) => prev + 1);
-    }
+    if (valid) setStep((prev) => prev + 1);
   };
 
   const onBack = () => {
@@ -63,81 +62,103 @@ export default function QuestionStep() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[url('/images/bg.jpg')] bg-cover bg-center flex items-center justify-center px-4 questions">
-       
-      <div className="absolute inset-0 bg-black/40 z-0"></div>
+    <div className={`relative  bg-cover bg-center px-4 py-12 ogoBGWhite rounded-xl shadow-md p-6 border border-gray-200 w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl  ${className}`}>
+      {/* خلفية داكنة */}
+    
 
-      <div className="relative z-10 w-full max-w-2xl min-h-[300px] bg-white rounded-2xl shadow-xl p-10 space-y-6">
-         <p className="text-black text-center text-md font-semibold mb-6 sm:text-xl">
-         Finden Sie die passende Unterkunft für Ihr Team – beantworten Sie ein paar kurze Fragen und erhalten Sie in wenigen Minuten ein maßgeschneidertes Angebot!
-        </p>
-        {/* Fortschrittsbalken */}
-        <div>
-          <div className="flex justify-between text-sm text-gray-500 mb-2">
-            <span>Schritt {step + 1} von {totalSteps}</span>
-            <span>{Math.round(((step + 1) / totalSteps) * 100)}%</span>
-          </div>
-          <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div className="h-full logoBG transition-all duration-300" style={{ width: `${((step + 1) / totalSteps) * 100}%` }}></div>
-          </div>
-        </div>
+      {/* شريط التقدم العلوي */}
+     <div className="relative z-10 w-full max-w-2xl logoBGWhite rounded-3xl shadow-2xl p-10 space-y-8">
 
-        {/* Frage */}
-        <form onSubmit={handleSubmit(onFinalSubmit)} className="space-y-4">
-          <div className="space-y-2">
-            <label className="block text-lg font-medium text-gray-800">{currentQuestion.question}</label>
+  {/* شريط التقدم العلوي - جوّا الكرت */}
+  <div className="w-full logoBGWhite">
+    <div className="w-full px-2 py-2 flex items-center justify-between text-sm text-gray-700">
+      <span className="font-medium">
+        Schritt {step + 1} von {totalSteps}
+      </span>
+      <div className="flex-1 mx-4 h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+        <motion.div
+          className="h-full bg-gradient-to-r from-rose-500 to-red-500"
+          initial={{ width: 0 }}
+          animate={{ width: `${((step + 1) / totalSteps) * 100}%` }}
+          transition={{ duration: 0.5 }}
+        ></motion.div>
+      </div>
+      <span className="font-medium">
+        {Math.round(((step + 1) / totalSteps) * 100)}%
+      </span>
+    </div>
+  </div>
 
-            {currentQuestion.type === "select" ? (
-              <select
-                {...register(currentQuestion.key)}
-                defaultValue={getValues(currentQuestion.key) || ""}
-                className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 hoverLogoMehr"
-              >
-                <option value="">Bitte wählen</option>
-                {currentQuestion.options.map((option) => (
-                  <option key={option} value={option}>{option}</option>
-                ))}
-              </select>
-            ) : currentQuestion.type === "boolean" ? (
-              <div className="flex gap-4">
-                {currentQuestion.options.map((option) => (
-                  <label key={option} className="flex items-center gap-2 text-gray-700">
-                    <input
-                      type="radio"
-                      value={option}
-                      {...register(currentQuestion.key)}
-                      defaultChecked={getValues(currentQuestion.key) === option}
-                      className="accent-rose-500"
-                    />
-                    {option}
-                  </label>
-                ))}
-              </div>
-            ) : (
-              <input
-                key={currentQuestion.key}  // هذي مهمة جدًا لإعادة التهيئة عند تغيير السؤال
-                type={currentQuestion.type}
-                placeholder={currentQuestion.placeholder}
-                {...register(currentQuestion.key)}
-                className={`w-full px-5 py-3 border ${
+  {/* النص التعريفي */}
+  <p className="text-center text-md sm:text-xl font-semibold text-gray-800 leading-relaxed">
+   Passende Unterkunft fürs Team – kurze Fragen, individuelles Angebot!
+  </p>
+
+        <form onSubmit={handleSubmit(onFinalSubmit)} className="space-y-6">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentQuestion.key}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.4 }}
+              className="space-y-4"
+            >
+              <label className="block text-lg font-medium text-gray-800">{currentQuestion.question}</label>
+
+              {currentQuestion.type === "select" ? (
+                <select
+                  {...register(currentQuestion.key)}
+                  defaultValue={getValues(currentQuestion.key) || ""}
+                  className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
+                >
+                  <option value="">Bitte wählen</option>
+                  {currentQuestion.options.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              ) : currentQuestion.type === "boolean" ? (
+                <div className="flex gap-6">
+                  {currentQuestion.options.map((option) => (
+                    <label key={option} className="flex items-center gap-2 text-gray-700">
+                      <input
+                        type="radio"
+                        value={option}
+                        {...register(currentQuestion.key)}
+                        defaultChecked={getValues(currentQuestion.key) === option}
+                        className="accent-rose-500"
+                      />
+                      {option}
+                    </label>
+                  ))}
+                </div>
+              ) : (
+                <input
+                  key={currentQuestion.key}
+                  type={currentQuestion.type}
+                  placeholder={currentQuestion.placeholder}
+                  {...register(currentQuestion.key)}
+                  className={`w-full px-5 py-3 border ${
                     errors[currentQuestion.key] ? "border-red-500" : "border-gray-300"
-                } rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500 placeholder:text-gray-400`}
+                  } rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500 placeholder:text-gray-400`}
                 />
+              )}
 
-            )}
+              {errors[currentQuestion.key] && (
+                <p className="text-sm text-red-500 mt-1">{errors[currentQuestion.key]?.message}</p>
+              )}
+            </motion.div>
+          </AnimatePresence>
 
-            {errors[currentQuestion.key] && (
-              <p className="logoText text-sm mt-1">{errors[currentQuestion.key]?.message}</p>
-            )}
-          </div>
-
-          {/* Buttons */}
+          {/* الأزرار */}
           <div className="flex justify-between pt-4">
             <button
               type="button"
               onClick={onBack}
               disabled={step === 0}
-              className="flex items-center gap-2 px-5 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition disabled:opacity-50 cursor-pointer"
+              className="flex items-center gap-2 px-5 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition disabled:opacity-50"
             >
               <FaArrowLeft /> Zurück
             </button>
@@ -146,7 +167,7 @@ export default function QuestionStep() {
               <button
                 type="button"
                 onClick={onNext}
-                className="flex items-center gap-2 px-5 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition cursor-pointer"
+                className="flex items-center gap-2 px-5 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition"
               >
                 Weiter <FaArrowRight />
               </button>
@@ -155,7 +176,9 @@ export default function QuestionStep() {
                 type="submit"
                 disabled={mutation.isLoading}
                 className={`flex items-center gap-2 px-5 py-2 rounded-lg transition ${
-                  mutation.isLoading ? "bg-rose-300 cursor-not-allowed" : "logoBG{ hover:bg-red-600 text-white"
+                  mutation.isLoading
+                    ? "bg-rose-300 cursor-not-allowed text-white"
+                    : "bg-rose-500 hover:bg-red-600 text-white"
                 }`}
               >
                 {mutation.isLoading ? "Wird gesendet..." : <>Absenden <FaArrowRight /></>}
@@ -167,3 +190,5 @@ export default function QuestionStep() {
     </div>
   );
 }
+
+export { Questions };

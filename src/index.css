@@ -205,3 +205,7 @@
 .nur:hover{
   color: #bf2330;
 }
+
+.mieter{
+  background-image: url('./assets//wohnung3.jpeg');
+}

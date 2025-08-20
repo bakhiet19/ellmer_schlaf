@@ -10,7 +10,7 @@ export default function Cities() {
   
 
   return (
-    <div>
+    <div className="mb-4">
       <label className="block text-sm font-medium logoText mb-2">Stadt</label>
       <select
         onChange={(e) => setFilterData({
