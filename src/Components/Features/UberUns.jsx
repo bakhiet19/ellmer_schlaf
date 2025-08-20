@@ -30,7 +30,7 @@ export default function UberUns() {
   ];
 
   return (
-    <section className="max-w-6xl mx-auto px-6 pb-16 text-gray-800" id="uberuns">
+    <section className="max-w-7xl mx-auto px-6 pb-16 text-gray-800" id="uberuns">
       <Head className="text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-rose-500">
         {t('about_us.title')}
       </Head>

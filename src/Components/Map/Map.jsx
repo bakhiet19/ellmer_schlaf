@@ -35,11 +35,11 @@ const ApartmentMap = () => {
   }
 
   return (
-<div className="logoBGWhite w-full px-4 sm:px-6 lg:px-8 pb-6 sm:pb-12 lg:pb-16 rounded-3xl shadow-2xl z-0">
+<div className="logoBGWhite w-full px-4 sm:px-6 lg:px-8 pb-6 sm:pb-12 lg:pb-16 rounded-3xl shadow-2xl ">
   <div className="max-w-6xl mx-auto pt-6">
     <div className="grid grid-cols-1 gap-6">
       {/* 🗺️ Map Section */}
-      <div className="overflow-hidden rounded-2xl border border-gray-300 shadow-xl bg-white">
+      <div className="overflow-hidden rounded-2xl border border-gray-300 shadow-xl logoBGWhite z-0">
         <MapContainer
           center={mapCenter}
           zoom={6}
