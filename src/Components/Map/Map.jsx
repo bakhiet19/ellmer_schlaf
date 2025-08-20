@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvent } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import wohnung1 from '../../assets/wohnung1.jpg';
-import { NavLink } from 'react-router-dom';
-import Head from '../Head';
+
 
 // إعداد أيقونات leaflet
 delete L.Icon.Default.prototype._getIconUrl;
@@ -80,43 +78,3 @@ const ApartmentMap = () => {
 
 export default ApartmentMap;
 
-
-
-
-
-//  <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-//    <h3 className="text-2xl font-semibold text-gray-800 mb-6">📋 Wohnungsdetails</h3>
-
-//   {selectedApartment ? (
-//     <div className="flex flex-col lg:flex-row gap-6">
-
-//       <img
-//         src={wohnung1}
-//         alt="Wohnung"
-//         className="rounded-lg w-full lg:w-1/2 h-56 object-cover"
-//       />
-
- 
-//       <div className="text-gray-700 space-y-3 lg:w-1/2">
-//         <p><strong>🏠 Name:</strong> {selectedApartment.name}</p>
-//         <p><strong>🌆 Stadt:</strong> {selectedApartment.city}</p>
-//         <p><strong>📍 Koordinaten:</strong> {selectedApartment.lat}, {selectedApartment.lng}</p>
-//         <ul className="list-disc list-inside text-sm text-gray-600 mt-2">
-//           <li>🛒 Supermarkt: 5 Min entfernt</li>
-//           <li>🏥 Krankenhaus: 10 Min entfernt</li>
-//           <li>🚉 Bahnhof: 8 Min entfernt</li>
-//         </ul>
-
-//         <NavLink to="/vermieter">
-//           <button className="mt-4 logoBG logoTextWhite px-6 py-3 rounded-lg transition text-sm cursor-pointer">
-//             🔍 Mehr Details anzeigen
-//           </button>
-//         </NavLink>
-//       </div>
-//     </div>
-//   ) : (
-//     <p className="text-gray-500 text-base">
-//       Klicke auf eine Wohnung auf der Karte, um weitere Informationen zu sehen.
-//     </p>
-//   )}
-//       </div>

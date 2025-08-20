@@ -5,9 +5,6 @@ const types = ['Alle Typen', 'Wohnung', 'Haus', 'Studio', 'Gewerbe'];
 
 export default function PropertyType() {
     const {filterData , setFilterData} = useContext(FilterContext)
-      console.log(filterData);
-  
-
 
   return (
     <div>

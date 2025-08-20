@@ -20,7 +20,7 @@ export default function Cities() {
         className="w-full px-3 py-2 border rounded-md focus:outline-none cursor-pointer "
       >
         {cities.map((city) => (
-          <option className="cursor-pointer " key={city} value={city}>{city}</option>
+          <option className="cursor-pointer" key={city} value={city}>{city}</option>
         ))}
       </select>
     </div>

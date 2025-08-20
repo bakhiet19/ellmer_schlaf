@@ -42,7 +42,7 @@ export default function QuestionStep() {
   });
 
   const mutation = useMutation({
-    mutationFn: (data) => Api("/data", data),
+    mutationFn: (data) => get("/data", data),
     onSuccess: () => toast.success("Daten erfolgreich gesendet!"),
     onError: () => toast.error("Fehler beim Senden der Daten."),
   });
@@ -68,7 +68,7 @@ export default function QuestionStep() {
       <div className="absolute inset-0 bg-black/40 z-0"></div>
 
       <div className="relative z-10 w-full max-w-2xl min-h-[300px] bg-white rounded-2xl shadow-xl p-10 space-y-6">
-         <p className="text-black text-center text-xl font-semibold mb-6">
+         <p className="text-black text-center text-md font-semibold mb-6 sm:text-xl">
          Finden Sie die passende Unterkunft für Ihr Team – beantworten Sie ein paar kurze Fragen und erhalten Sie in wenigen Minuten ein maßgeschneidertes Angebot!
         </p>
         {/* Fortschrittsbalken */}

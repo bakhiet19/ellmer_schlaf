@@ -6,6 +6,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './kunden.css';
 import Head from '../Head';
+import { FaStar } from 'react-icons/fa';
 
 const testimonials = [
   {
@@ -74,17 +75,8 @@ export default function Kunden() {
                   </div>
                 </div>
                 <div className="flex mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="h-5 w-5 text-yellow-400"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                    </svg>
-                  ))}
+                {[...Array(5)].map((_, i) => (
+                <FaStar key={i} className="h-5 w-5 text-yellow-400" />))}
                 </div>
                 <p className="text-gray-700">{kunde.message}</p>
               </div>

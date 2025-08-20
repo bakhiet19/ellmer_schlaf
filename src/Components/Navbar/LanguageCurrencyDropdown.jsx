@@ -39,7 +39,7 @@ function LanguageCurrencyDropdown() {
 
   return (
     <div className="relative" ref={dropdownRef}>
-  <button
+    <button
     onClick={() => setOpen(!open)}
     aria-haspopup="true"
     aria-expanded={open}
@@ -47,15 +47,7 @@ function LanguageCurrencyDropdown() {
   >
     <Flag code={currentLanguage.countryCode} style={{ width: 20, height: 15 }} />
     <span className="hidden md:inline text-sm font-medium ml-2">{currentLanguage.name}</span>
-    <svg
-      className="hidden md:inline h-4 w-4 ml-1"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-    </svg>
+    
   </button>
 
   {/* Dropdown Menu */}
@@ -79,7 +71,7 @@ function LanguageCurrencyDropdown() {
       </div>
 
       {/* Mobile */}
-      <div className="fixed top-12 left-0 w-full bg-white shadow-md z-40 flex flex-col md:hidden">
+      <div className="fixed top-12 left-0 w-full logoBGWhite shadow-md z-40 flex flex-col md:hidden">
         {languages.map(({ code, name, countryCode }) => (
           <button
             key={code}

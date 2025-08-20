@@ -7,7 +7,6 @@ export default function Logo() {
       <NavLink to="/">
         <div className="flex-shrink-0 flex items-center">
          <img src={logo} loading="lazy" alt="Logo" className="h-10 w-18 sm:h-14 sm:w-32" />
-          {/* <span className="ml-2 text-sm font-bold text-rose-500">Vollausgestattete Mitarbeiterunterkünfte in Hamburg & Schleswig-Holstein</span> */}
         </div>
       </NavLink>
     </div>

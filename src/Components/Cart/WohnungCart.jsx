@@ -65,7 +65,7 @@ function WohnungCard({ wohnung }) {
     className="group logoBGWhite p-2 rounded-full shadow hover:shadow-md transition duration-300 cursor-pointer"
     aria-label="Favorit"
   >
-    <FaHeart className="text-gray-400 group-hover:text-red-500 text-xl transition duration-300 group-active:scale-110" />
+    <FaHeart className="text-black group-hover:text-red-500 text-xl transition duration-300 group-active:scale-110" />
   </button>
 </div>
 

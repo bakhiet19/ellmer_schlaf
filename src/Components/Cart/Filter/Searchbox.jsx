@@ -20,7 +20,7 @@ const SearchBox = ({ onSearch }) => {
   />
   <button
     onClick={handleSearch}
-    className="px-3 py-2 text-sm rounded-r-md hover:bg-red-600 transition cursor-pointer logoBG logoTextWhite hoverLogoMehr whitespace-nowrap"
+    className="px-3 py-2 text-sm rounded-r-md hoverLogoMehr transition cursor-pointer logoBG logoTextWhite hoverLogoMehr whitespace-nowrap"
   >
     🔍 Suchen
   </button>

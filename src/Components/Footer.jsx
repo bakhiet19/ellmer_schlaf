@@ -20,10 +20,10 @@ export default function Footer(){
       </div>
 
       <div className="space-y-2">
-        <a href="/about" className="block hover:text-red-400 transition">Über uns</a>
-        <a href="/contact" className="block hover:text-red-400 transition">Kontakt</a>
-        <a href="/privacy" className="block hover:text-red-400 transition">Datenschutz</a>
-        <a href="/terms" className="block hover:text-red-400 transition">AGB</a>
+        <a href="#uberuns" className="block hoverLogo transition">Über uns</a>
+        <a href="#contact" className="block hoverLogo transition">Kontakt</a>
+        <a href="/privacy" className="block hoverLogo transition">Datenschutz</a>
+        <a href="/terms" className="block hoverLogo transition">AGB</a>
       </div>
 
       <div className="flex space-x-4">

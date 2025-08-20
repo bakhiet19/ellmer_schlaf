@@ -30,7 +30,7 @@ export default function UberUns() {
   ];
 
   return (
-    <section className="max-w-6xl mx-auto px-6 pb-16 text-gray-800">
+    <section className="max-w-6xl mx-auto px-6 pb-16 text-gray-800" id="uberuns">
       <Head className="text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-rose-500">
         {t('about_us.title')}
       </Head>
@@ -43,7 +43,7 @@ export default function UberUns() {
         {sections.map(({ icon, title, content }, i) => (
           <div
             key={i}
-            className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition duration-300 animate-fade-in"
+            className="logoBGWhite rounded-xl shadow-md p-6 text-center hover:shadow-lg transition duration-300 animate-fade-in"
             style={{ animationDelay: `${i * 0.2}s`, animationFillMode: 'both' }}
           >
             <div className="text-3xl mb-2">{icon}</div>

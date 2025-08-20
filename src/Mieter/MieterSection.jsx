@@ -22,7 +22,7 @@ const MieterSection = () => {
     
             {/* صورة مع فقاعات */}
             <div className="relative mt-5 w-[200px] sm:w-[300px] h-[200px] sm:h-[300px]">
-              <img src={hero1} alt="Suche Illustration" className="w-full h-full object-contain p-3 sm:p-5 z-10 relative" />
+              <img src={hero1} alt="Suche Illustration" loading="lazy" className="w-full h-full object-contain p-3 sm:p-5 z-10 relative" />
     
               {/* فقاعات */}
               

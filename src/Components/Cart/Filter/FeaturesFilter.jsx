@@ -31,7 +31,7 @@ export default function FeaturesFilter() {
             className={`px-3 py-1 rounded-full border cursor-pointer ${
               selectedFeatures.includes(feature)
                 ? 'logoBG text-white border-red-500'
-                : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'
+                : 'logoBGWhite text-gray-700 border-gray-300 hover:bg-gray-100'
             } transition`}
           >
             {feature}
