@@ -6,7 +6,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "framer-motion";
-import Api from "../Services/api";
+import Api, { angebot } from "../Services/api";
 
 const Questions = [
   { key: "phone", question: "Wie lautet Ihre Telefonnummer?", type: "text", placeholder: "z. B. +49 152 1234567" },
@@ -19,8 +19,8 @@ const Questions = [
 
 const schema = z.object({
   phone: z.string().min(5).max(20).regex(/^\+?\d[\d\s-]{4,}$/, "Bitte gültige Telefonnummer eingeben"),
-  city: z.string().min(2),
-  postalCode: z.string().min(4),
+  city: z.string().min(2 , { message: "Bitte geben Sie eine gültige Stadt ein." }),  
+  postalCode: z.string().min(4, { message: "Bitte geben Sie eine gültige Postleitzahl ein." }),
   peopleCount: z.string().min(1),
   hasPets: z.enum(["Ja", "Nein"]),
   preferredRoom: z.enum(["Einzelzimmer", "Doppelzimmer", "Apartment"]),
@@ -50,7 +50,7 @@ export default function QuestionStep({className}) {
   });
 
   const mutation = useMutation({
-    mutationFn: (data) => Api.get("/data", data),
+    mutationFn: (data) => angebot("/data", data),
     onSuccess: () => toast.success("Daten erfolgreich gesendet!"),
     onError: () => toast.error("Fehler beim Senden der Daten."),
   });
@@ -66,6 +66,8 @@ export default function QuestionStep({className}) {
 
   const onFinalSubmit = (data) => {
     mutation.mutate(data);
+    console.log(data);
+    
   };
 
 

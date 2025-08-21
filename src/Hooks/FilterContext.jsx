@@ -25,7 +25,7 @@ const Filter = ({ children }) => {
     queryKey: ["appartements", city],
     queryFn: ({ queryKey }) => {
       const [, selectedCity] = queryKey;
-      return getAllApartment("/appartements", { city: selectedCity });
+      return getAllApartment("/appartements/", { city: selectedCity });
     },
     enabled: !!city,
   });

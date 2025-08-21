@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = 'https://bed-king.de'
+const baseURL = 'https://bed-king.de/api/'
 const instance = axios.create({
   baseURL,
   headers : {
@@ -9,9 +9,9 @@ const instance = axios.create({
 
 
 //get all apartment
- async function getAllApartment(endpoint , params = {}){
+ async function getAllApartment(endpoint , city = {}){
   try{
-     const response = await instance.get(endpoint , {params})
+     const response = await instance.get(endpoint , {city})
      return response.data
   }catch(error){
     console.log(error);
@@ -49,6 +49,16 @@ async function allLocations(endpoint , params = {}) {
   }
 }
 
+async function angebot(endpoint , data) {
+  try{
+    const response = await instance.post(endpoint , data)
+    return response.data
+  }catch(er){
+    console.log(er);
+    
+  }
+}
+
 
   export default function app(){
     console.log('hello');
@@ -56,4 +66,4 @@ async function allLocations(endpoint , params = {}) {
   }
 
 
-export {getAllApartment , contact  , filter}
+export {getAllApartment , contact  , filter , angebot}
