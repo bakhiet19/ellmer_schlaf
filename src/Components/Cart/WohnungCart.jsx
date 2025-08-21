@@ -105,7 +105,7 @@ function WohnungCard({ wohnung }) {
           </span>
         </div>
 
-        <div className='flex justify-between mt-2'>
+        <div className='flex justify-between mt-6'>
           <Button styles="logoBG text-white text-sm px-4 py-2 rounded-lg hover:bg-indigo-700 transition cursor-pointer">Details ansehen</Button>
           <Button styles="bg-indigo-800 text-white text-sm px-4 py-2 rounded-lg  transition cursor-pointer">Angebot anfordern</Button>
         </div>
