@@ -24,12 +24,19 @@ const schema = z.object({
   peopleCount: z.string().min(1),
   hasPets: z.enum(["Ja", "Nein"]),
   preferredRoom: z.enum(["Einzelzimmer", "Doppelzimmer", "Apartment"]),
+  agb: z.literal(true, {
+    errorMap: () => ({ message: "Bitte bestätigen Sie die AGB." }),
+  }),
+  datenschutz: z.literal(true, {
+    errorMap: () => ({ message: "Bitte bestätigen Sie die Datenverarbeitung." }),
+  }),
 });
 
 export default function QuestionStep({className}) {
-  const [step, setStep] = useState(0);
+ const [step, setStep] = useState(0);
   const currentQuestion = Questions[step];
   const totalSteps = Questions.length;
+  const [showFullForm, setShowFullForm] = useState(false);
 
   const {
     register,
@@ -61,40 +68,20 @@ export default function QuestionStep({className}) {
     mutation.mutate(data);
   };
 
-  return (
-    <div className={`relative  bg-cover bg-center px-4 py-12 ogoBGWhite rounded-xl shadow-md p-6 border border-gray-200 w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl  ${className}`}>
-      {/* خلفية داكنة */}
-    
 
-      {/* شريط التقدم العلوي */}
-     <div className="relative z-10 w-full max-w-2xl logoBGWhite rounded-3xl shadow-2xl p-10 space-y-8">
 
-  {/* شريط التقدم العلوي - جوّا الكرت */}
-  <div className="w-full logoBGWhite">
-    <div className="w-full px-2 py-2 flex items-center justify-between text-sm text-gray-700">
-      <span className="font-medium">
-        Schritt {step + 1} von {totalSteps}
-      </span>
-      <div className="flex-1 mx-4 h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
-        <motion.div
-          className="h-full bg-gradient-to-r from-rose-500 to-red-500"
-          initial={{ width: 0 }}
-          animate={{ width: `${((step + 1) / totalSteps) * 100}%` }}
-          transition={{ duration: 0.5 }}
-        ></motion.div>
-      </div>
-      <span className="font-medium">
-        {Math.round(((step + 1) / totalSteps) * 100)}%
-      </span>
-    </div>
-  </div>
+return (
+  <div className={`relative px-4 py-12 rounded-xl shadow-md p-6 border border-gray-200 w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl ${className}`}>
 
-  {/* النص التعريفي */}
-  <p className="text-center text-md sm:text-xl font-semibold text-gray-800 leading-relaxed">
-   Passende Unterkunft fürs Team – kurze Fragen, individuelles Angebot!
-  </p>
 
-        <form onSubmit={handleSubmit(onFinalSubmit)} className="space-y-6">
+      {/* العنوان */}
+      <p className="text-center text-md sm:text-xl font-semibold logoText leading-relaxed mt-4 mb-10">
+        Passende Unterkunft fürs Team – kurze Fragen, individuelles Angebot!
+      </p>
+
+      {/* النموذج خطوة بخطوة */}
+      {!showFullForm ? (
+        <form className="space-y-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentQuestion.key}
@@ -114,9 +101,7 @@ export default function QuestionStep({className}) {
                 >
                   <option value="">Bitte wählen</option>
                   {currentQuestion.options.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
+                    <option key={option} value={option}>{option}</option>
                   ))}
                 </select>
               ) : currentQuestion.type === "boolean" ? (
@@ -140,9 +125,7 @@ export default function QuestionStep({className}) {
                   type={currentQuestion.type}
                   placeholder={currentQuestion.placeholder}
                   {...register(currentQuestion.key)}
-                  className={`w-full px-5 py-3 border ${
-                    errors[currentQuestion.key] ? "border-red-500" : "border-gray-300"
-                  } rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500 placeholder:text-gray-400`}
+                  className={`w-full px-5 py-3 border ${errors[currentQuestion.key] ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500 placeholder:text-gray-400`}
                 />
               )}
 
@@ -152,7 +135,28 @@ export default function QuestionStep({className}) {
             </motion.div>
           </AnimatePresence>
 
-          {/* الأزرار */}
+          {/* Checkboxات في آخر خطوة */}
+          {step === totalSteps - 1 && (
+            <div className="space-y-4">
+              <label className="flex items-start gap-3 text-gray-700">
+                <input type="checkbox" {...register("agb")} className="mt-1 accent-rose-500" />
+                <span>
+                  Ich akzeptiere die <a href="/agb" className="text-rose-600 underline">AGB</a>.
+                </span>
+              </label>
+              {errors.agb && <p className="text-sm text-red-500">{errors.agb.message}</p>}
+
+              <label className="flex items-start gap-3 text-gray-700">
+                <input type="checkbox" {...register("datenschutz")} className="mt-1 accent-rose-500" />
+                <span>
+                  Ich bin mit der Verarbeitung meiner Daten einverstanden und möchte vom Anbieter kontaktiert werden.
+                </span>
+              </label>
+              {errors.datenschutz && <p className="text-sm text-red-500">{errors.datenschutz.message}</p>}
+            </div>
+          )}
+
+          {/* أزرار التنقل */}
           <div className="flex justify-between pt-4">
             <button
               type="button"
@@ -173,22 +177,99 @@ export default function QuestionStep({className}) {
               </button>
             ) : (
               <button
-                type="submit"
-                disabled={mutation.isLoading}
-                className={`flex items-center gap-2 px-5 py-2 rounded-lg transition ${
-                  mutation.isLoading
-                    ? "bg-rose-300 cursor-not-allowed text-white"
-                    : "bg-rose-500 hover:bg-red-600 text-white"
-                }`}
+                type="button"
+                onClick={async () => {
+                  const isValid = await trigger();
+                  if (isValid) setShowFullForm(true);
+                }}
+                className="flex items-center gap-2 px-5 py-2 bg-rose-500 hover:bg-red-600 text-white rounded-lg transition"
               >
-                {mutation.isLoading ? "Wird gesendet..." : <>Absenden <FaArrowRight /></>}
+                Übersicht anzeigen <FaArrowRight />
               </button>
             )}
           </div>
         </form>
-      </div>
+      ) : (
+        // النموذج الكامل للمراجعة والتعديل
+        <form onSubmit={handleSubmit(onFinalSubmit)} className="space-y-6">
+          <h3 className="text-xl font-semibold text-gray-800">Überprüfen Sie Ihre Angaben</h3>
+
+          {Questions.map((q) => (
+            <div key={q.key} className="space-y-2">
+              <label className="block text-gray-700 font-medium">{q.question}</label>
+
+              {q.type === "select" ? (
+                <select
+                  {...register(q.key)}
+                  defaultValue={getValues(q.key)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                >
+                  {q.options.map((opt) => (
+                    <option key={opt} value={opt}>{opt}</option>
+                  ))}
+                </select>
+              ) : q.type === "boolean" ? (
+                <div className="flex gap-4">
+                  {q.options.map((opt) => (
+                    <label key={opt} className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        value={opt}
+                        {...register(q.key)}
+                        defaultChecked={getValues(q.key) === opt}
+                        className="accent-rose-500"
+                      />
+                      {opt}
+                    </label>
+                  ))}
+                </div>
+              ) : (
+                <input
+                  type={q.type}
+                  defaultValue={getValues(q.key)}
+                  {...register(q.key)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                />
+              )}
+            </div>
+          ))}
+
+          {/* Checkboxات */}
+          <div className="space-y-4 pt-4">
+            <label className="flex items-start gap-3 text-gray-700">
+              <input type="checkbox" {...register("agb")} defaultChecked={getValues("agb")} className="mt-1 accent-rose-500" />
+              <span>Ich akzeptiere die <a href="/agb" className="text-rose-600 underline">AGB</a>.</span>
+            </label>
+            <label className="flex items-start gap-3 text-gray-700">
+              <input type="checkbox" {...register("datenschutz")} defaultChecked={getValues("datenschutz")} className="mt-1 accent-rose-500" />
+              <span>Ich bin mit der Verarbeitung meiner Daten einverstanden und möchte vom Anbieter kontaktiert werden.</span>
+            </label>
+          </div>
+
+          {/* زر الإرسال */}
+          <div className="flex justify-between pt-6">
+            <button
+              type="button"
+              onClick={() => setShowFullForm(false)}
+              className="px-5 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
+            >
+              Zurück zur Fragen
+            </button>
+            <button
+              type="submit"
+              disabled={mutation.isLoading}
+              className={`px-6 py-3 rounded-lg font-medium transition ${
+                mutation.isLoading ? "bg-rose-300 cursor-not-allowed text-white" : "bg-rose-500 hover:bg-rose-600 text-white"
+              }`}
+            >
+              {mutation.isLoading ? "Wird gesendet..." : "Jetzt absenden"}
+            </button>
+          </div>
+        </form>
+      )}
     </div>
-  );
+
+);
 }
 
 export { Questions };

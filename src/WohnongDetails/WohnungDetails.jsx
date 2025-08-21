@@ -32,15 +32,11 @@ const WohnungDetails = () => {
         </div>
 
  
-        <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 logoBGWhite rounded-3xl shadow-xl">
-         
-          <Beschreibung />
-          <ApartmentMap />
-      
-            <AirbnbStyleCalendar />
-   
-
-          <Rechnung />
+        <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 logoBGWhite rounded-3xl shadow-xl">       
+        <Beschreibung />
+        <ApartmentMap />      
+        <AirbnbStyleCalendar />
+         <Rechnung />
          
         </div>
       </div>

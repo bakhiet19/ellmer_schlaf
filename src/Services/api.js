@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = ''
+const baseURL = 'https://bed-king.de'
 const instance = axios.create({
   baseURL,
   headers : {
@@ -18,21 +18,10 @@ const instance = axios.create({
   }
 }
 
-
-//get the wohnDetails
-//  async function wohnungDetails(endpoint , params = {}) {
-//   try{
-//     const response = await instance.get(endpoint , {params})
-//     return response.data
-//   }catch(er){
-//     console.log(er);
-//   }}
-
-
 //get the result from the filtering
-  async function filter(endpoint , params) {
+  async function filter(endpoint , city) {
     try{
-      const response = await instance.get(endpoint , {params})
+      const response = await instance.get(endpoint , {city})
       return response.data
   } catch(er){
     console.log(er);

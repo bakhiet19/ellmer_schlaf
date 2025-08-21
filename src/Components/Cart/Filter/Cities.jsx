@@ -2,12 +2,10 @@ import { useContext } from "react";
 import { useState } from "react";
 import { FilterContext } from "../../../Hooks/FilterContext";
 
-const cities = ['Alle Städte', 'Hamburg', 'Lübeck', 'Kiel'];
+const cities = ['Alle Städte', 'Hamburg', 'Lübeck', 'Kiel' , 'Scharbeutz'];
 
 export default function Cities() {
-  const {filterData , setFilterData} = useContext(FilterContext)
-  console.log(filterData);
-  
+  const {filterData , setFilterData} = useContext(FilterContext)  
 
   return (
     <div className="mb-4">

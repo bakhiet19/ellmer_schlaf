@@ -11,8 +11,7 @@ export default function KontaktSection() {
       <Head className='text-center'>Kontakt</Head>
       <div className="grid md:grid-cols-2 gap-10 bg-gray-50 p-3 sm:p-8">
         <FirmenInfo />
-        <ContectFormular />
-       
+        <ContectFormular />    
       </div>
     </div>
   );
