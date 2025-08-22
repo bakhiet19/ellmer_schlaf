@@ -5,7 +5,7 @@ export default function BedFilter() {
 const {filterData , setFilterData} = useContext(FilterContext)
 
   return (
-    <div className="mb-4 w-64">
+    <div className="mb-4 sm:w-64 w-full">
   <label className="block text-sm font-medium text-gray-700 mb-1">🛏️ Anzahl der Betten</label>
   <select
     onChange={(e) =>

@@ -3,10 +3,20 @@ import { useQuery } from '@tanstack/react-query';
 import { getAllApartment } from '../../../Services/api';
 
 const suggestions = [
-  'Hamburg', 'Berlin', 'München', 'Köln', 'Frankfurt', 'Stuttgart',
-  'Düsseldorf', 'Leipzig', 'Dresden', 'Hannover', 'Nürnberg', 'Bremen',
-  'Essen', 'Dortmund', 'Bonn', 'Mannheim', 'Karlsruhe', 'Aachen',
-  'Wiesbaden', 'Mainz', 'Freiburg', 'Regensburg', 'Rostock', 'Kiel', 'Heidelberg' , 'Scharbeutz'
+  // مدن رئيسية
+  'Berlin', 'Hamburg', 'München', 'Köln', 'Frankfurt', 'Stuttgart', 'Düsseldorf',
+
+  // مدن كبيرة أخرى
+  'Leipzig', 'Dresden', 'Hannover', 'Nürnberg', 'Bremen', 'Essen', 'Dortmund', 'Bonn',
+  'Mannheim', 'Karlsruhe', 'Aachen', 'Wiesbaden', 'Mainz',
+
+  // مدن جامعية وسياحية
+  'Freiburg', 'Regensburg', 'Rostock', 'Kiel', 'Heidelberg', 'Scharbeutz',
+
+  // مدن إضافية مقترحة
+  'Potsdam', 'Lübeck', 'Ulm', 'Osnabrück', 'Flensburg', 'Trier', 'Konstanz',
+  'Göttingen', 'Jena', 'Cottbus', 'Wuppertal', 'Bielefeld', 'Erfurt', 'Magdeburg',
+  'Bremerhaven', 'Passau', 'Landshut', 'Bamberg', 'Coburg'
 ];
 
 const SearchBox = ({ onSearch }) => {
