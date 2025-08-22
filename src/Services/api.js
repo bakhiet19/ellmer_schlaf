@@ -11,7 +11,7 @@ const instance = axios.create({
 //get all apartment
  async function getAllApartment(endpoint , city = {}){
   try{
-     const response = await instance.get(endpoint , {city})
+     const response = await instance.get(endpoint , { params : city})
      return response.data
   }catch(error){
     console.log(error);
@@ -66,4 +66,4 @@ async function angebot(endpoint , data) {
   }
 
 
-export {getAllApartment , contact  , filter , angebot}
+export {getAllApartment , contact  , filter , angebot , allLocations}

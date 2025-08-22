@@ -25,11 +25,13 @@ const WohnungDetails = () => {
 
   return (
 
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 w-full font-sans mt-22 mb-10"> 
-        <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 logoBGWhite rounded-3xl shadow-xl">
-        <WohnungBilder />
-        <QuestionStep />
-        </div>
+     <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 w-full font-sans mt-22 mb-10">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 logoBGWhite rounded-3xl shadow-xl h-fit">
+      <WohnungBilder />
+      <QuestionStep />
+      </div>
+
+
 
  
         <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 logoBGWhite rounded-3xl shadow-xl">       

@@ -209,3 +209,18 @@
 .mieter{
   background-image: url('./assets//wohnung3.jpeg');
 }
+
+/* لف الأشهر داخل التقويم */
+.calendar-wrapper .rdrCalendarWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* كل شهر ياخد مساحة مستقلة */
+.calendar-wrapper .rdrMonth {
+  flex: 1 1 320px;
+  min-width: 300px;
+  max-width: 100%;
+}
