@@ -10,10 +10,12 @@ export default function FilterSection() {
   return (
   <div className="w-full max-w-4xl mx-auto px-3 py-3 space-y-3 logoBGWhite rounded-2xl shadow-xl p-1 pb-8  lg:px-8">
   <SearchBox />
-  <Cities />
+  {/* <Cities /> */}
+  <div className="flex flex-col md:flex-row justify-center items-center w-full my-8 gap-4">
   <PropertyType />
   <RoomFilter />
   <FeaturesFilter />
+  </div>
   <FilterButton />
   <ResetFilters />
 </div>

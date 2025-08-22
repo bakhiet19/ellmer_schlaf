@@ -5,7 +5,7 @@ import LanguageCurrencyDropdown from "./LanguageCurrencyDropdown";
 export default function Navbar() {
   return (
     <nav className="logoBGWhite shadow-sm pb-3 z-50 ms-flex fixed top-0 left-0 w-full ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2 py-3">
        <div className="flex flex-row justify-center items-center md:justify-between md:items-center h-auto md:h-16 py-4 md:py-0 gap-4 md:gap-0">
           
           {/* Logo */}

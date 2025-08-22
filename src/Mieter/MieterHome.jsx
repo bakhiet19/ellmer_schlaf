@@ -9,7 +9,7 @@ const MieterHome = () => {
     <>
     <Navbar />
     <Hero />
-    <SingleQuestion className='flex items-center justify-center mieter' />
+    <SingleQuestion className="mieter" />
     <Fragen />
     <Footer />
     </>

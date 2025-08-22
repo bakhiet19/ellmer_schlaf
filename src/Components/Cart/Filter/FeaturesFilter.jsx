@@ -22,22 +22,23 @@ export default function FeaturesFilter() {
   };
 
   return (
-    <div>
-      <div className="flex flex-wrap gap-2">
-        {features.map((feature) => (
-          <button
-            key={feature}
-            onClick={() => toggleFeature(feature)}
-            className={`px-3 py-1 rounded-full border cursor-pointer mb-2 mt-2 ${
-              selectedFeatures.includes(feature)
-                ? 'logoBG text-white border-red-500'
-                : 'logoBGWhite text-gray-700 border-gray-300 hover:bg-gray-100'
-            } transition`}
-          >
-            {feature}
-          </button>
-        ))}
-      </div>
-    </div>
+    <div className="mb-4 w-full max-w-md">
+  <label className="block text-sm font-medium text-gray-700 mb-2">🧰 Ausstattung</label>
+  <div className="flex flex-wrap gap-2">
+    {features.map((feature) => (
+      <button
+        key={feature}
+        onClick={() => toggleFeature(feature)}
+        className={`px-4 py-2 rounded-full border text-sm transition cursor-pointer ${
+          selectedFeatures.includes(feature)
+            ? 'bg-red-500 text-white border-red-500'
+            : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'
+        }`}
+      >
+        {feature}
+      </button>
+    ))}
+  </div>
+</div>
   );
 }

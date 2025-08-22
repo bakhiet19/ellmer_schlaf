@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { email, z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import toast from "react-hot-toast";
@@ -9,16 +9,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import Api, { angebot } from "../Services/api";
 
 const Questions = [
+  { key: "name", question: "Was sind Ihr Name?", type: "text", placeholder: "z. B. John Due" },
+  { key: "firmaName", question: "Was sind Ihre Firmaname?", type: "text", placeholder: "z. B. Ellmer" },
   { key: "phone", question: "Wie lautet Ihre Telefonnummer?", type: "text", placeholder: "z. B. +49 152 1234567" },
+  { key: "email", question: "Wie lautet Ihre Email?", type: "email", placeholder: "z. B. ell@gmail.com" },
   { key: "city", question: "In welcher Stadt möchten Sie buchen?", type: "text", placeholder: "z.B. Hamburg" },
-  { key: "postalCode", question: "Wie lautet die Postleitzahl?", type: "number", placeholder: "z.B. 20095" },
   { key: "peopleCount", question: "Wie viele Personen reisen?", type: "number", placeholder: "z.B. 3" },
   { key: "hasPets", question: "Reisen Sie mit Haustieren?", type: "boolean", options: ["Ja", "Nein"] },
   { key: "preferredRoom", question: "Welche Zimmerart bevorzugen Sie?", type: "select", options: ["Einzelzimmer", "Doppelzimmer", "Apartment"] },
 ];
 
 const schema = z.object({
+  name: z.string().min(2 , { message: "Bitte geben Sie eine gültig Name ein." }), 
+  firmaName : z.string().min(2 , { message: "Bitte geben Sie eine gültige firmaName ein." }),   
   phone: z.string().min(5).max(20).regex(/^\+?\d[\d\s-]{4,}$/, "Bitte gültige Telefonnummer eingeben"),
+  email : z.email().min(2),
   city: z.string().min(2 , { message: "Bitte geben Sie eine gültige Stadt ein." }),  
   postalCode: z.string().min(4, { message: "Bitte geben Sie eine gültige Postleitzahl ein." }),
   peopleCount: z.string().min(1),
@@ -80,11 +85,11 @@ export default function QuestionStep({className}) {
 
 
 return (
-  <div className={`relative px-6 py-12 rounded-xl shadow-lg bg-gradient-to-br from-white via-gray-50 to-gray-100 border border-gray-200 w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl ${className}`}>
+  <div className={`w-full max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto px-6 py-12 rounded-xl shadow-lg bg-gradient-to-br from-white via-gray-50 to-gray-100 border border-gray-200  ${className}`}>
   
   {/* Progress Bar */}
-  <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
-    <div className="logoBG h-2 rounded-full transition-all duration-300" style={{ width: `${(step + 1) / totalSteps * 100}%` }} />
+  <div className=" bg-gray-200 rounded-full h-2 mb-6">
+    <div className=" logoBG h-2 rounded-full transition-all duration-300" style={{ width: `${(step + 1) / totalSteps * 100}%` }} />
   </div>
 
   {/* العنوان */}
@@ -285,7 +290,7 @@ return (
       </div>
     </form>
   )}
-</div>
+  </div>
 
 );
 }

@@ -1,25 +1,50 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { FilterContext } from "../../Hooks/FilterContext";
+import {
+  FaThLarge,
+  FaHome,
+  FaBuilding,
+  FaDoorOpen,
+  FaWarehouse
+} from "react-icons/fa";
 
-const types = ['Alle Typen', 'Wohnung', 'Haus', 'Studio', 'Gewerbe'];
+const types = [
+  { label: 'Alle Typen', icon: <FaThLarge /> },
+  { label: 'Wohnung', icon: <FaBuilding /> },
+  { label: 'Haus', icon: <FaHome /> },
+  { label: 'Studio', icon: <FaDoorOpen /> },
+  { label: 'Gewerbe', icon: <FaWarehouse /> }
+];
 
 export default function PropertyType() {
-    const {filterData , setFilterData} = useContext(FilterContext)
+  const { filterData, setFilterData } = useContext(FilterContext);
 
   return (
-    <div className="mb-4">
-      <label className="block text-sm font-medium logoText mb-2">Typ</label>
-      <select
-        onChange={(e) => setFilterData({
+    <div className="mb-4 w-64">
+  <label className="block text-sm font-medium text-gray-700 mb-1">🏠 Typ</label>
+  <div className="relative">
+    <select
+      onChange={(e) =>
+        setFilterData({
           ...filterData,
-          typ : e.target.value
-        })}
-        className="w-full px-3 py-2 border rounded-md focus:outline-none "
-      >
-        {types.map((type) => (
-          <option key={type} value={type}>{type}</option>
-        ))}
-      </select>
+          typ: e.target.value
+        })
+      }
+      value={filterData.typ}
+      className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-400 appearance-none"
+    >
+      {types.map((type) => (
+        <option key={type.label} value={type.label}>
+          {type.label}
+        </option>
+      ))}
+    </select>
+
+    {/* أيقونة على يمين السلكت */}
+    <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none text-gray-500">
+      {types.find(t => t.label === filterData.typ)?.icon || <FaThLarge />}
     </div>
+  </div>
+</div>
   );
 }
