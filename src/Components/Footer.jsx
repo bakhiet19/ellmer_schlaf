@@ -2,15 +2,9 @@ import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import ellmer from '../assets/ellmer.png';
 
 
-// const Links = [
-//   {url : '' , }
-// ]
-
-
-
 export default function Footer(){
     return(
-        <footer className="bg-gray-900 text-gray-200 py-10">
+        <footer className="bg-gray-900 text-gray-200 py-20">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
       
