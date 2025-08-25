@@ -8,7 +8,7 @@ export default function Cities() {
   const {filterData , setFilterData} = useContext(FilterContext)  
 
   return (
-    <div className="mb-4">
+    <div className="mb-4 max-w-sm">
       <label className="block text-sm font-medium logoText mb-2">Stadt</label>
       <select
         onChange={(e) => setFilterData({

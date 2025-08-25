@@ -10,7 +10,7 @@ export default function FilterSection() {
   return (
   <div className="mx-auto px-3 py-3 space-y-3 logoBGWhite rounded-2xl shadow-xl p-1 pb-8  lg:px-8">
   <SearchBox />
-  {/* <Cities /> */}
+  <Cities />
   <div className="flex flex-col md:flex-row justify-center items-center w-full mt-4 mb-2 gap-4">
   <PropertyType />
   <RoomFilter />

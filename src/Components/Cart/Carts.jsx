@@ -96,8 +96,7 @@ export default function Carts() {
 
 
   return (
-    <div className="bg-gray-50 py-8 sm:pb-12 lg:pb-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-gray-50 py-8 sm:pb-12 lg:pb-16 px-4 max-w-7xl mx-auto">
         <div className="flex flex-col mx-auto mb-10 p-1 md:p-6 bg-gray-50 rounded-xl shadow space-y-8 md:space-y-0 md:gap-8">
           <FilterSection />
           <ApartmentMap />
@@ -110,6 +109,5 @@ export default function Carts() {
           ))}
         </div>
       </div>
-    </div>
   );
 }
