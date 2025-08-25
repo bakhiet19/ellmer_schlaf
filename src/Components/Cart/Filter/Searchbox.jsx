@@ -73,7 +73,7 @@ const SearchBox = ({ onSearch }) => {
   }, [data, onSearch]);
 
   return (
-    <div ref={wrapperRef} className="relative w-full max-w-2xl mx-auto mt-4">
+    <div ref={wrapperRef} className="relative w-full max-w-full sm:max-w-xl mx-auto mt-4">
       <div className="flex w-full overflow-x-auto relative">
         <input
           type="text"
