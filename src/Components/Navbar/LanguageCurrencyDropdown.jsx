@@ -54,7 +54,7 @@ function LanguageCurrencyDropdown() {
   {open && (
     <>
       {/* Desktop */}
-      <div className="hidden md:block absolute right-0 mt-2 w-56 logoBGWhite border border-gray-200 rounded-md shadow-lg z-50 p-4 space-y-3 text-sm text-gray-700">
+      <div className="mt-8 sm:mt-2 hidden md:block absolute right-0  w-56 logoBGWhite border border-gray-200 rounded-md shadow-lg z-50 p-4 space-y-3 text-sm text-gray-700">
         <ul className="space-y-1">
           {languages.map(({ code, name, countryCode }) => (
             <li key={code}>
@@ -71,7 +71,7 @@ function LanguageCurrencyDropdown() {
       </div>
 
       {/* Mobile */}
-      <div className="fixed top-12 left-0 w-full logoBGWhite shadow-md z-40 flex flex-col md:hidden">
+      <div className="fixed top-12 left-0 w-full logoBGWhite shadow-md z-40 flex flex-col md:hidden mt-8 sm:mt-2">
         {languages.map(({ code, name, countryCode }) => (
           <button
             key={code}

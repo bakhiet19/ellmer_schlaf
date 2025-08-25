@@ -27,7 +27,7 @@ export default function Navlinks() {
 
       {/* Mobile Menu (Overlay) */}
      {isOpen && (
-      <div className="fixed top-12 left-0 w-full logoBGWhite shadow-md z-40 flex flex-col sm:hidden">
+      <div className="fixed top-12 left-0 w-full logoBGWhite shadow-md z-40 flex flex-col sm:hidden  mt-8 sm:mt-0">
       {links.map((link, index) => (
       <NavLink
         key={index}

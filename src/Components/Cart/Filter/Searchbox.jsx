@@ -73,35 +73,41 @@ const SearchBox = ({ onSearch }) => {
   }, [data, onSearch]);
 
 return (
-  <div ref={wrapperRef} className="relative sm:w-12 md:w-full mt-4 col-span-full">
-    <div className="flex w-full relative min-w-0">
-      <input
-        type="text"
-        placeholder="Stadt oder Adresse eingeben..."
-        value={query}
-        onChange={(e) => {
-          setQuery(e.target.value);
-          setShowSuggestions(true);
-        }}
-        onKeyDown={handleKeyDown}
-        className="flex-grow px-4 py-3 border border-gray-300 rounded-l-md focus:outline-none min-w-0"
-        aria-label="Suchfeld"
-      />
+  <div ref={wrapperRef} className="w-full mt-4">
+    <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2 w-full">
+      {/* Input wrapper */}
+      <div className="relative min-w-0">
+        <input
+          type="text"
+          placeholder="Stadt oder Adresse eingeben..."
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            setShowSuggestions(true);
+          }}
+          onKeyDown={handleKeyDown}
+          className="w-full px-4 pr-10 py-3 border border-gray-300 rounded-md sm:rounded-l-md sm:rounded-r-none focus:outline-none min-w-0"
+          aria-label="Suchfeld"
+        />
 
-      {query && (
-        <button
-          onClick={() => setQuery('')}
-          className="absolute right-12 top-3 text-gray-400 hover:text-gray-600"
-          aria-label="Suchfeld löschen"
-        >
-          ✖
-        </button>
-      )}
+        {query && (
+          <button
+            type="button"
+            onClick={() => setQuery('')}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+            aria-label="Suchfeld löschen"
+          >
+            ✖
+          </button>
+        )}
+      </div>
 
+      {/* Search button */}
       <button
+        type="button"
         onClick={handleSearch}
         disabled={isFetching}
-        className={`px-4 py-3 text-base rounded-r-md whitespace-nowrap transition ${
+        className={`px-4 py-3 text-base rounded-md sm:rounded-r-md sm:rounded-l-none whitespace-nowrap transition shrink-0 ${
           isFetching
             ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
             : 'logoBG logoTextWhite hoverLogoMehr cursor-pointer'
@@ -113,6 +119,8 @@ return (
     </div>
   </div>
 );
+
+
 
 
 };
