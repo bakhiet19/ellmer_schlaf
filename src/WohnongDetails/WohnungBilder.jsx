@@ -1,123 +1,98 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import wohnung1 from "../assets/wohnung1.jpg";
-import wohnung2 from "../assets/wohnung2.jpeg";
-import wohnung3 from "../assets/wohnung3.jpeg";
-import wohnung4 from "../assets/wohnung4.jpg";
-import { Pagination, Navigation, Keyboard, A11y } from "swiper/modules";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import img1 from "../assets/wohnung1.jpg";
+import img2 from "../assets/wohnung2.jpeg";
+import img3 from "../assets/wohnung3.jpeg";
+import img4 from "../assets/wohnung4.jpg";
+import img5 from "../assets/wohnung6.jpeg";
 
-const WohnungBilder = () => {
-  const IMAGES = [
-    wohnung1, wohnung2, wohnung3, wohnung4,
-    wohnung1, wohnung2, wohnung3, wohnung4,
-    wohnung1, wohnung2, wohnung3, wohnung4
-  ];
+import { FaWifi, FaBed, FaBroom, FaSun, FaBath } from "react-icons/fa";
 
-  const BIG_IMAGES = IMAGES.slice(0, 2);
-  const SMALL_IMAGES = IMAGES.slice(2, 6);
+const IMAGES = [img1, img2, img3, img4, img5];
+
+export default function HotelGallery() {
   const [selectedIndex, setSelectedIndex] = useState(null);
- 
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") setSelectedIndex(null);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
 
   return (
-    <div className="space-y-6">
-    
-      {/* صور كبيرة داخل سلايدر */}
-      <Swiper
-        modules={[Navigation, Pagination, Keyboard, A11y]}
-        navigation
-        pagination={{ clickable: true }}
-        keyboard
-        loop
-        spaceBetween={20}
-        slidesPerView={1}
-        className="w-full"
-      >
-        {BIG_IMAGES.map((img, idx) => (
-          <SwiperSlide key={idx}>
-            <div className="rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-md">
-              <img
-                src={img}
-                alt={`Wohnung Big ${idx}`}
-                className="w-full aspect-[3/2] max-h-[400px] object-cover cursor-pointer"
-                onClick={() => setSelectedIndex(idx)}
-              />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div className="max-w-6xl mx-auto px-4 py-10 space-y-10">
+      {/* الصورة الرئيسية مع Overlay */}
+      <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+        <img
+          src={IMAGES[0]}
+          alt="Hauptbild"
+          className="w-full h-[500px] object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg">
+            Luxuriöses Apartment im Herzen von Hamburg
+          </h2>
+          <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 transition rounded-lg shadow-lg font-semibold text-white">
+            Jetzt buchen
+          </button>
+        </div>
+      </div>
 
-      {/* صور صغيرة في شبكة */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        {SMALL_IMAGES.map((img, idx) => (
+
+
+       {/* الصور المصغرة */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+        {IMAGES.map((img, idx) => (
           <div
-            key={idx + 2}
-            className="rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-md"
+            key={idx}
+            className="rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
           >
             <img
               src={img}
-              alt={`Wohnung Small ${idx + 2}`}
-              className="w-full aspect-[3/2] max-h-[200px] object-cover cursor-pointer"
-              onClick={() => setSelectedIndex(idx + 2)}
+              alt={`Room ${idx}`}
+              className="w-full h-[180px] object-cover"
+              onClick={() => setSelectedIndex(idx)}
             />
           </div>
         ))}
       </div>
 
-         {selectedIndex !== null && (
-                <div className="fixed inset-0 z-[999] bg-black/70 backdrop-blur-sm flex items-center justify-center">
-                  <button
-                    className="absolute top-4 right-4 text-white text-3xl leading-none hover:text-red-400 transition-colors"
-                    aria-label="Close"
-                    onClick={() => setSelectedIndex(null)}
-                  >
-                    ×
-                  </button>
-                  <div className="w-full max-w-[95vw] max-h-[95vh]">
-                    <Swiper
-                      key={selectedIndex}
-                      modules={[Navigation, Pagination, Keyboard, A11y]}
-                      navigation
-                      pagination={{ clickable: true }}
-                      keyboard
-                      loop
-                      initialSlide={selectedIndex}
-                      className="h-full"
-                    >
-                      {IMAGES.map((img, idx) => (
-                      <SwiperSlide key={idx} className="flex items-center justify-center">
-          <div className="relative w-full h-[95vh] flex items-center justify-center">
-            <img
-              src={img}
-              alt={`Zoomed ${idx}`}
-              className="max-w-full max-h-full object-contain rounded-xl shadow-[0_0_40px_rgba(0,0,0,0.6)]"
-            />
-        
-            {/* ✅ النص فوق الصورة */}
-            <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white px-6 py-3 rounded-lg text-md font-semibold max-w-[90%] text-center">
-              Helle, stilvoll eingerichtete Wohnung mit Balkon – perfekt für entspannte Abende in Hamburg.
-            </div>
-          </div>
-        </SwiperSlide>
-                      ))}
-                    </Swiper>
-                  </div>
-                </div>
-              )}
 
+      {/* أيقونات المزايا */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
+        <div className="flex flex-col items-center space-y-2 hover:scale-110 transition">
+          <FaBed className="text-3xl text-indigo-600" />
+          <span className="text-sm font-medium text-gray-700">Doppelbett</span>
+        </div>
+        <div className="flex flex-col items-center space-y-2 hover:scale-110 transition">
+          <FaBath className="text-3xl text-indigo-600" />
+          <span className="text-sm font-medium text-gray-700">Eigenes Bad</span>
+        </div>
+        <div className="flex flex-col items-center space-y-2 hover:scale-110 transition">
+          <FaWifi className="text-3xl text-indigo-600" />
+          <span className="text-sm font-medium text-gray-700">Gratis WLAN</span>
+        </div>
+        <div className="flex flex-col items-center space-y-2 hover:scale-110 transition">
+          <FaSun className="text-3xl text-indigo-600" />
+          <span className="text-sm font-medium text-gray-700">Balkon</span>
+        </div>
+        <div className="flex flex-col items-center space-y-2 hover:scale-110 transition">
+          <FaBroom className="text-3xl text-indigo-600" />
+          <span className="text-sm font-medium text-gray-700">Tägliche Reinigung</span>
+        </div>
+      </div>
 
+   
+
+      {/* Modal لتكبير الصورة */}
+      {selectedIndex !== null && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+          <button
+            className="absolute top-6 right-6 text-white text-3xl font-bold hover:text-gray-300"
+            onClick={() => setSelectedIndex(null)}
+          >
+            ×
+          </button>
+          <img
+            src={IMAGES[selectedIndex]}
+            alt={`Zoomed ${selectedIndex}`}
+            className="max-w-[90%] max-h-[90%] rounded-2xl shadow-2xl transition-transform duration-500 scale-100 hover:scale-105"
+          />
+        </div>
+      )}
     </div>
   );
-};
-
-export default WohnungBilder;
+}
