@@ -73,67 +73,45 @@ const SearchBox = ({ onSearch }) => {
   }, [data, onSearch]);
 
   return (
-    <div ref={wrapperRef} className="relative w-full max-w-full sm:max-w-xl mx-auto mt-4">
-      <div className="flex w-full overflow-x-auto relative">
-        <input
-          type="text"
-          placeholder="Stadt oder Adresse eingeben..."
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setShowSuggestions(true);
-          }}
-          onKeyDown={handleKeyDown}
-          className="flex-grow px-4 py-3 border border-gray-300 rounded-l-md focus:outline-none min-w-0"
-          aria-label="Suchfeld"
-        />
+   <div ref={wrapperRef} className="relative w-full max-w-full sm:max-w-sm mx-auto mt-4">
+    <div className="flex overflow-x-auto w-full max-w-full sm:max-w-md relative min-w-0">
+    <input
+      type="text"
+      placeholder="Stadt oder Adresse eingeben..."
+      value={query}
+      onChange={(e) => {
+        setQuery(e.target.value);
+        setShowSuggestions(true);
+      }}
+      onKeyDown={handleKeyDown}
+      className="flex-grow px-4 py-3 border border-gray-300 rounded-l-md focus:outline-none min-w-0"
+      aria-label="Suchfeld"
+    />
 
-        {query && (
-          <button
-            onClick={() => setQuery('')}
-            className="absolute right-28 top-3 text-gray-400 hover:text-gray-600"
-            aria-label="Suchfeld löschen"
-          >
-            ✖
-          </button>
-        )}
+    {query && (
+      <button
+        onClick={() => setQuery('')}
+        className="absolute right-24 top-3 text-gray-400 hover:text-gray-600"
+        aria-label="Suchfeld löschen"
+      >
+        ✖
+      </button>
+    )}
 
-        <button
-          onClick={handleSearch}
-          disabled={isFetching}
-          className={`px-4 py-3 text-base rounded-r-md whitespace-nowrap transition ${
-            isFetching
-              ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-              : 'logoBG logoTextWhite hoverLogoMehr cursor-pointer'
-          }`}
-          aria-label="Suche starten"
-        >
-          🔍 Suchen
-        </button>
-      </div>
-
-      {query.length >= 2 && showSuggestions && filteredSuggestions.length > 0 && (
-        <ul className="absolute z-10 bg-white border border-gray-300 rounded-md mt-1 w-full max-h-60 overflow-y-auto shadow-lg">
-          {filteredSuggestions.map((city) => (
-            <li
-              key={city}
-              onClick={() => handleSelectCity(city)}
-              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-            >
-              {city}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {data && (
-        <div className="mt-4">
-          {data.map((apt) => (
-           console.log(apt)          
-          ))}
-        </div>
-      )}
-    </div>
+    <button
+      onClick={handleSearch}
+      disabled={isFetching}
+      className={`px-4 py-3 text-base rounded-r-md whitespace-nowrap transition ${
+        isFetching
+          ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+          : 'logoBG logoTextWhite hoverLogoMehr cursor-pointer'
+      }`}
+      aria-label="Suche starten"
+    >
+      🔍 Suchen
+    </button>
+  </div>
+</div>
   );
 };
 
