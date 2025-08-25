@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import img1 from "../assets/wohnung1.jpg";
 import img2 from "../assets/wohnung2.jpeg";
 import img3 from "../assets/wohnung3.jpeg";
@@ -10,16 +10,26 @@ import { FaWifi, FaBed, FaBroom, FaSun, FaBath } from "react-icons/fa";
 const IMAGES = [img1, img2, img3, img4, img5];
 
 export default function HotelGallery() {
-  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [mainIndex, setMainIndex] = useState(0); // الصورة الكبيرة تتغير تلقائيًا
+  const [selectedIndex, setSelectedIndex] = useState(null); // للتكبير عند الضغط
+
+  // تغيير الصورة الكبيرة تلقائيًا كل 3 ثواني
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMainIndex((prev) => (prev + 1) % IMAGES.length);
+    }, 3000); // كل 3 ثواني
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10 space-y-10">
-      {/* الصورة الرئيسية مع Overlay */}
+      {/* الصورة الكبيرة مع Overlay */}
       <div className="relative rounded-2xl overflow-hidden shadow-2xl">
         <img
-          src={IMAGES[0]}
+          src={IMAGES[mainIndex]}
           alt="Hauptbild"
-          className="w-full h-[500px] object-cover"
+          className="w-full h-[500px] object-cover transition-all duration-500"
         />
         <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg">
@@ -31,9 +41,7 @@ export default function HotelGallery() {
         </div>
       </div>
 
-
-
-       {/* الصور المصغرة */}
+      {/* الصور المصغرة */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
         {IMAGES.map((img, idx) => (
           <div
@@ -49,7 +57,6 @@ export default function HotelGallery() {
           </div>
         ))}
       </div>
-
 
       {/* أيقونات المزايا */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
@@ -75,9 +82,7 @@ export default function HotelGallery() {
         </div>
       </div>
 
-   
-
-      {/* Modal لتكبير الصورة */}
+      {/* Modal لتكبير الصورة عند الضغط على أي صورة مصغرة */}
       {selectedIndex !== null && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
           <button
