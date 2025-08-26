@@ -167,15 +167,19 @@ export default function Carts() {
 
 
   return (
-    <div className="bg-gray-50 py-8 sm:pb-12 lg:pb-16 px-4 max-w-7xl mx-auto">
-        <div className="flex flex-col mx-auto mb-10 p-1 md:p-6 bg-gray-50 rounded-xl shadow space-y-8 md:space-y-0 md:gap-8">
-          <FilterSection />
-          <ApartmentMap />
-        </div>
+    <div className="bg-gray-50 py-8 sm:pb-12 lg:pb-16 px-4 max-w-full mx-auto">
+       <div className="flex flex-col md:flex-row mx-auto mb-10 p-1 md:p-6 bg-gray-50 rounded-xl shadow gap-6">
+  <div className="w-full md:w-1/3 space-y-6">
+    <FilterSection />
+  </div>
+  <div className="w-full md:w-2/3">
+    <ApartmentMap />
+  </div>
+</div>
 
         {/* الكروت */}
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-8xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {wohnungen.map((wohnung, index) => (
             <WohnungCard key={index} wohnung={wohnung} />
           ))}

@@ -14,7 +14,7 @@ function WohnungCard({ wohnung }) {
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="logoBGWhite rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition duration-300 relative"
+      className="logoBGWhite rounded-2xl shadow-lg overflow-hidden hover:scale-[1.05] transition duration-300 relative hover:shadow-2xl "
     >
       {/* ♥️ أيقونة القلب */}
       <div className="absolute top-4 right-4 z-10">

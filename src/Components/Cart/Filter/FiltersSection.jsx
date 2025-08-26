@@ -9,7 +9,7 @@ import DistanceFilter from "./Distanz";
 
 export default function FilterSection() {
   return (
- <div className="mx-auto px-3 py-3 space-y-3 max-w-6xl logoBGWhite rounded-2xl shadow-xl p-1 pb-8 lg:px-8 w-full sm:w-[70%]">
+ <div className="mx-auto px-3 py-3 space-y-3 logoBGWhite rounded-2xl shadow-xl p-1 pb-8 lg:px-8 w-full">
   <SearchBox />
   {/* <Cities /> */}
 

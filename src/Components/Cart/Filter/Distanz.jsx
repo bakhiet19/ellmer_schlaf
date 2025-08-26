@@ -2,8 +2,8 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 function DistanceFilter() {
   return (
-    <div className="w-full sm:w-1/3 mb-4">
-      <label htmlFor="distance" className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-2">
+    <div className="w-full mb-4">
+      <label htmlFor="distance" className="block text-sm font-medium text-gray-700 mb-1 items-center gap-2">
         <FaMapMarkerAlt className="text-red-500" />
         Entfernung vom Standort
       </label>
