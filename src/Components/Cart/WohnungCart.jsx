@@ -1,73 +1,30 @@
-import { useState } from 'react';
-import { FaHeart } from 'react-icons/fa';
-import Button from '../Button';
-
-// const wohnungen = [
-//   {
-//     img: [wohnung1, wohnung2],
-//     title: 'Wohnung in Hamburg',
-//     price: '€1,200 / Monat',
-//     location: 'Hamburg, Deutschland',
-//   },
-//   {
-//     img: [wohnung2, wohnung3],
-//     title: 'Wohnung in Lübeck',
-//     price: '€950 / Monat',
-//     location: 'Lübeck, Deutschland',
-//   },
-//   {
-//     img: [wohnung3, wohnung4],
-//     title: 'Wohnung in Kiel',
-//     price: '€1,050 / Monat',
-//     location: 'Kiel, Deutschland',
-//   },
-//   {
-//     img: [wohnung4, hero],
-//     title: 'Wohnung in Hamburg',
-//     price: '€1,200 / Monat',
-//     location: 'Hamburg, Deutschland',
-//   },
-//   {
-//     img: [hero, wohnung2],
-//     title: 'Wohnung in Lübeck',
-//     price: '€950 / Monat',
-//     location: 'Lübeck, Deutschland',
-//   },
-//   {
-//     img: [wohnung1, wohnung3],
-//     title: 'Wohnung in Hamburg',
-//     price: '€1,200 / Monat',
-//     location: 'Hamburg, Deutschland',
-//   },
-//   {
-//     img: [wohnung4, wohnung1],
-//     title: 'Wohnung in Lübeck',
-//     price: '€950 / Monat',
-//     location: 'Lübeck, Deutschland',
-//   },
-//   {
-//     img: [wohnung2, hero],
-//     title: 'Wohnung in Kiel',
-//     price: '€1,050 / Monat',
-//     location: 'Kiel, Deutschland',
-//   },
-// ];
-
+import { useState, useRef } from "react";
+import { FaHeart, FaWifi, FaBath, FaCar, FaUmbrellaBeach } from "react-icons/fa";
+import Button from "../Button";
+import { motion, useInView } from "framer-motion";
 
 function WohnungCard({ wohnung }) {
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <div className="logoBGWhite rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition duration-300 relative">
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50, scale: 0.95 }}
+      animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="logoBGWhite rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition duration-300 relative"
+    >
       {/* ♥️ أيقونة القلب */}
-     <div className="absolute top-4 right-4 z-10">
-  <button
-    className="group logoBGWhite p-2 rounded-full shadow hover:shadow-md transition duration-300 cursor-pointer"
-    aria-label="Favorit"
-  >
-    <FaHeart className="text-black group-hover:text-red-500 text-xl transition duration-300 group-active:scale-110" />
-  </button>
-</div>
+      <div className="absolute top-4 right-4 z-10">
+        <button
+          className="group logoBGWhite p-2 rounded-full shadow hover:shadow-md transition duration-300 cursor-pointer"
+          aria-label="Favorit"
+        >
+          <FaHeart className="text-black group-hover:text-red-500 text-xl transition duration-300 group-active:scale-110" />
+        </button>
+      </div>
 
       {/* 🖼️ الصورة الرئيسية */}
       <img
@@ -84,8 +41,8 @@ function WohnungCard({ wohnung }) {
             src={img}
             alt={`thumb-${idx}`}
             onClick={() => setCurrentImgIdx(idx)}
-            className={` w-16 h-16 object-cover rounded-lg cursor-pointer border-2 ${
-              currentImgIdx === idx ? 'borderRed' : 'border-transparent'
+            className={`w-16 h-16 object-cover rounded-lg cursor-pointer border-2 ${
+              currentImgIdx === idx ? "borderRed" : "border-transparent"
             }`}
           />
         ))}
@@ -93,7 +50,9 @@ function WohnungCard({ wohnung }) {
 
       {/* 📋 محتوى البطاقة */}
       <div className="p-4">
-        <h3 className="text-lg font-semibold text-gray-800 mb-2">{wohnung.title}</h3>
+        <h3 className="text-lg font-semibold text-gray-800 mb-2">
+          {wohnung.title}
+        </h3>
 
         {/* وسوم السعر والموقع */}
         <div className="flex gap-2 mb-3">
@@ -105,13 +64,46 @@ function WohnungCard({ wohnung }) {
           </span>
         </div>
 
-        <div className='flex justify-between mt-6'>
-          <Button styles="logoBG text-white text-sm px-4 py-2 rounded-lg hover:bg-indigo-700 transition cursor-pointer">Details ansehen</Button>
-          <Button styles="bg-indigo-800 text-white text-sm px-4 py-2 rounded-lg  transition cursor-pointer">Angebot anfordern</Button>
+        {/* ⭐ ميزات الشقة */}
+        <div className="flex flex-wrap gap-3 mt-4 text-gray-600 text-sm">
+          {wohnung.features?.wifi && (
+            <div className="flex items-center gap-1">
+              <FaWifi className="logoText h-4 w-4" />
+              <span>Wi-Fi</span>
+            </div>
+          )}
+          {wohnung.features?.bath && (
+            <div className="flex items-center gap-1">
+              <FaBath className="logoText h-4 w-4" />
+              <span>Bad</span>
+            </div>
+          )}
+          {wohnung.features?.balcony && (
+            <div className="flex items-center gap-1">
+              <FaUmbrellaBeach className="logoText h-4 w-4" />
+              <span>Balkon</span>
+            </div>
+          )}
+          {wohnung.features?.parking && (
+            <div className="flex items-center gap-1">
+              <FaCar className="logoText h-4 w-4" />
+              <span>Parkplatz</span>
+            </div>
+          )}
+        </div>
+
+        {/* الأزرار */}
+        <div className="flex justify-between mt-6">
+          <Button styles="logoBG text-white text-sm px-4 py-2 rounded-lg hover:bg-indigo-700 transition cursor-pointer">
+            Details ansehen
+          </Button>
+          <Button styles="bg-indigo-800 text-white text-sm px-4 py-2 rounded-lg transition cursor-pointer">
+            Angebot anfordern
+          </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
-export default WohnungCard
+export default WohnungCard;

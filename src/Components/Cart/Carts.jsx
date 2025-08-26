@@ -18,75 +18,146 @@ const wohnungen = [
     title: 'Wohnung in Hamburg',
     price: '€1,200 / Monat',
     location: 'Hamburg, Deutschland',
+    features: {
+      wifi: true,
+      bath: true,
+      balcony: true,
+      parking: true,
+    },
   },
   {
     img: [wohnung2, wohnung3],
     title: 'Wohnung in Lübeck',
     price: '€950 / Monat',
     location: 'Lübeck, Deutschland',
+    features: {
+      wifi: true,
+      bath: true,
+      balcony: false,
+      parking: true,
+    },
   },
   {
     img: [wohnung3, wohnung4],
     title: 'Wohnung in Kiel',
     price: '€1,050 / Monat',
     location: 'Kiel, Deutschland',
+    features: {
+      wifi: true,
+      bath: true,
+      balcony: true,
+      parking: false,
+    },
   },
   {
     img: [wohnung4, hero],
     title: 'Wohnung in Hamburg',
     price: '€1,200 / Monat',
     location: 'Hamburg, Deutschland',
+    features: {
+      wifi: true,
+      bath: false,
+      balcony: true,
+      parking: true,
+    },
   },
   {
     img: [hero, wohnung2],
     title: 'Wohnung in Lübeck',
     price: '€950 / Monat',
     location: 'Lübeck, Deutschland',
+    features: {
+      wifi: false,
+      bath: true,
+      balcony: true,
+      parking: true,
+    },
   },
   {
     img: [wohnung1, wohnung3],
     title: 'Wohnung in Hamburg',
     price: '€1,200 / Monat',
     location: 'Hamburg, Deutschland',
+    features: {
+      wifi: true,
+      bath: true,
+      balcony: false,
+      parking: true,
+    },
   },
   {
     img: [wohnung4, wohnung1],
     title: 'Wohnung in Lübeck',
     price: '€950 / Monat',
     location: 'Lübeck, Deutschland',
+    features: {
+      wifi: true,
+      bath: true,
+      balcony: true,
+      parking: false,
+    },
   },
   {
     img: [wohnung2, hero],
     title: 'Wohnung in Kiel',
     price: '€1,050 / Monat',
     location: 'Kiel, Deutschland',
+    features: {
+      wifi: true,
+      bath: false,
+      balcony: true,
+      parking: true,
+    },
   },
   {
     img: [wohnung2, hero],
     title: 'Wohnung in Kiel',
     price: '€1,050 / Monat',
     location: 'Kiel, Deutschland',
+    features: {
+      wifi: true,
+      bath: true,
+      balcony: true,
+      parking: true,
+    },
   },
   {
     img: [wohnung2, hero],
     title: 'Wohnung in Kiel',
     price: '€1,050 / Monat',
     location: 'Kiel, Deutschland',
+    features: {
+      wifi: false,
+      bath: true,
+      balcony: false,
+      parking: true,
+    },
   },
   {
     img: [wohnung1, wohnung3],
     title: 'Wohnung in Hamburg',
     price: '€1,200 / Monat',
     location: 'Hamburg, Deutschland',
+    features: {
+      wifi: true,
+      bath: true,
+      balcony: true,
+      parking: true,
+    },
   },
   {
     img: [hero, wohnung2],
     title: 'Wohnung in Lübeck',
     price: '€950 / Monat',
     location: 'Lübeck, Deutschland',
+    features: {
+      wifi: true,
+      bath: true,
+      balcony: true,
+      parking: true,
+    },
   },
 ];
-
 
 export default function Carts() {
 
@@ -103,7 +174,8 @@ export default function Carts() {
         </div>
 
         {/* الكروت */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-8xl">
           {wohnungen.map((wohnung, index) => (
             <WohnungCard key={index} wohnung={wohnung} />
           ))}

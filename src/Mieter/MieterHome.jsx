@@ -9,7 +9,7 @@ const MieterHome = () => {
     <>
     <Navbar />
     <Hero />
-    <SingleQuestion className="mieter mt-8" />
+   <SingleQuestion className="mieter mt-8 w-full md:w-[70vw] mx-auto" />
     <Fragen />
     <Footer />
     </>

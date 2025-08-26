@@ -8,11 +8,11 @@ import FilterButton from "./FilterButton";
 
 export default function FilterSection() {
   return (
- <div className="mx-auto px-3 py-3 space-y-3 max-w-6xl logoBGWhite rounded-2xl shadow-xl p-1 pb-8 lg:px-8">
+ <div className="mx-auto px-3 py-3 space-y-3 max-w-6xl logoBGWhite rounded-2xl shadow-xl p-1 pb-8 lg:px-8 w-full sm:w-[70%]">
   <SearchBox />
   {/* <Cities /> */}
 
-  <div className="flex flex-col md:flex-row justify-center items-center w-full mt-4 mb-2 gap-4">
+  <div className="flex flex-col md:flex-row items-center max-w-[100%] mt-4 mb-2 gap-4">
     <PropertyType />
     <RoomFilter />
   </div>
