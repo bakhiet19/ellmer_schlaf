@@ -11,7 +11,6 @@ import KontaktSection from "../Components/ContaktForm";
 import KontaktSidebar from "../Components/Sidebar";
 
 
-
 export default function Home(){
     return(
         <Filter>

@@ -5,6 +5,7 @@ import FeaturesFilter from "./FeaturesFilter";
 import ResetFilters from "./ResetFilters";
 import SearchBox from "./Searchbox";
 import FilterButton from "./FilterButton";
+import DistanceFilter from "./Distanz";
 
 export default function FilterSection() {
   return (
@@ -13,6 +14,7 @@ export default function FilterSection() {
   {/* <Cities /> */}
 
   <div className="flex flex-col md:flex-row items-center max-w-[100%] mt-4 mb-2 gap-4">
+    <DistanceFilter />
     <PropertyType />
     <RoomFilter />
   </div>

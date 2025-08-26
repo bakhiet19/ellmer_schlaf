@@ -1,19 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Navigation, Pagination, Keyboard, A11y } from "swiper/modules";
 import "swiper/css";
-
-
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-
-
-import AirbnbStyleCalendar from "./AirbnbStyleCalendar";
-import FormFragen from "../Mieter/FormFragen";
 import WohnungBilder from "./WohnungBilder";
 import Beschreibung from "./Beschreibung";
 import ApartmentMap from "../Components/Map/Map";
 import QuestionStep, { Questions } from "../Mieter/Questions";
-import Rechnung from "./Rechnung";
+
 
 
 
