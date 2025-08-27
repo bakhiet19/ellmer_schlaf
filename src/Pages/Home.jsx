@@ -9,13 +9,15 @@ import Hero from "../Components/Hero/Hero";
 import { Filter } from "../Hooks/FilterContext";
 import KontaktSection from "../Components/ContaktForm";
 import KontaktSidebar from "../Components/Sidebar";
+import Example from "../Example";
 
 
 export default function Home(){
     return(
         <Filter>
         <Navbar />
-        <Hero />
+        {/* <Hero /> */}
+        <Example />
         <Carts /> 
         <UberUns  />
         <Kunden />      

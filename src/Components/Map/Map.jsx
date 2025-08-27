@@ -14,10 +14,10 @@ import ReactDOMServer from 'react-dom/server';
 import APARTMENTS from './apartments';
 
 // أيقونات باستخدام React Icons فقط
-const createIcon = (color, size = 24) =>
+const createIcon = (color, size = 34) =>
   L.divIcon({
     html: ReactDOMServer.renderToString(
-      <FaHome style={{ color, fontSize: size }} />
+      <FaHome className='h-8 w-8' style={{ color, fontSize: size }} />
     ),
     className: '',
     iconSize: [size, size],
@@ -43,7 +43,7 @@ function LocateUserButton({ setUserLocation }) {
   return (
     <button
       onClick={handleClick}
-      className="absolute top-4 right-4 z-[999] bg-white p-2 rounded-lg shadow-lg hover:bg-gray-100"
+      className="absolute top-4 right-4 z-[999] bg-white p-2 rounded-lg shadow-lg hover:bg-gray-100 cursor-pointer"
     >
       📍 Mein Standort
     </button>

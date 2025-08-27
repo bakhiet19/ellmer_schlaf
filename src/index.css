@@ -206,9 +206,6 @@
   color: #bf2330;
 }
 
-.mieter{
-  /* background-image: url('./assets//wohnung3.jpeg'); */
-}
 
 /* لف الأشهر داخل التقويم */
 .calendar-wrapper .rdrCalendarWrapper {
@@ -227,4 +224,11 @@
 
 .swiper-button-prev,.swiper-button-next{
   display: none !important;
+}
+
+.example{
+  background-image: url('./assets/wohnung4.jpg');
+  background-position: center;
+  background-size: cover;
+
 }

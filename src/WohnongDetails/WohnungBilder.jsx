@@ -23,7 +23,7 @@ export default function HotelGallery() {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10 space-y-10">
+    <div className="max-w-full mx-auto px-4 py-10 space-y-10">
       {/* الصورة الكبيرة مع Overlay */}
       <div className="relative rounded-2xl overflow-hidden shadow-2xl">
         <img

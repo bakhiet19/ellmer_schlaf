@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { FilterContext } from "../../../Hooks/FilterContext";
 
-export default function BedFilter() {
+export default function RoomFilter() {
 const {filterData , setFilterData} = useContext(FilterContext)
 
   return (

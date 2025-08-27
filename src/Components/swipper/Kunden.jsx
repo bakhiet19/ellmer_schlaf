@@ -86,7 +86,7 @@ export default function Kunden() {
       </Swiper>
     </div>
   </div>
-</div>
+  </div>
 
 
   );
