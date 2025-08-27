@@ -39,21 +39,19 @@
     "next": "Weiter",
     "viewDetails": "Details ansehen"
   },
+
+
   "about_us": {
      "title": "Über uns",
-  "description_extended": "Wir bei Ellmer Schlaf glauben, dass Komfort mit dem richtigen Wohnraum beginnt...",
+  "description_extended": "Willkommen bei Ihrem zuverlässigen Partner für Arbeiterunterkünfte in ganz Deutschland",
   "what_we_offer": "Was wir anbieten",
   "offer_list": {
-    "0": "Möblierte Wohnungen für Unternehmen",
-    "1": "Flexible Mietdauer",
-    "2": "Zentrale Lagen in Hamburg, Lübeck und Kiel",
-    "3": "Persönlicher Kundenservice"
+    "0": "Wir sind Ihr etablierter und vertrauensvoller Ansprechpartner, wenn es um die Vermittlung von Arbeiterunterkünften, Gästezimmern, Monteurzimmern und kompletten Wohnheimen geht. Mit aktuell über 10.000",
+    "1": "Einheiten in der gesamten Bundesrepublik – und stetig wachsend – bieten wir Handwerkern, Monteuren und Geschäftsreisenden eine große Auswahl an preiswerten, voll ausgestatteten Unterkünften."
+   
   },
   "our_mission": "Unsere Mission",
-  "mission_text_extended": "Unsere Mission ist es, Unternehmen mit hochwertigen, praktischen und komfortablen Wohnlösungen zu unterstützen...",
-  "our_vision": "Unsere Vision",
-  "vision_text": "Wir möchten die erste Wahl für Unternehmen in Deutschland sein, wenn es um möbliertes Wohnen geht...",
-  "contact_button": "Kontaktieren Sie uns"
+  "mission_text_extended": "Unser besonderer Ansatz: persönliche Beratung auf höchstem Niveau. Denn wir wissen, dass jede Situation und jeder Einsatz individuelle Lösungen erfordert. Ihre Zufriedenheit steht für uns an erster Stelle – dafür setzen wir auf maßgeschneiderte Angebote, schnelle Kommunikation und transparente Abläufe. Ob einzelne Zimmer oder ganze Wohnheime: Bei uns finden Sie komfortable, saubere und bestens ausgestattete Unterkünfte, in denen sich Ihre Mitarbeiter wie zu Hause fühlen. Vertrauen Sie auf unsere Erfahrung und unser Engagement – wir kümmern uns um die Details, damit Sie sich ganz auf Ihre Arbeit konzentrieren können."
   },
 
   "buttons": {

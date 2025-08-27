@@ -34,8 +34,23 @@ const FirmenInfo = () => {
 
   return (
     <div className="bg-gray-50 p-8 rounded-lg shadow-md text-base text-gray-700 max-w-xl mx-auto space-y-6">
-      <h3 className="text-xl font-semibold text-gray-800 mb-2">Firmeninformationen</h3>
+     
 
+
+      <p className="italic text-gray-600 mt-6">
+       Haben Sie Fragen oder
+möchten eine Buchung
+vornehmen? Dann freuen wir
+uns auf Ihre Nachricht! Sie
+erreichen uns jederzeit
+telefonisch oder per E-Mail.
+Schreiben Sie uns einfach –
+wir melden uns garantiert
+innerhalb von 24 Stunden bei
+Ihnen zurück.
+      </p>
+
+ <h3 className="text-xl font-semibold logoText mb-2">Firmeninformationen</h3>
       <div className="space-y-4 divide-y divide-gray-200">
         {info.map(({ label, value, link, icon }) => (
           <div key={label} className="flex items-start space-x-3 pt-2">
@@ -59,9 +74,7 @@ const FirmenInfo = () => {
         ))}
       </div>
 
-      <p className="italic text-gray-600 mt-6">
-        Haben Sie Fragen? Sie können Ihre Nachricht und Kontaktdaten hier hinterlassen – wir melden uns schnellstmöglich bei Ihnen.
-      </p>
+      
     </div>
   );
 };

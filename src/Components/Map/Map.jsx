@@ -63,7 +63,7 @@ const ApartmentMap = () => {
   }
 
   return (
-    <div className="relative w-full h-[500px] z-0">
+    <div className="relative w-full h-full z-0">
       <MapContainer center={mapCenter} zoom={6} scrollWheelZoom className="h-full w-full">
         <MapClickHandler onMapClick={() => setSelectedApartment(null)} />
         <TileLayer

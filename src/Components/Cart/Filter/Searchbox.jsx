@@ -104,18 +104,19 @@ return (
 
       {/* Search button */}
       <button
-        type="button"
-        onClick={handleSearch}
-        disabled={isFetching}
-        className={`px-4 py-3 text-base rounded-md sm:rounded-r-md sm:rounded-l-none whitespace-nowrap transition shrink-0 ${
-          isFetching
-            ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-            : 'logoBG logoTextWhite hoverLogoMehr cursor-pointer'
-        }`}
-        aria-label="Suche starten"
-      >
-        🔍 Suchen
-      </button>
+  type="button"
+  onClick={handleSearch}
+  disabled={isFetching}
+  className={`px-3 py-2 text-sm md:text-base rounded-md sm:rounded-r-md sm:rounded-l-none whitespace-nowrap transition shrink-0 ${
+    isFetching
+      ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+      : 'logoBG logoTextWhite hoverLogoMehr cursor-pointer'
+  }`}
+  aria-label="Suche starten"
+>
+  🔍 Suchen
+</button>
+
     </div>
   </div>
 );

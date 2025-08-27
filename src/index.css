@@ -224,3 +224,7 @@
   min-width: 300px;
   max-width: 100%;
 }
+
+.swiper-button-prev,.swiper-button-next{
+  display: none !important;
+}

@@ -9,17 +9,17 @@ import DistanceFilter from "./Distanz";
 
 export default function FilterSection() {
   return (
- <div className="mx-auto px-3 py-3 space-y-3 logoBGWhite rounded-2xl shadow-xl p-1 pb-8 lg:px-8 w-full">
+ <div className="mx-auto px-3 py-3 space-y-3 logoBGWhite rounded-2xl shadow-xl p-1 pb-8 lg:px-8 w-full h-[100%]">
   <SearchBox />
   {/* <Cities /> */}
 
-  <div className="flex flex-col md:flex-row items-center max-w-[100%] mt-4 mb-2 gap-4">
+  <div className="grid grid-cols-1 items-center max-w-[100%] mt-4 mb-2 gap-1">
     <DistanceFilter />
     <PropertyType />
     <RoomFilter />
   </div>
 
-  <div className="w-full flex flex-col md:flex-row items-center mt-4 mb-2 gap-4">
+  <div className="w-full flex flex-col md:flex-row items-center mt-2 mb-2 gap-4">
     <FeaturesFilter /> 
   </div>
 

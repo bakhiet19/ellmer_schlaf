@@ -3,7 +3,7 @@ import { FaHeart, FaWifi, FaBath, FaCar, FaUmbrellaBeach } from "react-icons/fa"
 import Button from "../Button";
 import { motion, useInView } from "framer-motion";
 
-function WohnungCard({ wohnung }) {
+function WohnungCart({ wohnung }) {
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -14,7 +14,7 @@ function WohnungCard({ wohnung }) {
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="logoBGWhite rounded-2xl shadow-lg overflow-hidden hover:scale-[1.05] transition duration-300 relative hover:shadow-2xl "
+      className="logoBGWhite rounded-2xl shadow-lg overflow-hidden hover:scale-[1.05] transition duration-300 relative hover:shadow-2xl"
     >
       {/* ♥️ أيقونة القلب */}
       <div className="absolute top-4 right-4 z-10">
@@ -56,13 +56,13 @@ function WohnungCard({ wohnung }) {
 
         {/* وسوم السعر والموقع */}
         <div className="flex gap-2 mb-3">
-          <span className="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-1 rounded-full">
-            {wohnung.price}
-          </span>
-          <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-1 rounded-full">
-            {wohnung.location}
-          </span>
-        </div>
+  <span className="bg-indigo-100 text-indigo-800 text-xs font-medium px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
+    {wohnung.price}
+  </span>
+  <span className="bg-green-100 text-green-800 text-xs font-medium px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
+    {wohnung.location}
+  </span>
+</div>
 
         {/* ⭐ ميزات الشقة */}
         <div className="flex flex-wrap gap-3 mt-4 text-gray-600 text-sm">
@@ -93,17 +93,17 @@ function WohnungCard({ wohnung }) {
         </div>
 
         {/* الأزرار */}
-        <div className="flex justify-between mt-6">
-          <Button styles="logoBG text-white text-sm px-4 py-2 rounded-lg hover:bg-indigo-700 transition cursor-pointer">
-            Details ansehen
-          </Button>
-          <Button styles="bg-indigo-800 text-white text-sm px-4 py-2 rounded-lg transition cursor-pointer">
-            Angebot anfordern
-          </Button>
-        </div>
+       <div className="flex justify-between mt-6">
+  <Button styles="logoBG text-[10px] px-4 py-2 sm:text-sm md:px-4 md:py-2 rounded-lg hover:bg-indigo-700 transition cursor-pointer logoTextWhite">
+    Details ansehen
+  </Button>
+  <Button styles="bg-indigo-800 text-[10px] px-4 py-2 sm:text-sm md:px-4 md:py-2 rounded-lg transition cursor-pointer logoTextWhite">
+    Angebot anfordern
+  </Button>
+</div>
       </div>
     </motion.div>
   );
 }
 
-export default WohnungCard;
+export default WohnungCart;
