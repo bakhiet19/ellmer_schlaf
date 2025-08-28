@@ -4,13 +4,13 @@ import ellmer from '../assets/ellmer.png';
 
 export default function Footer(){
     return(
-        <footer className="bg-gray-900 text-gray-200 py-20">
+        <footer className="logoBG text-gray-200 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
       
       <div>
         <img src={ellmer} alt="Firmenlogo" className="w-28 mb-3" />
-        <p className="text-sm text-gray-400">Dein Zuhause in <span className='logoText'> Schleswig-Holstein</span> und <span className='logoText'> Hamburg </span></p>
+        <p className="text-sm text-gray-400">Dein Zuhause in <span className=''> Schleswig-Holstein</span> und <span className=''> Hamburg </span></p>
       </div>
 
       <div className="space-y-2">

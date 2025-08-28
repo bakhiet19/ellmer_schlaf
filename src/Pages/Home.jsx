@@ -15,7 +15,7 @@ import VermieterSection from "../Vermeiter/Vermiter";
 
 export default function Home(){
     return(
-        <Filter>
+        <>
         <Navbar />
         {/* <Hero /> */}
         <Example />
@@ -28,6 +28,6 @@ export default function Home(){
         <ScrollToTopButton />
         <KontaktSidebar />
         <Footer />
-        </Filter>
+        </>
     )
 }   

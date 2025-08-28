@@ -302,3 +302,7 @@
 .locate-button {
   animation: pulse 1.5s infinite;
 }
+
+.opa{
+  opacity: .5;
+}

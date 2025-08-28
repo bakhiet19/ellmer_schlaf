@@ -9,11 +9,6 @@ import SearchButton from "./Components/Cart/Filter/FilterButton";
 
 const Example = () => {
 
-  function handleSearch(){
-    console.log('hello');
-  }
-
-
 
   return (
     <div className="flex flex-col justify-center lg:justify-end items-center w-full h-screen p-2 sm:p-4 example ">
@@ -21,7 +16,7 @@ const Example = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-6 logoBGWhite rounded-2xl shadow-xl space-y-4"
+        className="w-full max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-6 logoBGWhite rounded-2xl shadow-xl space-y-4 opa"
       >
 
         <div className="w-full">

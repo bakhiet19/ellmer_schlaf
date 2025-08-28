@@ -18,7 +18,7 @@ import APARTMENTS from './apartments';
 
 const PLACEHOLDER_IMG = 'https://placehold.co/320x160?text=Apartment';
 
-// أيقونة مع سعر جميل وخلفية دائرة مظللة
+// أيقونة مع السعر
 const createPriceIcon = (price) =>
   L.divIcon({
     html: ReactDOMServer.renderToString(
@@ -60,14 +60,14 @@ function LocateUserButton({ setUserLocation }) {
   const map = useMap();
 
   const handleClick = () => {
-    if (!navigator.geolocation) return alert('Geolocation not supported');
+    if (!navigator.geolocation) return alert('Geolocation wird nicht unterstützt');
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const { latitude, longitude } = pos.coords;
         setUserLocation([latitude, longitude]);
         map.flyTo([latitude, longitude], 13, { animate: true });
       },
-      () => alert('Unable to retrieve location')
+      () => alert('Standort konnte nicht ermittelt werden')
     );
   };
 
@@ -94,7 +94,17 @@ function MapContent({
   userLocation,
   setUserLocation,
   darkMode,
+  zoomEnabled,
+  setZoomEnabled,
 }) {
+  const map = useMap();
+
+  // تابع لتفعيل الزووم عند الضغط على Overlay
+  const enableZoom = () => {
+    map.scrollWheelZoom.enable();
+    setZoomEnabled(true);
+  };
+
   return (
     <>
       <MapClickHandler onMapClick={() => setSelectedApartment(null)} />
@@ -155,6 +165,18 @@ function MapContent({
       )}
 
       <LocateUserButton setUserLocation={setUserLocation} />
+
+      {/* Overlay واضح مع زر لتفعيل الزووم */}
+      {!zoomEnabled && (
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-sm flex items-center justify-center z-[999]">
+          <button
+            className="logoBG text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:bg-blue-700 transition text-lg"
+            onClick={enableZoom}
+          >
+            🔓 Zoom aktivieren
+          </button>
+        </div>
+      )}
     </>
   );
 }
@@ -164,34 +186,34 @@ const ApartmentMap = () => {
   const [userLocation, setUserLocation] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const [zoomEnabled, setZoomEnabled] = useState(false);
   const mapCenter = [53.5, 10.0];
 
   return (
     <>
-      {/* زر Fullscreen */}
-     <div className='relative bg-gray-100'>
-       <button
-        onClick={() => setIsFullScreen(!isFullScreen)}
-        className="absolute top-20 left-3 z-10 bg-white p-2 rounded-lg shadow-lg hover:bg-gray-100 cursor-pointer"
-      >
-        {isFullScreen ? <FaCompress /> : <FaExpand />}
-      </button>
+      {/* أزرار التحكم */}
+      <div className='relative bg-gray-100'>
+        <button
+          onClick={() => setIsFullScreen(!isFullScreen)}
+          className="absolute top-20 left-3 z-10 bg-white p-2 rounded-lg shadow-lg hover:bg-gray-100 cursor-pointer"
+        >
+          {isFullScreen ? <FaCompress /> : <FaExpand />}
+        </button>
 
-      {/* زر Dark/Light Mode */}
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="absolute  top-30 left-3 z-10 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 cursor-pointer transition-all duration-300"
-      >
-        {darkMode ? <FaMoon className="text-gray-800 w-5 h-5 animate-fadeIn" /> : <FaSun className="text-yellow-500 w-5 h-5 animate-fadeIn" />}
-      </button>
-     </div>
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className="absolute top-32 left-3 z-10 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 cursor-pointer transition-all duration-300"
+        >
+          {darkMode ? <FaMoon className="text-gray-800 w-5 h-5 animate-fadeIn" /> : <FaSun className="text-yellow-500 w-5 h-5 animate-fadeIn" />}
+        </button>
+      </div>
 
       {/* الخريطة */}
       <div className={`${isFullScreen ? 'fixed top-0 left-0 w-full h-full z-[1000]' : 'relative w-full h-full z-0'}`}>
         <MapContainer
           center={mapCenter}
           zoom={6}
-          scrollWheelZoom={true}
+          scrollWheelZoom={false}   // افتراضياً معطّل
           className="h-full w-full"
         >
           <MapContent
@@ -200,12 +222,13 @@ const ApartmentMap = () => {
             userLocation={userLocation}
             setUserLocation={setUserLocation}
             darkMode={darkMode}
+            zoomEnabled={zoomEnabled}
+            setZoomEnabled={setZoomEnabled}
           />
         </MapContainer>
       </div>
     </>
   );
 };
-
 
 export default ApartmentMap;

@@ -18,7 +18,8 @@ const SearchBox = ({ onSearch }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const wrapperRef = useRef(null);
    const{ filterData, setFilterData } = useContext(FilterContext)
-
+  console.log(`filter Data is ${filterData}`);
+  
 
      const ref = useRef(null)
       useEffect(() => {

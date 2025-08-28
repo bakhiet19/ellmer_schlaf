@@ -20,7 +20,7 @@ function DistanceFilter() {
         }}
         className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-400 appearance-none"
       >
-        <option value="alle">alle Distantz</option>
+        <option value="alle">Alle</option>
         <option value="2">Bis zu 2 km</option>
         <option value="5">Bis zu 5 km</option>
         <option value="10">Bis zu 10 km</option>
