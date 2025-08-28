@@ -7,7 +7,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import WohnungCart from "./WohnungCart";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-// الصور والبيانات الأساسية
 import wohnung1 from "../../assets/wohnung1.jpg";
 import wohnung2 from "../../assets/wohnung2.jpeg";
 import wohnung3 from "../../assets/wohnung3.jpeg";
