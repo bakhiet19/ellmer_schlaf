@@ -1,3 +1,4 @@
+import WohnungCart from "../Components/Cart/WohnungCart";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar/Navbar";
 import KontaktSidebar from "../Components/Sidebar";
@@ -9,6 +10,7 @@ const WohnungHome = () => {
     <Navbar />
     <WohnungDetails />
     <KontaktSidebar />
+    {/* <WohnungCart /> */}
     <Footer />
     </>
   );

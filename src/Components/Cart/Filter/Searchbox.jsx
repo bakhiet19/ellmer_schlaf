@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getAllApartment } from "../../../Services/api";
+import { FilterContext } from "../../../Hooks/FilterContext";
 
 const suggestions = [
   "Berlin", "Hamburg", "München", "Köln", "Frankfurt", "Stuttgart", "Düsseldorf",
@@ -16,6 +17,16 @@ const SearchBox = ({ onSearch }) => {
   const [query, setQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const wrapperRef = useRef(null);
+   const{ filterData, setFilterData } = useContext(FilterContext)
+
+
+     const ref = useRef(null)
+      useEffect(() => {
+    if (ref.current) {
+      ref.current.focus();
+    }
+  }, []);
+
 
   // فلترة live للـ suggestions
   const filteredSuggestions = suggestions.filter((city) =>
@@ -76,16 +87,20 @@ const SearchBox = ({ onSearch }) => {
     <div ref={wrapperRef} className="w-full mt-4 relative">
       <div className="relative min-w-0">
         <input
+          ref={ref}
+          name="stadt"
           type="text"
           placeholder="Stadt oder Adresse eingeben..."
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
             setShowSuggestions(true);
+            setFilterData({...filterData , [e.target.name] : e.target.value})
           }}
           onKeyDown={handleKeyDown}
-          className="w-full px-4 pr-10 py-3 border border-gray-300 rounded-md focus:outline-none"
+          className="w-full px-4 pr-10 py-3 border border-gray-300 rounded-md focus:outline-none focus:border-red-500"
           aria-label="Suchfeld"
+          required='this fild is required'
         />
 
         {query && (

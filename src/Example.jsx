@@ -6,15 +6,17 @@ import SearchBox from "./Components/Cart/Filter/Searchbox";
 import PropertyType from "./Components/Cart/PropertyType";
 import SearchButton from "./Components/Cart/Filter/FilterButton";
 
+
 const Example = () => {
 
   function handleSearch(){
     console.log('hello');
-    
   }
 
+
+
   return (
-    <div className="flex flex-col justify-center lg:justify-end items-center w-full h-screen p-2 sm:p-4 example">
+    <div className="flex flex-col justify-center lg:justify-end items-center w-full h-screen p-2 sm:p-4 example ">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -33,8 +35,8 @@ const Example = () => {
         </div>
 
        <div className="flex justify-center md:justify-center">
-      <SearchButton />
-     </div>
+        <SearchButton />
+        </div>
 
       </motion.div>
     </div>

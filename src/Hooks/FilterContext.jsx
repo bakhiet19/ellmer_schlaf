@@ -9,14 +9,15 @@ const FilterContext = createContext();
 const Filter = ({ children }) => {
 
   const [filterData, setFilterData] = useState({
-    stadt: "Alle Städte",
+    stadt : '',
+    distanz : 'alle',
     typ: "Alle Typen",
     anzahl: "Alle",
-    extra: [],
   });
 
   
-
+  console.log(filterData);
+  
   
   const city = filterData.stadt === "Alle Städte" ? undefined : filterData.stadt;
 

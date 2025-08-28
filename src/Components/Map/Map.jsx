@@ -12,37 +12,48 @@ import {
 } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import L from 'leaflet';
-import { FaHome, FaMoon, FaSun } from 'react-icons/fa'; // ✅ أيقونات الشمس والقمر
+import { FaHome, FaMoon, FaSun, FaExpand, FaCompress } from 'react-icons/fa';
 import ReactDOMServer from 'react-dom/server';
 import APARTMENTS from './apartments';
 
 const PLACEHOLDER_IMG = 'https://placehold.co/320x160?text=Apartment';
 
-/**
- * ✅ أيقونة محسّنة للمباني
- */
-const createIcon = (color, size = 34) =>
+// أيقونة مع سعر جميل وخلفية دائرة مظللة
+const createPriceIcon = (price) =>
   L.divIcon({
     html: ReactDOMServer.renderToString(
-      <div
-        style={{
-          backgroundColor: color,
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{
+          backgroundColor: '#f97316',
+          color: 'white',
+          fontWeight: 'bold',
+          fontSize: '12px',
+          padding: '3px 6px',
+          borderRadius: '6px',
+          marginBottom: 4,
+          boxShadow: '0 2px 4px rgba(0,0,0,0.3)',
+          whiteSpace: 'nowrap'
+        }}>
+          €{price}
+        </div>
+        <div style={{
+          backgroundColor: '#2563eb',
+          width: 36,
+          height: 36,
           borderRadius: '50%',
-          width: size,
-          height: size,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 2px 6px rgba(0,0,0,0.3)',
-        }}
-      >
-        <FaHome style={{ color: 'white', fontSize: size * 0.55 }} />
+          boxShadow: '0 3px 6px rgba(0,0,0,0.4)'
+        }}>
+          <FaHome color="white" size={18} />
+        </div>
       </div>
     ),
     className: '',
-    iconSize: [size, size],
-    iconAnchor: [size / 2, size],
-    popupAnchor: [0, -size + 4],
+    iconSize: [40, 50],
+    iconAnchor: [20, 50],
+    popupAnchor: [0, -55],
   });
 
 function LocateUserButton({ setUserLocation }) {
@@ -63,21 +74,11 @@ function LocateUserButton({ setUserLocation }) {
   return (
     <button
       onClick={handleClick}
-      className="locate-button absolute top-4 right-4 z-[999] bg-white p-2 rounded-lg shadow-lg hover:bg-gray-100 cursor-pointer"
+      className="absolute top-4 right-4 z-[999] bg-white p-2 rounded-lg shadow-lg hover:bg-gray-100 cursor-pointer"
     >
       📍 Mein Standort
     </button>
   );
-}
-
-function ZoomToSelected({ position }) {
-  const map = useMap();
-  useEffect(() => {
-    if (position) {
-      map.setView(position, 14, { animate: true });
-    }
-  }, [position, map]);
-  return null;
 }
 
 function MapClickHandler({ onMapClick }) {
@@ -98,7 +99,6 @@ function MapContent({
     <>
       <MapClickHandler onMapClick={() => setSelectedApartment(null)} />
 
-      {/* ✅ Dark / Light Mode Tile */}
       {darkMode ? (
         <TileLayer
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
@@ -114,41 +114,29 @@ function MapContent({
 
       <MarkerClusterGroup>
         {APARTMENTS.map((apt) => {
-          const isSelected = selectedApartment?.id === apt.id;
           const position = [apt.lat, apt.lng];
 
           return (
             <Marker
               key={apt.id}
               position={position}
-              icon={createIcon(isSelected ? '#dc2626' : '#2563eb', isSelected ? 38 : 30)}
-              zIndexOffset={isSelected ? 1000 : 0}
+              icon={createPriceIcon(apt.price)}
               eventHandlers={{
                 click: () => setSelectedApartment(apt),
-                popupclose: () => {
-                  if (selectedApartment?.id === apt.id) {
-                    setSelectedApartment(null);
-                  }
-                },
               }}
             >
-              {isSelected && <ZoomToSelected position={position} />}
               <Popup>
                 <div className="w-44 animate-fadeIn">
                   <img
                     src={apt.image || PLACEHOLDER_IMG}
                     alt={apt.name}
-                    className="w-full h-20 object-cover rounded-md mb-1"
-                    onError={(e) => {
-                      e.currentTarget.src = PLACEHOLDER_IMG;
-                    }}
+                    className="w-full h-24 object-cover rounded-xl shadow-md mb-2"
+                    onError={(e) => { e.currentTarget.src = PLACEHOLDER_IMG; }}
                   />
                   <div className="text-xs space-y-1">
                     <p className="font-semibold">{apt.name}</p>
                     <p className="text-gray-600">🏙️ {apt.city}</p>
-                    <p>
-                      🛏️ {apt.rooms} | 💶 {apt.price}€
-                    </p>
+                    <p>🛏️ {apt.rooms}</p>
                     <button className="mt-1 w-full logoBG text-white rounded-md text-xs py-1 hoverLogoWhite">
                       Details
                     </button>
@@ -161,7 +149,7 @@ function MapContent({
       </MarkerClusterGroup>
 
       {userLocation && (
-        <Marker position={userLocation} icon={createIcon('#16a34a')}>
+        <Marker position={userLocation} icon={createPriceIcon('Du')}>
           <Popup>Du bist hier!</Popup>
         </Marker>
       )}
@@ -174,39 +162,50 @@ function MapContent({
 const ApartmentMap = () => {
   const [selectedApartment, setSelectedApartment] = useState(null);
   const [userLocation, setUserLocation] = useState(null);
-  const [darkMode, setDarkMode] = useState(false); // ✅ وضع ليلي
+  const [darkMode, setDarkMode] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const mapCenter = [53.5, 10.0];
 
   return (
-    <div className="relative w-full h-full z-0">
-      {/* ✅ زر تبديل Light/Dark Mode بأيقونة */}
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="absolute top-20 left-2 z-[999] bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 cursor-pointer transition-all duration-300"
+    <>
+      {/* زر Fullscreen */}
+     <div className='relative bg-gray-100'>
+       <button
+        onClick={() => setIsFullScreen(!isFullScreen)}
+        className="absolute top-20 left-3 z-10 bg-white p-2 rounded-lg shadow-lg hover:bg-gray-100 cursor-pointer"
       >
-        {darkMode ? (
-          <FaMoon className="text-gray-800 w-5 h-5 animate-fadeIn" />
-        ) : (
-          <FaSun className="text-yellow-500 w-5 h-5 animate-fadeIn" />
-        )}
+        {isFullScreen ? <FaCompress /> : <FaExpand />}
       </button>
 
-      <MapContainer
-        center={mapCenter}
-        zoom={6}
-        scrollWheelZoom={true}
-        className="h-full w-full"
+      {/* زر Dark/Light Mode */}
+      <button
+        onClick={() => setDarkMode(!darkMode)}
+        className="absolute  top-30 left-3 z-10 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 cursor-pointer transition-all duration-300"
       >
-        <MapContent
-          selectedApartment={selectedApartment}
-          setSelectedApartment={setSelectedApartment}
-          userLocation={userLocation}
-          setUserLocation={setUserLocation}
-          darkMode={darkMode}
-        />
-      </MapContainer>
-    </div>
+        {darkMode ? <FaMoon className="text-gray-800 w-5 h-5 animate-fadeIn" /> : <FaSun className="text-yellow-500 w-5 h-5 animate-fadeIn" />}
+      </button>
+     </div>
+
+      {/* الخريطة */}
+      <div className={`${isFullScreen ? 'fixed top-0 left-0 w-full h-full z-[1000]' : 'relative w-full h-full z-0'}`}>
+        <MapContainer
+          center={mapCenter}
+          zoom={6}
+          scrollWheelZoom={true}
+          className="h-full w-full"
+        >
+          <MapContent
+            selectedApartment={selectedApartment}
+            setSelectedApartment={setSelectedApartment}
+            userLocation={userLocation}
+            setUserLocation={setUserLocation}
+            darkMode={darkMode}
+          />
+        </MapContainer>
+      </div>
+    </>
   );
 };
+
 
 export default ApartmentMap;

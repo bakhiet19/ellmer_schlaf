@@ -5,11 +5,12 @@ import Footer from "../Components/Footer";
 import Carts from "../Components/Cart/Carts";
 import ScrollToTopButton from "../Components/ScrollToTopButton";
 
-import Hero from "../Components/Hero/Hero";
 import { Filter } from "../Hooks/FilterContext";
 import KontaktSection from "../Components/ContaktForm";
 import KontaktSidebar from "../Components/Sidebar";
 import Example from "../Example";
+import Fragen from "../Mieter/Fragen";
+import VermieterSection from "../Vermeiter/Vermiter";
 
 
 export default function Home(){
@@ -20,6 +21,8 @@ export default function Home(){
         <Example />
         <Carts /> 
         <UberUns  />
+        <VermieterSection />
+        <Fragen />
         <Kunden />      
         <KontaktSection />     
         <ScrollToTopButton />

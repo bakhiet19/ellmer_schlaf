@@ -89,26 +89,11 @@ export default function Carts() {
     <div className="bg-gray-50 py-8 sm:pb-12 lg:pb-16 px-4 max-w-full mx-auto">
       {/* فلترة + خريطة */}
 
-{/* 
-      <div className="flex flex-col md:flex-row mx-auto mb-10 p-1 md:p-6 bg-gray-50 rounded-xl shadow gap-6">
-      <div className="w-full md:w-1/3 space-y-6 min-h-[65vh]">
-       <FilterSection />
-      </div>
-    <div className="w-full md:w-2/3 flex">
-    <div className="w-full h-[65vh] md:h-full">
-      <ApartmentMap />
-    </div>
-  </div>
-      </div> */}
-
       <div className="flex justify-center mx-auto mb-10 p-1 md:p-6 bg-gray-50 rounded-xl shadow w-full h-[80vh]">
       <div className="w-full h-full">
       <ApartmentMap />
       </div>
       </div>
-
-
-
 
       {/* القوائم حسب المنطقة */}
       <div className="space-y-16">
@@ -175,3 +160,15 @@ export default function Carts() {
     </div>
   );
 }
+
+{/* 
+      <div className="flex flex-col md:flex-row mx-auto mb-10 p-1 md:p-6 bg-gray-50 rounded-xl shadow gap-6">
+      <div className="w-full md:w-1/3 space-y-6 min-h-[65vh]">
+       <FilterSection />
+      </div>
+    <div className="w-full md:w-2/3 flex">
+    <div className="w-full h-[65vh] md:h-full">
+      <ApartmentMap />
+    </div>
+  </div>
+      </div> */}
