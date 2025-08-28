@@ -20,7 +20,7 @@ export default function PropertyType() {
   const { filterData, setFilterData } = useContext(FilterContext);
 
   return (
-    <div className="mb-4 w-full">
+    <div className="mb-2 w-full">
   <label className="block text-sm font-medium text-gray-700 mb-1">🏠 Typ</label>
   <div className="relative">
     <select

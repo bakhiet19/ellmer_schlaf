@@ -1,14 +1,13 @@
-
-const FilterButton = () => {
-
+const SearchButton = () => {
   return (
-    <div>
-  <button
-    className="w-full px-6 py-3 border-2 font-bold cursor-pointer rounded-xl transition duration-300 ease-in-out logoTextWhite logoBG hoverLogoMehr items-center">
-    Filtern
-  </button>
-</div>
+    <button
+     
+      className={`w-full sm:w-auto px-6 py-3 font-bold rounded-xl transition duration-300
+         ease-in-out logoTextWhite logoBG hoverLogoMehr bg-gray-200 text-gray-500 cursor-pointer`}
+    >
+      🔍 Suchen
+    </button>
   );
 };
 
-export default FilterButton;
+export default SearchButton;

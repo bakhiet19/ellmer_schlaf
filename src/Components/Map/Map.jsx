@@ -182,7 +182,7 @@ const ApartmentMap = () => {
       {/* ✅ زر تبديل Light/Dark Mode بأيقونة */}
       <button
         onClick={() => setDarkMode(!darkMode)}
-        className="absolute top-20 left-4 z-[999] bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 cursor-pointer transition-all duration-300"
+        className="absolute top-20 left-2 z-[999] bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 cursor-pointer transition-all duration-300"
       >
         {darkMode ? (
           <FaMoon className="text-gray-800 w-5 h-5 animate-fadeIn" />
