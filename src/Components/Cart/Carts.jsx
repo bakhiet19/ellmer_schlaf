@@ -106,7 +106,12 @@ export default function Carts() {
             <div key={idx}>
               {/* العنوان + الأزرار */}
             <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold logoText px-8"> <NavLink to={`/${region.title}`}>{region.title}</NavLink> </h2>
+          <h2 className="text-md font-bold px-8 py-2 text-white logoBG rounded-2xl flex items-center gap-2">
+  <NavLink to={`/${region.title}`} className="flex items-center gap-2">
+    {region.title}
+    <FaArrowRight />
+  </NavLink>
+</h2>
 
             <div className="flex gap-2">
               <button

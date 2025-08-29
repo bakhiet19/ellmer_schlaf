@@ -1,4 +1,5 @@
 import { FaWifi, FaBed, FaBath, FaMapMarkerAlt } from "react-icons/fa";
+import ShareMenu from "./ShareMenu";
 
 const Beschreibung = () => {
   return (
@@ -32,6 +33,7 @@ const Beschreibung = () => {
           <FaMapMarkerAlt className="text-red-500 text-xl" />
           <span className="font-semibold">Hamburg</span>
         </div>
+        <ShareMenu />
       </div>
     </div>
   );

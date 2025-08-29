@@ -35,13 +35,13 @@ export default function HotelGallery() {
   };
 
   return (
-    <div className="px-4 py-10 space-y-10">
+    <div className="px-8 py-10 space-y-10">
       {/* الصورة الكبيرة */}
       <div className="relative rounded-2xl overflow-hidden shadow-2xl">
         <img
           src={IMAGES[mainIndex].src}
           alt="Hauptbild"
-          className="w-full h-[600px] object-cover transition-all duration-500"
+          className="w-full h-[400px] sm:h-[600px] object-cover transition-all duration-500 "
         />
         <div className="absolute inset-0 bg-black/10 flex items-center justify-center text-white text-xl font-semibold">
           {/* {IMAGES[mainIndex].desc} */}
