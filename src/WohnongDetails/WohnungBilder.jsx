@@ -7,37 +7,44 @@ import img5 from "../assets/wohnung6.jpeg";
 
 import { FaWifi, FaBed, FaBroom, FaSun, FaBath } from "react-icons/fa";
 
-const IMAGES = [img1, img2, img3, img4, img5];
+const IMAGES = [
+  { src: img1, desc: "Gemütliches Schlafzimmer mit Doppelbett" },
+  { src: img2, desc: "Modernes Badezimmer mit Dusche" },
+  { src: img3, desc: "Voll ausgestattete Küche" },
+  { src: img4, desc: "Helles Wohnzimmer mit Balkonzugang" },
+  { src: img5, desc: "Tägliche Reinigung inklusive" },
+];
 
 export default function HotelGallery() {
-  const [mainIndex, setMainIndex] = useState(0); // الصورة الكبيرة تتغير تلقائيًا
-  const [selectedIndex, setSelectedIndex] = useState(null); // للتكبير عند الضغط
+  const [mainIndex, setMainIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
-  // تغيير الصورة الكبيرة تلقائيًا كل 3 ثواني
   useEffect(() => {
     const interval = setInterval(() => {
       setMainIndex((prev) => (prev + 1) % IMAGES.length);
-    }, 3000); // كل 3 ثواني
-
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
+  const handlePrev = () => {
+    setSelectedIndex((prev) => (prev - 1 + IMAGES.length) % IMAGES.length);
+  };
+
+  const handleNext = () => {
+    setSelectedIndex((prev) => (prev + 1) % IMAGES.length);
+  };
+
   return (
-    <div className="max-w-full mx-auto px-4 py-10 space-y-10">
-      {/* الصورة الكبيرة مع Overlay */}
+    <div className="px-4 py-10 space-y-10">
+      {/* الصورة الكبيرة */}
       <div className="relative rounded-2xl overflow-hidden shadow-2xl">
         <img
-          src={IMAGES[mainIndex]}
+          src={IMAGES[mainIndex].src}
           alt="Hauptbild"
-          className="w-full h-[500px] object-cover transition-all duration-500"
+          className="w-full h-[600px] object-cover transition-all duration-500"
         />
-        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold logoTextWhite drop-shadow-lg">
-            Luxuriöses Apartment im Herzen von Hamburg
-          </h2>
-          <button className="px-6 py-3 logoBG hoverLogoMehr transition rounded-lg shadow-lg font-semibold logoTextWhite cursor-pointer">
-            Jetzt buchen
-          </button>
+        <div className="absolute inset-0 bg-black/10 flex items-center justify-center text-white text-xl font-semibold">
+          {/* {IMAGES[mainIndex].desc} */}
         </div>
       </div>
 
@@ -49,7 +56,7 @@ export default function HotelGallery() {
             className="rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
           >
             <img
-              src={img}
+              src={img.src}
               alt={`Room ${idx}`}
               className="w-full h-[180px] object-cover"
               onClick={() => setSelectedIndex(idx)}
@@ -82,7 +89,7 @@ export default function HotelGallery() {
         </div>
       </div>
 
-      {/* Modal لتكبير الصورة عند الضغط على أي صورة مصغرة */}
+      {/* Modal مع أسهم ووصف */}
       {selectedIndex !== null && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
           <button
@@ -91,11 +98,34 @@ export default function HotelGallery() {
           >
             ×
           </button>
-          <img
-            src={IMAGES[selectedIndex]}
-            alt={`Zoomed ${selectedIndex}`}
-            className="max-w-[90%] max-h-[90%] rounded-2xl shadow-2xl transition-transform duration-500 scale-100 hover:scale-105"
-          />
+
+          {/* زر السابق */}
+          <button
+            className="absolute left-6 text-white text-4xl font-bold hover:text-gray-300"
+            onClick={handlePrev}
+          >
+            ‹
+          </button>
+
+          {/* الصورة المكبرة */}
+          <div className="relative text-center">
+            <img
+              src={IMAGES[selectedIndex].src}
+              alt={`Zoomed ${selectedIndex}`}
+              className="max-w-[90vw] max-h-[80vh] rounded-2xl shadow-2xl transition-transform duration-500 scale-100 hover:scale-105"
+            />
+            <p className="mt-4 text-white text-lg font-medium">
+              {IMAGES[selectedIndex].desc}
+            </p>
+          </div>
+
+          {/* زر التالي */}
+          <button
+            className="absolute right-6 text-white text-4xl font-bold hover:text-gray-300"
+            onClick={handleNext}
+          >
+            ›
+          </button>
         </div>
       )}
     </div>

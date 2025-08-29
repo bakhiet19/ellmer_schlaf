@@ -247,7 +247,7 @@ export default function QuestionStep({ className }) {
           type="button"
           onClick={onBack}
           disabled={step === 0}
-          className="flex items-center gap-2 px-5 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition disabled:opacity-50"
+          className="flex items-center gap-2 sm:px-6 sm:py-3 px-1 py-1 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition disabled:opacity-50"
         >
           <FaArrowLeft /> Vorherige Frage
         </button>
@@ -256,7 +256,7 @@ export default function QuestionStep({ className }) {
           <button
             type="button"
             onClick={onNext}
-            className="flex items-center gap-2 px-5 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition"
+            className="flex items-center gap-2 sm:px-6 sm:py-3 px-1 py-1 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition"
           >
             Nächste Frage <FaArrowRight />
           </button>
@@ -374,7 +374,7 @@ export default function QuestionStep({ className }) {
         <button
           type="submit"
           disabled={mutation.isLoading}
-          className={`px-6 py-3 rounded-lg font-medium transition ${
+          className={`sm:px-6 sm:py-3 px-1 py-1 rounded-lg font-medium transition ${
             mutation.isLoading
               ? "bg-rose-300 cursor-not-allowed text-white"
               : "bg-rose-500 hover:bg-rose-600 text-white"

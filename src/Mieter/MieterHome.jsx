@@ -11,7 +11,7 @@ const MieterHome = () => {
     <>
     <Navbar />
     {/* <Hero /> */}
-    <Example />
+   <Example />
    <SingleQuestion className="mieter mt-8 w-full md:w-[70vw] mx-auto" />
    <KontaktSidebar />
     <Fragen />

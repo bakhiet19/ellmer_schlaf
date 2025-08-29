@@ -9,9 +9,8 @@ const WohnungHome = () => {
   return (
     <>
     <Navbar />
-    <WohnungDetails />
     <KontaktSidebar />
-    {/* <WohnungCart /> */}
+    <WohnungDetails />
     <SimilarWohnungen />
     <Footer />
     </>
