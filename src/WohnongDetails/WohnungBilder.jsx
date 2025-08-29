@@ -32,10 +32,10 @@ export default function HotelGallery() {
           className="w-full h-[500px] object-cover transition-all duration-500"
         />
         <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg">
+          <h2 className="text-3xl md:text-4xl font-bold logoTextWhite drop-shadow-lg">
             Luxuriöses Apartment im Herzen von Hamburg
           </h2>
-          <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 transition rounded-lg shadow-lg font-semibold text-white">
+          <button className="px-6 py-3 logoBG hoverLogoMehr transition rounded-lg shadow-lg font-semibold logoTextWhite cursor-pointer">
             Jetzt buchen
           </button>
         </div>
@@ -61,23 +61,23 @@ export default function HotelGallery() {
       {/* أيقونات المزايا */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
         <div className="flex flex-col items-center space-y-2 hover:scale-110 transition">
-          <FaBed className="text-3xl text-indigo-600" />
+          <FaBed className="text-3xl logoText" />
           <span className="text-sm font-medium text-gray-700">Doppelbett</span>
         </div>
         <div className="flex flex-col items-center space-y-2 hover:scale-110 transition">
-          <FaBath className="text-3xl text-indigo-600" />
+          <FaBath className="text-3xl logoText" />
           <span className="text-sm font-medium text-gray-700">Eigenes Bad</span>
         </div>
         <div className="flex flex-col items-center space-y-2 hover:scale-110 transition">
-          <FaWifi className="text-3xl text-indigo-600" />
+          <FaWifi className="text-3xl logoText" />
           <span className="text-sm font-medium text-gray-700">Gratis WLAN</span>
         </div>
         <div className="flex flex-col items-center space-y-2 hover:scale-110 transition">
-          <FaSun className="text-3xl text-indigo-600" />
+          <FaSun className="text-3xl logoText" />
           <span className="text-sm font-medium text-gray-700">Balkon</span>
         </div>
         <div className="flex flex-col items-center space-y-2 hover:scale-110 transition">
-          <FaBroom className="text-3xl text-indigo-600" />
+          <FaBroom className="text-3xl logoText" />
           <span className="text-sm font-medium text-gray-700">Tägliche Reinigung</span>
         </div>
       </div>

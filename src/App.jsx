@@ -8,6 +8,10 @@ import VermieterHome from "./Vermeiter/VermieterHome";
 import WohnungHome from "./WohnongDetails/WohnungHome";
 import NotFound from "./Pages/NotFound";
 import { Filter } from "./Hooks/FilterContext";
+import Norddeutschland from './Pages/Norddeutschland'
+import Suddeutschland from './Pages/Suddeutschland'
+import Westdeutschland from "./Pages/West";
+import Ostdeutschland from "./Pages/Ostdeutschland";
 
 const queryClient = new QueryClient();
 export default function App() {
@@ -34,6 +38,10 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/mieter" element={<MieterHome />} />
         <Route path="/vermieter" element={<VermieterHome />} />
+        <Route element={<Norddeutschland />} path="/norddeutschland" />
+        <Route element={<Suddeutschland />} path="/süddeutschland" />
+        <Route element={<Westdeutschland />} path="westdeutschland" />
+        <Route element={<Ostdeutschland />} path="ostdeutschland" />
         <Route path="/details" element={<WohnungHome />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

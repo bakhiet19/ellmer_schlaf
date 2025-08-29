@@ -12,6 +12,7 @@ import wohnung2 from "../../assets/wohnung2.jpeg";
 import wohnung3 from "../../assets/wohnung3.jpeg";
 import wohnung4 from "../../assets/wohnung4.jpg";
 import hero from "../../assets/hero.jpg";
+import { NavLink } from "react-router-dom";
 
 const baseWohnungen = [
   {
@@ -105,25 +106,25 @@ export default function Carts() {
             <div key={idx}>
               {/* العنوان + الأزرار */}
             <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold logoText px-8">{region.title}</h2>
+            <h2 className="text-2xl font-bold logoText px-8"> <NavLink to={`/${region.title}`}>{region.title}</NavLink> </h2>
 
-  <div className="flex gap-2">
-    <button
-      ref={(el) => (prevRefs.current[idx] = el)}
-      className="bg-white shadow-md hoverLogoMehr hover:text-white transition text-gray-800 p-3 rounded-full flex items-center justify-center cursor-pointer"
-      aria-label={`prev-${idx}`}
-    >
-      <FaArrowLeft className="w-4 h-4" />
-    </button>
+            <div className="flex gap-2">
+              <button
+                ref={(el) => (prevRefs.current[idx] = el)}
+                className="bg-white shadow-md hoverLogoMehr hover:text-white transition text-gray-800 p-3 rounded-full flex items-center justify-center cursor-pointer"
+                aria-label={`prev-${idx}`}
+              >
+                <FaArrowLeft className="w-4 h-4" />
+              </button>
 
-    <button
-      ref={(el) => (nextRefs.current[idx] = el)}
-      className="bg-white shadow-md hoverLogoMehr hover:text-white transition text-gray-800 p-3 rounded-full flex items-center justify-center cursor-pointer"
-      aria-label={`next-${idx}`}
-    >
-      <FaArrowRight className="w-4 h-4" />
-    </button>
-  </div>
+              <button
+                ref={(el) => (nextRefs.current[idx] = el)}
+                className="bg-white shadow-md hoverLogoMehr hover:text-white transition text-gray-800 p-3 rounded-full flex items-center justify-center cursor-pointer"
+                aria-label={`next-${idx}`}
+              >
+                <FaArrowRight className="w-4 h-4" />
+              </button>
+            </div>
             </div>
 
               {/* Swiper — نربط الأزرار عبر onBeforeInit */}

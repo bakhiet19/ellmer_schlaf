@@ -1,5 +1,6 @@
 import { FaUsers, FaSearch, FaHome } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 
 const features = [
   {
@@ -57,13 +58,12 @@ const HeroSection = ({ handleClick }) => {
 
         {/* الزر */}
         <motion.button
-          onClick={handleClick}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="logoBGWhite logoText font-semibold px-8 py-3 rounded-lg shadow-lg nurHover transition cursor-pointer 
                      hover:bg-blue-100 active:shadow-inner duration-300 ease-in-out animate-pulse"
         >
-          Unterkunft eintragen
+         <NavLink to='/vermieter'> Unterkunft eintragen</NavLink>
         </motion.button>
       </div>
     </motion.section>
