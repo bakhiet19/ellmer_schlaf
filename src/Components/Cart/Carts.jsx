@@ -18,42 +18,42 @@ const baseWohnungen = [
   {
     img: [wohnung1, wohnung2],
     title: "Wohnung",
-    price: "€1,200 / Monat",
+    price: "ab €25 pro Nacht",
     location: "Hamburg, Deutschland",
     features: { wifi: true, bath: true, balcony: true, parking: true },
   },
   {
     img: [wohnung2, wohnung3],
     title: "Wohnung",
-    price: "€950 / Monat",
+    price: "ab €32 pro Nacht",
     location: "Lübeck, Deutschland",
     features: { wifi: true, bath: true, balcony: false, parking: true },
   },
   {
     img: [wohnung3, wohnung4],
     title: "Wohnung",
-    price: "€1,050 / Monat",
+    price: "ab €28 pro Nacht",
     location: "Kiel, Deutschland",
     features: { wifi: true, bath: true, balcony: true, parking: false },
   },
   {
     img: [wohnung4, hero],
     title: "Wohnung",
-    price: "€1,200 / Monat",
+    price: "ab €30 pro Nacht",
     location: "München, Deutschland",
     features: { wifi: true, bath: false, balcony: true, parking: true },
   },
   {
     img: [hero, wohnung2],
     title: "Wohnung",
-    price: "€950 / Monat",
+    price: "ab €27 pro Nacht",
     location: "Berlin, Deutschland",
     features: { wifi: false, bath: true, balcony: true, parking: true },
   },
   {
     img: [wohnung1, wohnung3],
     title: "Wohnung",
-    price: "€1,200 / Monat",
+    price: "ab €29 pro Nacht",
     location: "Köln, Deutschland",
     features: { wifi: true, bath: true, balcony: false, parking: true },
   },
@@ -107,11 +107,11 @@ export default function Carts() {
               {/* العنوان + الأزرار */}
             <div className="flex items-center justify-between mb-6">
           <h2 className="text-md font-bold px-8 py-2 text-white logoBG rounded-2xl flex items-center gap-2">
-  <NavLink to={`/${region.title}`} className="flex items-center gap-2">
-    {region.title}
-    <FaArrowRight />
-  </NavLink>
-</h2>
+          <NavLink to={`/${region.title}`} className="flex items-center gap-2">
+          {region.title}
+          <FaArrowRight />
+           </NavLink>
+          </h2>
 
             <div className="flex gap-2">
               <button
@@ -148,7 +148,8 @@ export default function Carts() {
                   320: { slidesPerView: 1 },
                   640: { slidesPerView: 2 },
                   1024: { slidesPerView: 3 },
-                  1280: { slidesPerView: 5 },
+                  1280: { slidesPerView: 4 },
+                  1600: { slidesPerView: 5 },
                 }}
               >
                 {regionItems.map((wohnung, i) => (

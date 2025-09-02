@@ -9,12 +9,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import Api, { angebot } from "../Services/api";
 
 const Questions = [
-  { key: "name", question: "Was ist Ihr Name?", type: "text", placeholder: "z. B. John Doe" },
+  { key: "name", question: "Wie ist Ihr Name?", type: "text", placeholder: "z. B. John Doe" },
   { key: "firmaName", question: "Wie lautet der Name Ihrer Firma?", type: "text", placeholder: "z. B. Ellmer GmbH" },
   { key: "phone", question: "Wie lautet Ihre Telefonnummer?", type: "text", placeholder: "z. B. +49 152 1234567" },
   { key: "email", question: "Wie lautet Ihre E-Mail?", type: "email", placeholder: "z. B. ell@gmail.com" },
   { key: "city", question: "In welcher Stadt möchten Sie buchen?", type: "text", placeholder: "z. B. Hamburg" },
-  { key: "peopleCount", question: "Wie viele Personen reisen?", type: "number", placeholder: "z. B. 3" },
+  { key: "peopleCount", question: "Für wie viele Personen suchen Sie?", type: "number", placeholder: "z. B. 3" },
   { key: "checkIn", question: "Wann möchten Sie einchecken?", type: "date" },
   { key: "checkOut", question: "Wann möchten Sie auschecken?", type: "date" },
   { key: "budget", question: "Welches Budget pro Nacht haben Sie geplant?", type: "number", placeholder: "z. B. 80" },
@@ -116,7 +116,8 @@ export default function QuestionStep({ className }) {
   {/* العنوان */}
   <div className="text-center mb-8">
     <h2 className="text-2xl sm:text-2xl font-bold logoText leading-tight">
-      Unterkunft für Ihr Team – schnell & individuell
+      Finden Sie in wenigen Schritten die perfekte Unterkunft (für Ihr Team)
+
     </h2>
     <p className="text-gray-600 mt-2 text-sm sm:text-base">
       Beantworten Sie ein paar Fragen und erhalten Sie ein passendes Angebot.

@@ -1,5 +1,6 @@
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import ellmer from '../assets/ellmer.png';
+import { NavLink } from 'react-router-dom';
 
 
 export default function Footer(){
@@ -13,8 +14,8 @@ export default function Footer(){
       <div>
         <h4 className="text-white text-lg font-bold mb-6 tracking-wide">Information</h4>
         <ul className="space-y-3">
-          <li><a href="#uberuns" className="hover:text-yellow-300 transition-colors duration-200">Über uns</a></li>
-          <li><a href="#contact" className="hover:text-yellow-300 transition-colors duration-200">Kontakt</a></li>
+          <li><NavLink to='/about' className="hover:text-yellow-300 transition-colors duration-200">Über uns</NavLink></li>
+          <li><NavLink to="/impressum" className="hover:text-yellow-300 transition-colors duration-200">Impressum</NavLink></li>
           <li><a href="/privacy" className="hover:text-yellow-300 transition-colors duration-200">Datenschutz</a></li>
           <li><a href="/terms" className="hover:text-yellow-300 transition-colors duration-200">AGB</a></li>
         </ul>
@@ -24,10 +25,10 @@ export default function Footer(){
       <div>
         <h4 className="text-white text-lg font-bold mb-6 tracking-wide">Regionen</h4>
         <ul className="space-y-3">
-          <li><a href="/norddeutschland" className="hover:text-yellow-300 transition-colors duration-200">Norddeutschland</a></li>
-          <li><a href="/süddeutschland" className="hover:text-yellow-300 transition-colors duration-200">Süddeutschland</a></li>
-          <li><a href="/westdeutschland" className="hover:text-yellow-300 transition-colors duration-200">Westdeutschland</a></li>
-          <li><a href="/ostdeutschland" className="hover:text-yellow-300 transition-colors duration-200">Ostdeutschland</a></li>
+          <li><NavLink to="/norddeutschland" className="hover:text-yellow-300 transition-colors duration-200">Norddeutschland</NavLink></li>
+          <li><NavLink to="/süddeutschland" className="hover:text-yellow-300 transition-colors duration-200">Süddeutschland</NavLink></li>
+          <li><NavLink to="/westdeutschland" className="hover:text-yellow-300 transition-colors duration-200">Westdeutschland</NavLink></li>
+          <li><NavLink to="/ostdeutschland" className="hover:text-yellow-300 transition-colors duration-200">Ostdeutschland</NavLink></li>
         </ul>
       </div>
 

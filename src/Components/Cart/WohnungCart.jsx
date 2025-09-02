@@ -93,12 +93,12 @@ function WohnungCart({ wohnung }) {
         </div>
 
         {/* الأزرار */}
-       <div className="flex justify-between mt-6">
-  <Button styles="logoBG text-[10px] px-4 py-2 sm:text-sm md:px-4 md:py-2 rounded-lg hover:bg-indigo-700 transition cursor-pointer logoTextWhite">
+       <div className="flex justify-between mt-6 gap-2">
+  <Button styles="logoBG text-[14px] px-2 py-1 rounded-md hover:bg-indigo-700 transition duration-200 ease-in-out cursor-pointer logoTextWhite">
     Details ansehen
   </Button>
-  <Button styles="bg-indigo-800 text-[10px] px-4 py-2 sm:text-sm md:px-4 md:py-2 rounded-lg transition cursor-pointer logoTextWhite">
-    Angebot anfordern
+  <Button styles="bg-indigo-800 text-[14px] px-3 py-2 rounded-md transition duration-200 ease-in-out cursor-pointer logoTextWhite">
+    unverbindlich anfragen
   </Button>
 </div>
       </div>

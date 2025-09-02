@@ -1,24 +1,25 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
-import { ToastBar, Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import './i18n'
 import MieterHome from "./Mieter/MieterHome";
 import VermieterHome from "./Vermeiter/VermieterHome";
 import WohnungHome from "./WohnongDetails/WohnungHome";
 import NotFound from "./Pages/NotFound";
-import { Filter } from "./Hooks/FilterContext";
 import Norddeutschland from './Pages/Norddeutschland'
 import Suddeutschland from './Pages/Suddeutschland'
 import Westdeutschland from "./Pages/West";
 import Ostdeutschland from "./Pages/Ostdeutschland";
+import About from "./Pages/About";
+import Impressum from './Pages/Impressum';
+
 
 const queryClient = new QueryClient();
 export default function App() {
   return (
    <BrowserRouter>
   <QueryClientProvider client={queryClient}>
-    <Filter>
       <Toaster
         position="top-center"
         toastOptions={{
@@ -43,9 +44,10 @@ export default function App() {
         <Route element={<Westdeutschland />} path="westdeutschland" />
         <Route element={<Ostdeutschland />} path="ostdeutschland" />
         <Route path="/details" element={<WohnungHome />} />
+        <Route element={<About />} path="/about" />
+        <Route element={<Impressum />} path="/impressum" />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </Filter>
   </QueryClientProvider>
 </BrowserRouter>
 

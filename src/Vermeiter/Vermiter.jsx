@@ -6,17 +6,17 @@ const features = [
   {
     icon: FaUsers,
     title: "Hohe Auslastung",
-    description: "Profitieren Sie von einer guten Auslastung, auch in der Nebensaison.",
+    description: "Wir sorgen für hohe Auslastungsraten – auch in der Nebensaison.",
   },
   {
     icon: FaSearch,
-    title: "Tausende Suchende",
-    description: "Monatlich erreichen Sie zahlreiche potenzielle Gäste.",
+    title: "Tausende Suchanfragen",
+    description: "Profitieren Sie von unserer Reichweite und Sichtbarkeit.",
   },
   {
     icon: FaHome,
-    title: "Optimale Präsentation",
-    description: "Ihre Unterkunft wird ansprechend und professionell dargestellt.",
+    title: "Professionelle Präsentation",
+    description: "Ihre Unterkunft wird optimal und ansprechend dargestellt.",
   },
 ];
 
@@ -26,16 +26,19 @@ const HeroSection = ({ handleClick }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="logoBG text-white py-16 px-6 md:px-12"
+      className="logoBG logoTextWhite py-16 px-6 md:px-12"
     >
       <div className="max-w-6xl mx-auto text-center">
         {/* العنوان */}
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          Haben Sie eine Unterkunft und möchten sie vermieten?
+          Sie möchten Ihre Unterkunft unkompliziert vermieten?
         </h2>
-        <p className="text-lg text-gray-300 mb-12">
-          Tragen Sie Ihre Unterkunft bei uns ein und erreichen Sie jeden Monat
-          tausende Suchende – mit einer attraktiven und professionellen Präsentation.
+
+        {/* النص الفرعي مع كسر الأسطر */}
+        <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+          Listen Sie Ihre Unterkunft noch heute bei <span className="font-semibold">ELLMER rooms</span> <br />
+          und profitieren Sie von tausenden Suchanfragen täglich – <br />
+          einfach, unkompliziert und professionell.
         </p>
 
         {/* المميزات */}
@@ -46,11 +49,11 @@ const HeroSection = ({ handleClick }) => {
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.05 }}
-                className="flex flex-col items-center transition-transform duration-300"
+                className="flex flex-col items-center text-center transition-transform duration-300"
               >
-                <Icon className="logoTextWhite text-5xl mb-4 transition-transform duration-300 hover:scale-110" />
-                <h3 className="font-semibold text-xl">{feature.title}</h3>
-                <p className="text-gray-400 mt-2">{feature.description}</p>
+                <Icon className="logoTextWhite text-5xl mb-4 hover:scale-110 transition-transform duration-300" />
+                <h3 className="font-semibold text-xl mb-2">{feature.title}</h3>
+                <p className="text-gray-400">{feature.description}</p>
               </motion.div>
             );
           })}
@@ -63,7 +66,7 @@ const HeroSection = ({ handleClick }) => {
           className="logoBGWhite logoText font-semibold px-8 py-3 rounded-lg shadow-lg nurHover transition cursor-pointer 
                      hover:bg-blue-100 active:shadow-inner duration-300 ease-in-out animate-pulse"
         >
-         <NavLink to='/vermieter'> Unterkunft eintragen</NavLink>
+          <NavLink to="/vermieter">Unterkunft eintragen</NavLink>
         </motion.button>
       </div>
     </motion.section>

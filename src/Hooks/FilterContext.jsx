@@ -13,6 +13,9 @@ const Filter = ({ children }) => {
     distanz : 'alle',
     typ: "Alle Typen",
     anzahl: "Alle",
+    checkIn : '',
+    checkOut : "",
+    features : [],
   });
 
   

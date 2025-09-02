@@ -6,23 +6,25 @@ import ResetFilters from "./ResetFilters";
 import SearchBox from "./Searchbox";
 import FilterButton from "./FilterButton";
 import DistanceFilter from "./Distanz";
+import Reise from "./Reise";
 
 export default function FilterSection() {
   return (
  <div className="mx-auto px-3 py-3 space-y-3 logoBGWhite rounded-2xl shadow-xl p-1 pb-8 lg:px-8 w-full h-[100%]">
   <SearchBox />
-  {/* <Cities /> */}
-
   <div className="grid grid-cols-1 items-center max-w-[100%] mt-4 mb-2 gap-1">
     <DistanceFilter />
     <PropertyType />
     <RoomFilter />
+   
   </div>
 
   <div className="w-full flex flex-col md:flex-row items-center mt-2 mb-2 gap-4">
     <FeaturesFilter /> 
   </div>
 
+  
+    <Reise />
   <FilterButton /> 
   <ResetFilters />
 </div>

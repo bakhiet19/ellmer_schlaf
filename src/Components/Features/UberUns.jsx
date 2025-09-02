@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Head from "../Head";
 import team from '../../assets/team.jpg'
+import { NavLink } from "react-router-dom";
 
 export default function UberUns() {
   const { t } = useTranslation();
@@ -22,14 +23,14 @@ export default function UberUns() {
 
         {/* النص */}
         <div>
-          <Head className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-rose-500 mb-4">
+          <Head className="text-transparent bg-clip-text logoBG mb-4">
             {t("about_us.title")}
           </Head>
           <p className="text-lg text-gray-700 mb-6">
             {t("about_us.description_extended")}
           </p>
-          <button className="px-6 py-3 bg-red-600 text-white rounded-xl shadow hover:bg-red-700 transition cursor-pointer">
-           Erfahren mehr ...
+          <button className="px-6 py-3 logoBG logoTextWhite rounded-xl shadow hoverLogoMehr transition cursor-pointer">
+              <NavLink to='/about'>  Erfahren mehr ...</NavLink>
           </button>
         </div>
       </div>

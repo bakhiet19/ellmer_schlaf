@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getAllApartment } from "../../../Services/api";
-import { FilterContext } from "../../../Hooks/FilterContext";
+import { FaSearch } from "react-icons/fa";
+import { Controller, useFormContext } from "react-hook-form";
 
 const suggestions = [
   "Berlin", "Hamburg", "München", "Köln", "Frankfurt", "Stuttgart", "Düsseldorf",
@@ -14,58 +15,22 @@ const suggestions = [
 ];
 
 const SearchBox = ({ onSearch }) => {
-  const [query, setQuery] = useState("");
+  const { control } = useFormContext(); // نستخدم RHF context
   const [showSuggestions, setShowSuggestions] = useState(false);
   const wrapperRef = useRef(null);
-   const{ filterData, setFilterData } = useContext(FilterContext)
-  console.log(`filter Data is ${filterData}`);
-  
 
-     const ref = useRef(null)
-      useEffect(() => {
-    if (ref.current) {
-      ref.current.focus();
-    }
-  }, []);
-
-
-  // فلترة live للـ suggestions
-  const filteredSuggestions = suggestions.filter((city) =>
-    city.toLowerCase().includes(query.toLowerCase())
-  );
-
+  // React Query
   const { data, refetch } = useQuery({
-    queryKey: ["apartments", query],
-    queryFn: ({ queryKey }) => {
-      const [_key, city] = queryKey;
-      return getAllApartment("/appartements/", { city });
-    },
+    queryKey: ["apartments"],
+    queryFn: () => getAllApartment("/appartements/"),
     enabled: false, // نتحكم بالـ fetch يدوي
   });
 
-  const handleSearch = () => {
-    if (query.trim() === "") {
-      getAllApartment("/appartements/").then((res) => {
-        if (onSearch) onSearch(res);
-      });
-      setShowSuggestions(false);
-      return;
+  useEffect(() => {
+    if (onSearch && data) {
+      onSearch(data);
     }
-    refetch();
-    setShowSuggestions(false);
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleSearch();
-    }
-  };
-
-  const handleSelectCity = (city) => {
-    setQuery(city);
-    setShowSuggestions(false);
-    refetch();
-  };
+  }, [data, onSearch]);
 
   // إغلاق القائمة إذا كبس برا
   useEffect(() => {
@@ -78,61 +43,88 @@ const SearchBox = ({ onSearch }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  useEffect(() => {
-    if (onSearch && data) {
-      onSearch(data);
-    }
-  }, [data, onSearch]);
-
   return (
     <div ref={wrapperRef} className="w-full mt-4 relative">
       <div className="relative min-w-0">
-        <input
-          ref={ref}
-          name="stadt"
-          type="text"
-          placeholder="Stadt oder Adresse eingeben..."
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setShowSuggestions(true);
-            setFilterData({...filterData , [e.target.name] : e.target.value})
+        <label className="flex items-center gap-2 mb-1">
+          <FaSearch className="logoText" /> 
+          Finde Deine nächste Unterkunft in wenigen Minuten
+        </label>
+
+        {/* نربط RHF مع SearchBox عبر Controller */}
+        <Controller
+          name="search"
+          control={control}
+          rules={{ required: "Dieses Feld ist erforderlich" }}
+          render={({ field, fieldState }) => {
+            const filteredSuggestions = suggestions.filter((city) =>
+              city.toLowerCase().includes(field.value?.toLowerCase() || "")
+            );
+
+            const handleSelectCity = (city) => {
+              field.onChange(city);
+              setShowSuggestions(false);
+              refetch();
+            };
+
+            return (
+              <>
+                <input
+                  required
+                  {...field}
+                  type="text"
+                  placeholder="Stadt oder Adresse eingeben..."
+                  onChange={(e) => {
+                    field.onChange(e.target.value);
+                    setShowSuggestions(true);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      refetch();
+                    }
+                  }}
+                  className="w-full px-4 pr-10 py-3 border border-gray-300 rounded-md focus:outline-none focus:border-red-500"
+                  aria-label="Suchfeld"
+                />
+                {fieldState.error && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {fieldState.error.message}
+                  </p>
+                )}
+
+                {field.value && (
+                  <button
+                    type="button"
+                    onClick={() => field.onChange("")}
+                    className="absolute right-3 top-3/4 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    aria-label="Suchfeld löschen"
+                  >
+                    ✖
+                  </button>
+                )}
+
+                {/* Dropdown suggestions */}
+                {showSuggestions && field.value && (
+                  <ul className="absolute z-50 bg-white border border-gray-200 rounded-md mt-1 w-full max-h-60 overflow-y-auto shadow-lg">
+                    {filteredSuggestions.length > 0 ? (
+                      filteredSuggestions.map((city, index) => (
+                        <li
+                          key={index}
+                          onClick={() => handleSelectCity(city)}
+                          className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                        >
+                          {city}
+                        </li>
+                      ))
+                    ) : (
+                      <li className="px-4 py-2 text-gray-500">Keine Treffer</li>
+                    )}
+                  </ul>
+                )}
+              </>
+            );
           }}
-          onKeyDown={handleKeyDown}
-          className="w-full px-4 pr-10 py-3 border border-gray-300 rounded-md focus:outline-none focus:border-red-500"
-          aria-label="Suchfeld"
-          required='this fild is required'
         />
-
-        {query && (
-          <button
-            type="button"
-            onClick={() => setQuery("")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-            aria-label="Suchfeld löschen"
-          >
-            ✖
-          </button>
-        )}
-
-        {/* Dropdown suggestions */}
-        {showSuggestions && query && (
-          <ul className="absolute z-50 bg-white border border-gray-200 rounded-md mt-1 w-full max-h-60 overflow-y-auto shadow-lg">
-            {filteredSuggestions.length > 0 ? (
-              filteredSuggestions.map((city, index) => (
-                <li
-                  key={index}
-                  onClick={() => handleSelectCity(city)}
-                  className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                >
-                  {city}
-                </li>
-              ))
-            ) : (
-              <li className="px-4 py-2 text-gray-500">Keine Treffer</li>
-            )}
-          </ul>
-        )}
       </div>
     </div>
   );

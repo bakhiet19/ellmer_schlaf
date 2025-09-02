@@ -34,7 +34,7 @@ const createPriceIcon = (price) =>
           boxShadow: '0 2px 4px rgba(0,0,0,0.3)',
           whiteSpace: 'nowrap'
         }}>
-          €{price}
+         ab €{price}
         </div>
         <div style={{
           backgroundColor: '#2563eb',
