@@ -23,7 +23,6 @@ export default function Home(){
         <Example />
         <AccommodationPage />
         <Carts /> 
-        <HowItWorksSection />
         <UberUns  />
         <VermieterSection />
         <Fragen />

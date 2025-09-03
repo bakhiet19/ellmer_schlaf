@@ -25,7 +25,7 @@ const AccommodationPage = () => {
       </header>
 
       {/* Welcome & Introduction Section */}
-      <section className="py-12 md:py-16 px-4 md:px-6 mx-auto text-gray-700 leading-relaxed bg-white shadow-xl mt-[-40px] relative z-10">
+      <section className="py-12 md:py-16 px-4 md:px-20 mx-auto text-gray-700 leading-relaxed bg-white shadow-xl mt-[-40px] relative z-10">
         <div className="space-y-5 text-base sm:text-lg text-center">
           <p>Schön, dass Sie uns gefunden haben.</p>
           <p>
