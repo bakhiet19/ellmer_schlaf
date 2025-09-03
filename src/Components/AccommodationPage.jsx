@@ -59,7 +59,7 @@ const AccommodationPage = () => {
         <div className="mt-10 text-center">
           <NavLink
             to="/mieter"
-            className="inline-block logoBG logoTextWhite px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-md md:text-lg font-semibold shadow-lg hoverLogoMehr hover:scale-105 transition transform"
+            className="inline-block logoBG logoTextWhite px-6 sm:px-6 py-3 sm:py-3 rounded-full text-sm sm:text-md md:text-lg font-semibold shadow-lg hoverLogoMehr hover:scale-105 transition transform"
           >
             Unterkunft finden
           </NavLink>

@@ -60,13 +60,13 @@ export default function KontaktSidebar() {
           <h2 className="text-xl font-semibold text-gray-800">Kontaktmöglichkeiten</h2>
 
           <div className="space-y-4 text-gray-700">
-            <a href="tel:+49123456789" className="flex items-center gap-3 logoText transition">
+            <a href="tel:+49244241700" className="flex items-center gap-3 logoText transition">
               <FaPhoneAlt /> Telefonanruf
             </a>
-            <a href="https://wa.me/49123456789" target="_blank" className="flex items-center gap-3 logoText transition">
+            <a href="https://wa.me/0049244241700" target="_blank" className="flex items-center gap-3 logoText transition">
               <FaWhatsapp /> WhatsApp
             </a>
-            <a href="mailto:info@example.com" className="flex items-center gap-3 logoText transition">
+            <a href="info@ellmer-rooms.de" className="flex items-center gap-3 logoText transition">
               <FaEnvelope /> E-Mail
             </a>
             <a href="https://maps.google.com" target="_blank" className="flex items-center gap-3 logoText transition">

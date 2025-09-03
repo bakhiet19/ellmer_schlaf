@@ -37,7 +37,7 @@ export default function HowItWorksSection() {
           {steps.map((step, index) => (
             <div key={index} className="flex items-center relative">
               {/* عنصر الخطوة */}
-              <div className="group relative flex flex-col items-center text-center logoBG p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 min-w-[240px] pt-12">
+              <div className="shadow-2xl group relative flex flex-col items-center text-center logoBG p-6 rounded-2xl hover:shadow-xl transition-all duration-300 min-w-[240px] pt-12">
                 
                 {/* الأيقونة الطايرة فوق */}
                 <div className="absolute -top-6 flex items-center justify-center w-12 h-12 rounded-full bg-red-600 shadow-lg">

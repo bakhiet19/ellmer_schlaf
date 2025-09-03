@@ -231,11 +231,16 @@
 }
 
 .example{
-  background-image: url('./assets/wohnung4.jpg');
+  background-image: url('./assets/hero4.jpg');
   background-position: center;
   background-size: cover;
 
 }
+
+.leaflet-interactive:focus {
+  outline: none;
+}
+
 
 /* Animation للـ Popup */
 @keyframes fadeIn {
