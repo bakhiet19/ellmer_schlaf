@@ -2,20 +2,21 @@ import { NavLink } from "react-router-dom";
 import hero1 from '../assets/hero1.png'
 import Head from "../Components/Head";
 import Bubble from "./Bubble";
-const MieterSection = () => {
+const MieterSection = ({className}) => {
   return (
 
     
-     <div className="flex flex-col justify-around items-center logoBGWhite logoText p-5 sm:p-10 relative overflow-hidden">
+     <div className={`flex flex-col justify-around items-center logoBG logoText p-5 sm:p-10 relative overflow-hidden ${className}`}>
             <div className="text-center">
-              <Head className="animate-fade-in">
+              <Head className="animate-fade-in logoTextWhite">
                 Ich suche eine Wohnung
               </Head>
-              <p className="text-base sm:text-xl font-medium text-center mb-6 opacity-0 animate-fade-in delay-200">
+              <p className="text-base sm:text-xl font-medium text-center mb-6 opacity-0 animate-fade-in delay-200 logoTextWhite">
                 Entdecken Sie hochwertige möblierte Wohnungen.<br />
                 Finden Sie Ihr perfektes Zuhause – schnell und unkompliziert.
               </p>
-              <button className="mx-auto block  px-4 sm:px-12 py-2 sm:py-3 rounded-full font-bold transition mb-4 opacity-0 animate-fade-in delay-50 text-sm sm:text-base cursor-pointer borderRed hoverLogoWhite">
+              <button className="mx-auto block border border-white  px-4 sm:px-12 py-2 sm:py-3 rounded-full font-bold transition 
+              mb-4 opacity-0 animate-fade-in delay-50 text-sm sm:text-base cursor-pointer logoTextWhite">
                <NavLink to='/mieter'> {'Jetzt suchen'.toUpperCase()}</NavLink>
               </button>
             </div>

@@ -17,14 +17,14 @@ function WohnungCart({ wohnung }) {
       className="logoBGWhite rounded-2xl shadow-lg overflow-hidden hover:scale-[1.05] transition duration-300 relative hover:shadow-2xl"
     >
       {/* ♥️ أيقونة القلب */}
-      <div className="absolute top-4 right-4 z-10">
+      {/* <div className="absolute top-4 right-4 z-10">
         <button
           className="group logoBGWhite p-2 rounded-full shadow hover:shadow-md transition duration-300 cursor-pointer"
           aria-label="Favorit"
         >
           <FaHeart className="text-black group-hover:text-red-500 text-xl transition duration-300 group-active:scale-110" />
         </button>
-      </div>
+      </div> */}
 
       {/* 🖼️ الصورة الرئيسية */}
       <img
@@ -59,9 +59,9 @@ function WohnungCart({ wohnung }) {
   <span className="bg-indigo-100 text-indigo-800 text-xs font-medium px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
     {wohnung.price}
   </span>
-  <span className="bg-green-100 text-green-800 text-xs font-medium px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
+  {/* <span className="bg-green-100 text-green-800 text-xs font-medium px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
     {wohnung.location}
-  </span>
+  </span> */}
 </div>
 
         {/* ⭐ ميزات الشقة */}

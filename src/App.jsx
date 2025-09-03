@@ -13,6 +13,9 @@ import Westdeutschland from "./Pages/West";
 import Ostdeutschland from "./Pages/Ostdeutschland";
 import About from "./Pages/About";
 import Impressum from './Pages/Impressum';
+import Contact from "./Pages/Contact";
+import PhoneBranch from "./PhoneBranch";
+import Datenschutz from "./Pages/Datenschutz";
 
 
 const queryClient = new QueryClient();
@@ -46,6 +49,9 @@ export default function App() {
         <Route path="/details" element={<WohnungHome />} />
         <Route element={<About />} path="/about" />
         <Route element={<Impressum />} path="/impressum" />
+        <Route element={<Contact />} path="/contact" />
+        <Route element={<PhoneBranch />} path="/phone" />
+        <Route element={<Datenschutz />} path="/datenschutz" />
         <Route path="*" element={<NotFound />} />
       </Routes>
   </QueryClientProvider>

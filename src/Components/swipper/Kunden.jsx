@@ -34,6 +34,24 @@ const testimonials = [
     image:
       "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&h=200&w=200",
   },
+  {
+    name: "Jonas Becker",
+    arbeit: "Consultant from Italy",
+    message:
+      "I appreciated the flexibility and quick response from the airB2B team. My temporary stay in Düsseldorf felt like home.",
+    stars: 4,
+    image:
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&h=200&w=200",
+  },
+  {
+    name: "Sofia Klein",
+    arbeit: "UX Designer from Netherlands",
+    message:
+      "The apartment was stylish, clean, and close to everything. I’ll definitely use airB2B again for future projects.",
+    stars: 5,
+    image:
+      "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&h=200&w=200",
+  },
 ];
 
 export default function Kunden() {
@@ -54,43 +72,38 @@ export default function Kunden() {
           modules={[Navigation, Pagination]}
           spaceBetween={30}
           slidesPerView={1}
-          navigation
+          navigation={true}
           pagination={{ clickable: true }}
           breakpoints={{
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
+          
           }}
           className="pb-10"
         >
           {testimonials.map((kunde, index) => (
             <SwiperSlide key={index}>
               <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition p-8 h-full flex flex-col items-center text-center">
-                {/* صورة البروفايل */}
                 <img
                   src={kunde.image}
                   alt={kunde.name}
                   className="w-20 h-20 rounded-full object-cover mb-4 shadow-md"
                 />
-                {/* الاسم + العمل */}
                 <h4 className="font-semibold text-gray-900 text-lg">{kunde.name}</h4>
                 <p className="text-sm text-gray-500 mb-3">{kunde.arbeit}</p>
 
-                {/* النجوم */}
                 <div className="flex justify-center mb-4">
                   {[...Array(5)].map((_, i) => (
                     <FaStar
                       key={i}
                       className={`h-5 w-5 ${
-                        i < (kunde.stars || 5)
-                          ? "text-yellow-400"
-                          : "text-gray-300"
+                        i < (kunde.stars || 5) ? "text-yellow-400" : "text-gray-300"
                       }`}
                     />
                   ))}
                 </div>
 
-                {/* الرسالة */}
                 <p className="text-gray-700 italic leading-relaxed">
                   “{kunde.message}”
                 </p>

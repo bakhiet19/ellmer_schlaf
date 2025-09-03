@@ -8,14 +8,16 @@ import VermieterSection from "./VermieterSection";
 import Vermieter from "./Vermiter";
 
 const VermieterHome = () => {
+
+
   return (
     <>
         <Navbar />
-        {/* <Hero /> */}
-        <Example />
+        <Hero />
+        {/* <Example /> */}
         <Fragen />
         <Vermieter />
-        
+          
         <VermieterArticles />
         <Footer />
         </>

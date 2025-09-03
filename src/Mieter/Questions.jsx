@@ -221,7 +221,7 @@ export default function QuestionStep({ className }) {
             </span>
           </label>
           {errors.agb && (
-            <p className="text-sm text-red-500">{errors.agb.message}</p>
+            <p className="text-sm logoText">{errors.agb.message}</p>
           )}
 
           <label className="flex items-start gap-3 text-gray-700">
@@ -235,7 +235,7 @@ export default function QuestionStep({ className }) {
             </span>
           </label>
           {errors.datenschutz && (
-            <p className="text-sm text-red-500">
+            <p className="text-sm logoText">
               {errors.datenschutz.message}
             </p>
           )}
@@ -257,7 +257,7 @@ export default function QuestionStep({ className }) {
           <button
             type="button"
             onClick={onNext}
-            className="flex items-center gap-2 sm:px-6 sm:py-3 px-1 py-1 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition"
+            className="flex items-center gap-2 sm:px-6 sm:py-3 px-1 py-1 logoBG hover:bg-rose-600 logoTextWhite rounded-lg transition cursor-pointer"
           >
             Nächste Frage <FaArrowRight />
           </button>
@@ -268,7 +268,7 @@ export default function QuestionStep({ className }) {
               const isValid = await trigger();
               if (isValid) setShowFullForm(true);
             }}
-            className="flex items-center gap-2 px-5 py-2 bg-rose-500 hover:bg-red-600 text-white rounded-lg transition"
+            className="flex items-center gap-2 px-5 py-2 logoBG hover:bg-red-600 logoTextWhite hoverLogoMehr rounded-lg transition"
           >
             Alle Angaben prüfen <FaArrowRight />
           </button>

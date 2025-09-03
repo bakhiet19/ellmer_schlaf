@@ -9,20 +9,20 @@ const FirmenInfo = () => {
     },
     {
       label: "Adresse",
-      value: "Ellmer Schlaf GmbH, Musterstraße 12, 20095 Hamburg",
-      link: "https://www.google.com/maps?q=Ellmer+Schlaf+GmbH,+Musterstraße+12,+20095+Hamburg,+Deutschland",
+      value: "Ellmer Group Deutschland GmbH Gerhofstraße 18, 20354 Hamburg",
+      link: "https://www.google.com/maps?q=Ellmer+Schlaf+GmbH,+Gerhofstraße+18,+20354+Hamburg,+Deutschland",
       icon: <FaMapMarkerAlt className="text-gray-700" />,
     },
     {
       label: "Telefon",
-      value: "+49 40 123456789",
+      value: "+49 (0)40 244241700",
       link: "tel:+4940123456789",
       icon: <FaPhoneAlt className="text-gray-700" />,
     },
     {
       label: "E-Mail",
-      value: "kontakt@ellmer-schlaf.de",
-      link: "mailto:kontakt@ellmer-schlaf.de",
+      value: "info@ellmer-rooms.de",
+      link: "info@ellmer-rooms.de",
       icon: <FaEnvelope className="text-gray-700" />,
     },
     {

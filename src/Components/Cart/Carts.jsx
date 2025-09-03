@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import FilterSection from "./Filter/FiltersSection";
 import ApartmentMap from "../Map/Map";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -103,10 +102,10 @@ export default function Carts() {
           const regionItems = makeRegionItems(region.title, 30);
 
           return (
-            <div key={idx}>
+            <div key={idx} className="ca">
               {/* العنوان + الأزرار */}
             <div className="flex items-center justify-between mb-6">
-          <h2 className="text-md font-bold px-8 py-2 text-white logoBG rounded-2xl flex items-center gap-2">
+          <h2 className="text-md font-bold px-8 py-2 logoTextWhite logoBG hoverLogoMehr rounded-2xl flex items-center gap-2">
           <NavLink to={`/${region.title}`} className="flex items-center gap-2">
           {region.title}
           <FaArrowRight />

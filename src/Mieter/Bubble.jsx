@@ -5,7 +5,8 @@ const Bubble = ({children , className}) => {
         animation: 'bubbleFloat 3s ease-in-out infinite',
         animationDelay: '0.1s'
       }}
-     className={`absolute px-2 sm:px-3 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs shadow-lg transition-transform duration-300 hidden lg:block bubble-anim borderRed logoBG  ${className}`} >
+     className={`absolute px-2 sm:px-3 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs shadow-lg transition-transform
+      duration-300 hidden lg:block bubble-anim logoBG border border-white  ${className}`} >
                {children}
               </div>
   );

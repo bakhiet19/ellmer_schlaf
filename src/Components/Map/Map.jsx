@@ -170,7 +170,7 @@ function MapContent({
       {!zoomEnabled && (
         <div className="absolute inset-0 bg-white/70 backdrop-blur-sm flex items-center justify-center z-[999]">
           <button
-            className="logoBG text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:bg-blue-700 transition text-lg"
+            className="logoBG logoTextWhite font-semibold px-6 py-3 rounded-3xl shadow-lg hoverLogoMehr transition text-lg cursor-pointer"
             onClick={enableZoom}
           >
             🔓 Zoom aktivieren

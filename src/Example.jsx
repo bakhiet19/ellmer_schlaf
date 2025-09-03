@@ -10,7 +10,8 @@ import Reise from "./Components/Cart/Filter/Reise";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { getAllApartment } from "./Services/api";
-import { FaArrowUp } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
+
 
 const Example = () => {
   const methods = useForm({
@@ -24,6 +25,9 @@ const Example = () => {
       features: []
     }
   });
+  const location = useLocation().pathname.includes('mieter');
+  console.log(location);
+  
 
   const [submittedData, setSubmittedData] = useState(null);
   const [mehrFilter , setMehrFilter] = useState(false)  
@@ -73,6 +77,8 @@ const Example = () => {
             <SearchButton />
           </div>
         </FormProvider>
+
+        
       </motion.form>
 
       {/* نعرض نتيجة الـ API */}

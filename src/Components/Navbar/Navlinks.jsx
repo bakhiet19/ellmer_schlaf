@@ -12,7 +12,7 @@ export default function Navlinks() {
     { label: "Startseite", url: "/#" },
     { label: t("nav.findApartment"), url: "/mieter" },
     { label: t("nav.listProperty"), url: "/vermieter" },
-    { label: "Details", url: "/details" },
+    { label: "Kontakt", url: "/contact" },
   ];
 
   useEffect(() => {

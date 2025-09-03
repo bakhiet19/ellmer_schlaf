@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Button from "../Components/Button";
 
 const faqs = [
@@ -48,7 +49,7 @@ export default function Fragen() {
     Kein Problem – unser Support-Team hilft Ihnen gerne weiter.
   </p>
   <button className="mt-2 px-6 py-2 logoBG logoTextWhite rounded hoverLogoMehr transition cursor-pointer">
-          Kontak Aufnehmen
+         <NavLink to='contact'> Kontak Aufnehmen</NavLink>
         </button>
 </div>
 

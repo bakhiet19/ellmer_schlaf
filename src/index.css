@@ -222,8 +222,8 @@
   max-width: 100%;
 }
 
-.swiper-button-prev,.swiper-button-next{
-  display: none !important;
+.ca .swiper-button-prev, .ca .swiper-button-next{
+  display: none;
 }
 
 .example{
