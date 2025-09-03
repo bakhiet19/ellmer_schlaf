@@ -27,7 +27,7 @@ const FirmenInfo = () => {
     },
     {
       label: "Öffnungszeiten",
-      value: "Montag – Freitag, 09:00 – 17:00 Uhr",
+      value: "Montag – Freitag, 09:00 – 18:00 Uhr",
       icon: <FaClock className="text-gray-700" />,
     },
   ];
