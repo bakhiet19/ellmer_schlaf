@@ -6,7 +6,7 @@ const MieterSection = ({className}) => {
   return (
 
     
-     <div className={`flex flex-col justify-around items-center logoBG logoText p-5 sm:p-10 relative overflow-hidden ${className}`}>
+     <div className={`flex flex-col justify-around items-center logoBG logoText p-5 sm:p-10 relative overflow-hidden  ${className}`}>
             <div className="text-center">
               <Head className="animate-fade-in logoTextWhite">
                 Ich suche eine Wohnung
@@ -16,7 +16,7 @@ const MieterSection = ({className}) => {
                 Finden Sie Ihr perfektes Zuhause – schnell und unkompliziert.
               </p>
               <button className="mx-auto block border border-white  px-4 sm:px-12 py-2 sm:py-3 rounded-full font-bold transition 
-              mb-4 opacity-0 animate-fade-in delay-50 text-sm sm:text-base cursor-pointer logoTextWhite">
+              mb-4 opacity-0 animate-fade-in delay-50 text-sm sm:text-base cursor-pointer logoTextWhite hoverLogoRed">
                <NavLink to='/mieter'> {'Jetzt suchen'.toUpperCase()}</NavLink>
               </button>
             </div>
