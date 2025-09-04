@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Button from "../Components/Button";
+import Head from "../Components/Head";
 
 const faqs = [
   {
@@ -27,7 +27,7 @@ const faqs = [
 export default function Fragen() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
-      <h2 className="text-2xl font-bold my-4 text-center logoText">Häufig gestellte Fragen</h2>
+      <Head className="text-2xl font-bold my-4 text-center logoText">Häufig gestellte Fragen</Head>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <details key={index} className="logoBGWhite border border-gray-200 rounded-md p-4 shadow-sm">

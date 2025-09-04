@@ -90,7 +90,7 @@ export default function Kunden() {
                   alt={kunde.name}
                   className="w-20 h-20 rounded-full object-cover mb-4 shadow-md"
                 />
-                <h4 className="font-semibold text-gray-900 text-lg">{kunde.name}</h4>
+                <h4 className="font-semibold logoText text-lg">{kunde.name}</h4>
                 <p className="text-sm text-gray-500 mb-3">{kunde.arbeit}</p>
 
                 <div className="flex justify-center mb-4">
@@ -98,7 +98,7 @@ export default function Kunden() {
                     <FaStar
                       key={i}
                       className={`h-5 w-5 ${
-                        i < (kunde.stars || 5) ? "text-yellow-400" : "text-gray-300"
+                        i < (kunde.stars || 5) ? "logoText" : "text-gray-300"
                       }`}
                     />
                   ))}

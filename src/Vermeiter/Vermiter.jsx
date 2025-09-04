@@ -20,7 +20,7 @@ const features = [
   },
 ];
 
-const HeroSection = ({ handleClick }) => {
+const HeroSection = () => {
 
   const loc = useLocation().pathname
 

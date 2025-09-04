@@ -11,8 +11,7 @@ import Fragen from "../Mieter/Fragen";
 import VermieterSection from "../Vermeiter/Vermiter";
 import AccommodationPage from "../Components/AccommodationPage";
 import FeaturesSection from "../Components/FeaturesSection";
-import Hero from "../Components/Hero/Hero";
-import HowItWorksSection from "../Components/HowItWorksSection";
+
 
 
 export default function Home(){

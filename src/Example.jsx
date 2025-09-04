@@ -47,14 +47,14 @@ const Example = () => {
 
   return (
     <div className="flex flex-col justify-center lg:justify-end items-center w-full
-     h-full sm:h-screen p-4 bg-gradient-to-b from-white to-gray-50 relative example">
+     h-full sm:h-screen p-4 bg-gradient-to-b relative example">
       
       <motion.form
         onSubmit={methods.handleSubmit(onSubmit)}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-        className="w-full max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-6 logoBGWhite rounded-2xl shadow-xl space-y-4 mt-20"
+        className="w-full max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-6 logoBGWhite rounded-2xl shadow-xl space-y-4 mt-30 sm:mt-20 exampleForm"
       >
         {/* نغلف كل الفلاتر بـ FormProvider */}
         <FormProvider {...methods}>

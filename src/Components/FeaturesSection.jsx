@@ -30,7 +30,7 @@ const FeaturesSection = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
           {features.map((feature, index) => (
             <div key={index} className="flex flex-col items-center space-y-2">
-              <div className="bg-gray-100 p-4 rounded-full shadow-md">
+              <div className="logoBGWhite p-4 rounded-full shadow-md">
                 {feature.icon}
               </div>
               <p className="text-sm font-medium logoTextWhite">{feature.title}</p>

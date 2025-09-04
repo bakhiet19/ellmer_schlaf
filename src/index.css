@@ -231,11 +231,14 @@
 }
 
 .example{
-  background-image: url('./assets/hero4.jpg');
+  background-image: url('./assets/hero5.jpg');
   background-position: center;
   background-size: cover;
-
 }
+
+/* .exampleForm{
+  opacity: 0.5 !important;
+} */
 
 .leaflet-interactive:focus {
   outline: none;

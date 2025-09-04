@@ -1,106 +1,142 @@
-import { useState, useRef } from "react";
-import { FaHeart, FaWifi, FaBath, FaCar, FaUmbrellaBeach } from "react-icons/fa";
+import { useRef } from "react";
+import {
+  FaWifi,
+  FaBath,
+  FaCar,
+  FaUmbrellaBeach,
+  FaTv,
+  FaUtensils,
+  FaDog,
+  FaFire,
+  FaEye,
+  FaEnvelope,
+  FaChevronLeft,
+  FaChevronRight,
+} from "react-icons/fa";
 import Button from "../Button";
 import { motion, useInView } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 
 function WohnungCart({ wohnung }) {
-  const [currentImgIdx, setCurrentImgIdx] = useState(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  const swiperRef = useRef(null);
+
+  // إعداد الصور
+  const images =
+    wohnung.img.length >= 5
+      ? wohnung.img.slice(0, 5)
+      : [...wohnung.img, ...wohnung.img].slice(0, 5);
+
+  // الميزات
+  const allFeatures = [
+    wohnung.features?.wifi && { icon: <FaWifi className="text-indigo-600" />, label: "Wi-Fi" },
+    wohnung.features?.bath && { icon: <FaBath className="text-indigo-600" />, label: "Bad" },
+    wohnung.features?.balcony && { icon: <FaUmbrellaBeach className="text-indigo-600" />, label: "Balkon" },
+    wohnung.features?.parking && { icon: <FaCar className="text-indigo-600" />, label: "Parkplatz" },
+    { icon: <FaTv className="text-indigo-600" />, label: "TV" },
+    { icon: <FaUtensils className="text-indigo-600" />, label: "Küche" },
+    { icon: <FaDog className="text-indigo-600" />, label: "Haustiere erlaubt" },
+    { icon: <FaFire className="text-indigo-600" />, label: "Heizung" },
+  ].filter(Boolean);
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50, scale: 0.95 }}
+      initial={{ opacity: 0, y: 40, scale: 0.95 }}
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="logoBGWhite rounded-2xl shadow-lg overflow-hidden hover:scale-[1.05] transition duration-300 relative hover:shadow-2xl"
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:scale-[1.03] transition-all duration-300 relative"
     >
-      {/* ♥️ أيقونة القلب */}
-      {/* <div className="absolute top-4 right-4 z-10">
-        <button
-          className="group logoBGWhite p-2 rounded-full shadow hover:shadow-md transition duration-300 cursor-pointer"
-          aria-label="Favorit"
+      {/* 🖼️ صور الشقة بسلايدر */}
+      <div className="relative w-full h-52">
+        <Swiper
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          modules={[Navigation, Pagination, Autoplay, EffectFade]}
+          navigation={{
+            prevEl: null,
+            nextEl: null,
+          }}
+          pagination={{ clickable: true }}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          className="w-full h-52"
         >
-          <FaHeart className="text-black group-hover:text-red-500 text-xl transition duration-300 group-active:scale-110" />
+          {images.map((img, idx) => (
+            <SwiperSlide key={idx}>
+              <motion.img
+                src={img}
+                alt={`${wohnung.title}-${idx}`}
+                className="w-full h-52 object-cover"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* الأسهم داخل المربع */}
+        <button
+          onClick={() => swiperRef.current?.slidePrev()}
+          className="absolute top-1/2 left-2 -translate-y-1/2 z-10 logoTextWhite bg-black/30 p-2 rounded-full"
+        >
+          <FaChevronLeft />
         </button>
-      </div> */}
-
-      {/* 🖼️ الصورة الرئيسية */}
-      <img
-        src={wohnung.img[currentImgIdx]}
-        alt={wohnung.title}
-        className="cursor-pointer w-full h-48 object-cover transition-opacity duration-300"
-      />
-
-      {/* 🖼️ شريط الصور المصغرة */}
-      <div className="flex gap-2 px-4 py-2 overflow-x-auto">
-        {wohnung.img.map((img, idx) => (
-          <img
-            key={idx}
-            src={img}
-            alt={`thumb-${idx}`}
-            onClick={() => setCurrentImgIdx(idx)}
-            className={`w-16 h-16 object-cover rounded-lg cursor-pointer border-2 ${
-              currentImgIdx === idx ? "borderRed" : "border-transparent"
-            }`}
-          />
-        ))}
+        <button
+          onClick={() => swiperRef.current?.slideNext()}
+          className="absolute top-1/2 right-2 -translate-y-1/2 z-10 logoTextWhite bg-black/30 p-2 rounded-full"
+        >
+          <FaChevronRight />
+        </button>
       </div>
 
       {/* 📋 محتوى البطاقة */}
-      <div className="p-4">
-        <h3 className="text-lg font-semibold text-gray-800 mb-2">
+      <div className="p-5">
+        <h3 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-1">
           {wohnung.title}
         </h3>
 
-        {/* وسوم السعر والموقع */}
-        <div className="flex gap-2 mb-3">
-  <span className="bg-indigo-100 text-indigo-800 text-xs font-medium px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
-    {wohnung.price}
-  </span>
-  {/* <span className="bg-green-100 text-green-800 text-xs font-medium px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
-    {wohnung.location}
-  </span> */}
-</div>
+        {/* السعر */}
+        <div className="flex justify-start mb-4">
+          <span className="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full shadow-sm">
+            {wohnung.price}
+          </span>
+        </div>
 
-        {/* ⭐ ميزات الشقة */}
-        <div className="flex flex-wrap gap-3 mt-4 text-gray-600 text-sm">
-          {wohnung.features?.wifi && (
-            <div className="flex items-center gap-1">
-              <FaWifi className="logoText h-4 w-4" />
-              <span>Wi-Fi</span>
-            </div>
-          )}
-          {wohnung.features?.bath && (
-            <div className="flex items-center gap-1">
-              <FaBath className="logoText h-4 w-4" />
-              <span>Bad</span>
-            </div>
-          )}
-          {wohnung.features?.balcony && (
-            <div className="flex items-center gap-1">
-              <FaUmbrellaBeach className="logoText h-4 w-4" />
-              <span>Balkon</span>
-            </div>
-          )}
-          {wohnung.features?.parking && (
-            <div className="flex items-center gap-1">
-              <FaCar className="logoText h-4 w-4" />
-              <span>Parkplatz</span>
-            </div>
+        {/* ⭐ الميزات (محدودة بـ 3) */}
+        <div className="flex flex-wrap justify-start gap-2 mt-2 text-gray-700 text-sm">
+          {allFeatures.slice(0, 3).map((feat, idx) => (
+            <span
+              key={idx}
+              className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded-full"
+            >
+              {feat.icon} {feat.label}
+            </span>
+          ))}
+          {allFeatures.length > 3 && (
+            <span className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded-full">
+              +{allFeatures.length - 3}
+            </span>
           )}
         </div>
 
         {/* الأزرار */}
-       <div className="flex justify-between mt-6 gap-2">
-  <Button styles="logoBG text-[14px] px-2 py-1 rounded-md hover:bg-indigo-700 transition duration-200 ease-in-out cursor-pointer logoTextWhite">
-    Details ansehen
-  </Button>
-  <Button styles="bg-indigo-800 text-[14px] px-3 py-2 rounded-md transition duration-200 ease-in-out cursor-pointer logoTextWhite">
-    unverbindlich anfragen
-  </Button>
-</div>
+        <div className="flex justify-between mt-6 gap-3">
+          <Button styles="logoBG hoverLogoMehr text-sm px-4 py-2 rounded-full logoTextWhite flex items-center gap-2 transition cursor-pointer">
+            <FaEye /> Details
+          </Button>
+          <Button styles="bg-indigo-600 hover:bg-indigo-700 text-sm px-4 py-2 rounded-full logoTextWhite flex items-center gap-2 transition cursor-pointer">
+            <FaEnvelope /> Anfrage
+          </Button>
+        </div>
       </div>
     </motion.div>
   );
