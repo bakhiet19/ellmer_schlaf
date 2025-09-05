@@ -37,7 +37,7 @@ export default function Footer() {
             <h4 className="text-white text-lg font-bold mb-6 tracking-wide">Services</h4>
             <ul className="space-y-3">
               <li><NavLink to="/beratung" className="flex items-center gap-2 hover:text-yellow-300 transition-transform duration-300 hover:translate-x-1"><FaArrowRight /> Beratung</NavLink></li>
-              <li><NavLink to="/kontakt" className="flex items-center gap-2 hover:text-yellow-300 transition-transform duration-300 hover:translate-x-1"><FaArrowRight /> Kontakt</NavLink></li>
+              <li><NavLink to="/contact" className="flex items-center gap-2 hover:text-yellow-300 transition-transform duration-300 hover:translate-x-1"><FaArrowRight /> Kontakt</NavLink></li>
             </ul>
           </div>
 

@@ -1,90 +1,83 @@
 import { motion } from "framer-motion";
-import DistanceFilter from "./Components/Cart/Filter/Distanz";
-import RoomFilter from "./Components/Cart/Filter/RoomFilter";
-import SearchBox from "./Components/Cart/Filter/Searchbox";
-import PropertyType from "./Components/Cart/PropertyType";
-import SearchButton from "./Components/Cart/Filter/FilterButton";
-import FeaturesFilter from "./Components/Cart/Filter/FeaturesFilter";
 import { useForm, FormProvider } from "react-hook-form";
-import Reise from "./Components/Cart/Filter/Reise";
-import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
+import { useState } from "react";
 import { getAllApartment } from "./Services/api";
-import { useLocation } from "react-router-dom";
 
-
-const Example = () => {
+const HeroContactForm = () => {
   const methods = useForm({
     defaultValues: {
-      search: "",
-      distanz: "alle",
-      typ: "alle",
-      anzahl: "",
-      checkIn: "",
-      checkOut: "",
-      features: []
+      name: "",
+      phone: "",
+      location: ""
     }
   });
-  const location = useLocation().pathname.includes('mieter');
-  console.log(location);
-  
 
   const [submittedData, setSubmittedData] = useState(null);
-  const [mehrFilter , setMehrFilter] = useState(false)  
 
-  // Mutation بدل useQuery
-  const { mutate, data, isLoading, isError } = useMutation({
-    mutationFn: (filters) => getAllApartment("/appartement", filters),
+  const { mutate } = useMutation({
+    mutationFn: (data) => getAllApartment("/kontakt", data),
   });
 
   function onSubmit(formData) {
-    console.log("✅ Form Data: ", formData);
+    console.log("📩 Kontaktformular:", formData);
     setSubmittedData(formData);
-
-    // ننفذ الميوتاشن مع البيانات
     mutate(formData);
   }
 
   return (
-    <div className="flex flex-col justify-center lg:justify-end items-center w-full
-     h-full sm:h-screen p-4 bg-gradient-to-b relative example">
-      
-      <motion.form
-        onSubmit={methods.handleSubmit(onSubmit)}
-        initial={{ opacity: 0, y: 50 }}
+    <div
+      className="relative h-[100vh] max-w-[100vw] bg-cover bg-center flex items-center justify-center px-6 example"
+    >
+    <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-transparent"></div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-        className="w-full max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-6 logoBGWhite rounded-2xl shadow-xl space-y-4 mt-30 sm:mt-20 exampleForm"
+        className="relative z-10 w-full max-w-5xl mx-auto text-center"
       >
-        {/* نغلف كل الفلاتر بـ FormProvider */}
+        <h1 className="logoTextWhite text-3xl md:text-4xl font-bold mb-4">
+          Finden Sie die perfekte Unterkunft – wir melden uns persönlich!
+        </h1>
+        <p className="logoTextWhite text-lg mb-8">
+          Tragen Sie Ihre Daten ein und wir kontaktieren Sie mit passenden Angeboten.
+        </p>
+
         <FormProvider {...methods}>
-          <div className="w-full">
-            <SearchBox />
-          </div>
-
-          <div className="flex flex-col gap-2 sm:grid sm:grid-cols-2 md:grid-cols-3 sm:gap-4">
-            <DistanceFilter />
-            <PropertyType />
-            <RoomFilter />
-            
-
-          {mehrFilter &&  <> <Reise />
-            <FeaturesFilter /></> }
-
-          </div>
-          <p className="logoText cursor-pointer font-extrabold flex gap-1 items-center w-full" onClick={() => setMehrFilter(f => ! f)}> {mehrFilter === true ? 'Weniger Filter anzeigen' : `Mehr Filter anzeigen` }  </p>
-          <div className="flex justify-center">
-            <SearchButton />
-          </div>
+          <form
+            onSubmit={methods.handleSubmit(onSubmit)}
+            className="bg-white rounded-xl shadow-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl mx-auto"
+          >
+            <input
+              {...methods.register("name")}
+              type="text"
+              placeholder="Ihr Name"
+              className="border border-gray-300 rounded-md px-4 py-2 w-full"
+            />
+            <input
+              {...methods.register("phone")}
+              type="tel"
+              placeholder="Telefonnummer"
+              className="border border-gray-300 rounded-md px-4 py-2 w-full"
+            />
+            <input
+              {...methods.register("location")}
+              type="text"
+              placeholder="Ort oder Bundesland"
+              className="border border-gray-300 rounded-md px-4 py-2 w-full"
+            />
+            <button
+              type="submit"
+              className="md:col-span-3 bg-red-600 logoTextWhite py-2 rounded-md hover:bg-red-700 transition w-full cursor-pointer"
+            >
+              Jetzt Kontakt aufnehmen
+            </button>
+          </form>
         </FormProvider>
-
-        
-      </motion.form>
-
-      {/* نعرض نتيجة الـ API */}
-     
+      </motion.div>
     </div>
   );
 };
 
-export default Example;
+export default HeroContactForm;

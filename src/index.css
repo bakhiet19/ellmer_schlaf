@@ -231,9 +231,8 @@
 }
 
 .example{
-  background-image: url('./assets/hero5.jpg');
-  background-position: center;
-  background-size: cover;
+  background-image: url('./assets/hero3.jpg') !important;
+  background-position: top;
 }
 
 /* .exampleForm{
