@@ -4,6 +4,8 @@ import Navbar from "../Components/Navbar/Navbar";
 import Fragen from "../Mieter/Fragen";
 import VermieterArticles from "./VermieterArticles";
 import Vermieter from "./Vermiter";
+import VermieterSection from "./VermieterSection";
+import VermietungSektion from "./VermietungSektion";
 
 const VermieterHome = () => {
 
@@ -12,6 +14,7 @@ const VermieterHome = () => {
     <>
         <Navbar />
         <Hero />
+        <VermietungSektion />
         {/* <Example /> */}
         <Fragen />
         <Vermieter />

@@ -70,7 +70,7 @@ const HeroContactForm = () => {
             />
             <button
               type="submit"
-              className="md:col-span-3 logoBG logoTextWhite py-2 rounded-md hoverLogoMehr transition w-full cursor-pointer flex items-center justify-center gap-1"
+              className="md:col-span-3 logoBG logoTextWhite py-3 rounded-md hoverLogoMehr transition w-full cursor-pointer flex items-center justify-center gap-1"
             >
               Jetzt Kontakt aufnehmen <PiPhone className="min-h-6 min-w-8" />
             </button>

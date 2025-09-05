@@ -22,7 +22,7 @@ export default function UberUns() {
         </div>
 
         {/* النص */}
-        <div className="text-center md:text-left border border-red-500 p-10 rounded-2xl">
+        <div className="text-center p-10 rounded-2xl h-full">
           <Head className="text-transparent bg-clip-text logoBG mb-6 text-3xl md:text-4xl font-bold">
             {t("about_us.title")}
           </Head>
