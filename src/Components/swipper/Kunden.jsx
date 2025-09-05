@@ -3,7 +3,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import Head from "../Head";
+import Head from "../Sections/Head";
 import { FaStar } from "react-icons/fa";
 
 const testimonials = [

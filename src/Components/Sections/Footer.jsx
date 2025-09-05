@@ -1,5 +1,5 @@
 import { FaFacebook, FaInstagram, FaWhatsapp, FaArrowRight } from 'react-icons/fa';
-import ellmer from '../assets/ellmer.png';
+import ellmer from '../../assets/ellmer.png';
 import { NavLink } from 'react-router-dom';
 
 export default function Footer() {

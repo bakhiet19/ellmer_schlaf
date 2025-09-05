@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import hero1 from '../assets/hero1.png'
-import Head from "../Components/Head";
+import Head from "../Components/Sections/Head";
 import Bubble from "./Bubble";
 const MieterSection = ({className}) => {
   return (

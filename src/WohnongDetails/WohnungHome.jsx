@@ -1,4 +1,4 @@
-import Footer from "../Components/Footer";
+import Footer from "../Components/Sections/Footer";
 import Navbar from "../Components/Navbar/Navbar";
 import KontaktSidebar from "../Components/Sidebar";
 import SimilarWohnungen from "./SimilarWohnungen";

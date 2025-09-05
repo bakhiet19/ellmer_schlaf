@@ -1,5 +1,5 @@
-import FeaturesSection from "../Components/FeaturesSection";
-import Footer from "../Components/Footer";
+import FeaturesSection from "../Components/Sections/FeaturesSection";
+import Footer from "../Components/Sections/Footer";
 import Hero from "../Components/Hero/Hero";
 import Navbar from "../Components/Navbar/Navbar";
 import KontaktSidebar from "../Components/Sidebar";

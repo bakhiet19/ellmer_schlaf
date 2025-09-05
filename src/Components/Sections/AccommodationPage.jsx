@@ -1,8 +1,7 @@
 import React from "react";
 import { FaWifi, FaParking, FaUtensils, FaBed } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import Head from "./Head";
-import HowItWorksSection from "./HowItWorksSection";
+import HowItWorksSection from "../../Components/Sections/HowItWorksSection";
 
 const features = [
   { icon: <FaBed />, label: "Komfortable Unterkünfte" },
@@ -19,14 +18,14 @@ const AccommodationPage = () => {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-fade-in">
           Herzlich willkommen bei <span className="border-b-2 border-b-white">ELLMER rooms!</span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed opacity-90">
+        <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed opacity-90 mt-8">
           Ob für Projekteinsätze, Geschäftsreisen oder charmante Altstädte – mit ELLMER rooms finden Sie deutschlandweit die passende Unterkunft.
         </p>
       </header>
 
       {/* Welcome & Introduction Section */}
       <section className="py-12 md:py-16 px-4 md:px-20 mx-auto text-gray-700 leading-relaxed logoBGWhite shadow-xl mt-[-40px] relative z-10">
-  <div className="space-y-5 text-base sm:text-lg text-center">
+    <div className="space-y-5 text-base sm:text-lg text-center">
     <p className="font-semibold text-xl sm:text-2xl logoText">
       Schön, dass Sie uns gefunden haben!
     </p>

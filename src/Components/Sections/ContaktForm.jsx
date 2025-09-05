@@ -1,7 +1,6 @@
-import { useState } from "react";
-import Head from "./Head";
-import FirmenInfo from "./Contact/FirmenInfo";
-import ContectFormular from "./Contact/ContectFormular";
+import Head from "../Sections/Head";
+import FirmenInfo from "../Contact/FirmenInfo";
+import ContectFormular from "../Contact/ContectFormular";
 
 export default function KontaktSection() {
 

@@ -1,5 +1,5 @@
 import { FaBuilding, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from "react-icons/fa";
-import OfficeMap from "../OfficeMap";
+
 
 const FirmenInfo = () => {
   const info = [

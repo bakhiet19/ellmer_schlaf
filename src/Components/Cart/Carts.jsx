@@ -104,8 +104,8 @@ export default function Carts() {
           return (
             <div key={idx} className="ca">
               {/* العنوان + الأزرار */}
-            <div className="flex items-center justify-between mb-6">
-          <h2 className="text-md font-bold px-8 py-2 logoTextWhite logoBG hoverLogoMehr rounded-2xl flex items-center gap-2">
+            <div className="flex items-center justify-between s:mb-6 mb-2">
+          <h2 className="text-md font-bold px-8 py-2 logoTextWhite logoBG hoverLogoMehr rounded-2xl flex items-center ml-4 gap-2">
           <NavLink to={`/${region.title}`} className="flex items-center gap-2">
           {region.title}
           <FaArrowRight />

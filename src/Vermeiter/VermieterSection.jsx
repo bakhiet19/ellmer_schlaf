@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import hero2 from '../assets/hero2.png';
-import Head from '../Components/Head';
+import Head from '../Components/Sections/Head';
 import Bubble from '../Mieter/Bubble';
 
 const bubbles = [

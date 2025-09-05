@@ -8,8 +8,8 @@ import {
   MdBusiness,
 } from "react-icons/md";
 import Navbar from "../Components/Navbar/Navbar";
-import Footer from "../Components/Footer";
-import Head from '../Components/Head';
+import Footer from "../Components/Sections/Footer";
+import Head from '../Components/Sections/Head';
 
 export default function Impressum() {
   return (

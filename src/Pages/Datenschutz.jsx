@@ -1,5 +1,5 @@
-import Footer from "../Components/Footer";
-import Head from "../Components/Head";
+import Footer from "../Components/Sections/Footer";
+import Head from "../Components/Sections/Head";
 import Navbar from "../Components/Navbar/Navbar";
 
 // src/pages/Datenschutz.jsx

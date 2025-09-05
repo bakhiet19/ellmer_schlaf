@@ -328,3 +328,7 @@
 .opa{
   opacity: .5;
 }
+
+.borderW{
+  border: white 1px solid;
+}

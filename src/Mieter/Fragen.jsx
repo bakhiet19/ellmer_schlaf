@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Head from "../Components/Head";
+import Head from "../Components/Sections/Head";
 
 const faqs = [
   {

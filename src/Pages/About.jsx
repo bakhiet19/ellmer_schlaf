@@ -1,9 +1,8 @@
 import { FaUsers, FaAward, FaMapMarkerAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
-import Footer from "../Components/Footer";
+import Footer from "../Components/Sections/Footer";
 import KontaktSidebar from "../Components/Sidebar";
-import OfficeMap from "../Components/OfficeMap";
 
 const About = () => {
   return (
@@ -81,7 +80,6 @@ const About = () => {
         </section>
       </div>
       <KontaktSidebar />
-      <OfficeMap />
       <Footer />
     </div>
   );

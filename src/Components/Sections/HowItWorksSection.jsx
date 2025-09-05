@@ -45,7 +45,7 @@ export default function HowItWorksSection() {
                 </div>
 
                 {/* الرقم */}
-                <div className="w-8 h-8 rounded-full bg-white text-red-600 flex items-center justify-center mb-2 font-bold border border-red-600">
+                <div className="w-8 h-8 rounded-full logoBGWhite logoText flex items-center justify-center mb-2 font-bold border border-red-600">
                   {index + 1}
                 </div>
 
