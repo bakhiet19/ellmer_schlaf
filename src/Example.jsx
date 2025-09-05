@@ -3,6 +3,7 @@ import { useForm, FormProvider } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { getAllApartment } from "./Services/api";
+import { PiPhone } from "react-icons/pi";
 
 const HeroContactForm = () => {
   const methods = useForm({
@@ -38,7 +39,7 @@ const HeroContactForm = () => {
         className="relative z-10 w-full max-w-5xl mx-auto text-center"
       >
         <h1 className="logoTextWhite text-3xl md:text-4xl font-bold mb-4">
-          Finden Sie die perfekte Unterkunft – wir melden uns persönlich!
+          Finden Sie die perfekte Unterkunft – wir melden uns <span className="logoText">persönlich!</span>
         </h1>
         <p className="logoTextWhite text-lg mb-8">
           Tragen Sie Ihre Daten ein und wir kontaktieren Sie mit passenden Angeboten.
@@ -53,25 +54,25 @@ const HeroContactForm = () => {
               {...methods.register("name")}
               type="text"
               placeholder="Ihr Name"
-              className="border border-gray-300 rounded-md px-4 py-2 w-full"
+             className="border border-gray-300 rounded-md px-4 py-2 w-full focus:border-red-500 outline-none"
             />
             <input
               {...methods.register("phone")}
               type="tel"
               placeholder="Telefonnummer"
-              className="border border-gray-300 rounded-md px-4 py-2 w-full"
+              className="border border-gray-300 rounded-md px-4 py-2 w-full focus:border-red-500 outline-none"
             />
             <input
               {...methods.register("location")}
               type="text"
-              placeholder="Ort oder Bundesland"
-              className="border border-gray-300 rounded-md px-4 py-2 w-full"
+              placeholder="Ort oder Bundesland oder PLZ"
+              className="border border-gray-300 rounded-md px-4 py-2 w-full focus:border-red-500 outline-none"
             />
             <button
               type="submit"
-              className="md:col-span-3 bg-red-600 logoTextWhite py-2 rounded-md hover:bg-red-700 transition w-full cursor-pointer"
+              className="md:col-span-3 logoBG logoTextWhite py-2 rounded-md hoverLogoMehr transition w-full cursor-pointer flex items-center justify-center gap-1"
             >
-              Jetzt Kontakt aufnehmen
+              Jetzt Kontakt aufnehmen <PiPhone className="min-h-6 min-w-8" />
             </button>
           </form>
         </FormProvider>

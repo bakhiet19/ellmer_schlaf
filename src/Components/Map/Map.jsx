@@ -242,6 +242,8 @@ const ApartmentMap = () => {
   const mapCenter = [51.1657, 10.4515];
 
   return (
+     <div className="flex justify-center mx-auto mb-10 p-1 md:p-6  rounded-xl shadow w-full h-[80vh]">
+      <div className="w-full h-full">
     <div className={`${isFullScreen ? 'fixed top-0 left-0 w-full h-full z-[1000]' : 'relative w-full h-full z-0'}`}>
       {/* Toolbar */}
       <div className="absolute top-20 left-3 z-100 flex flex-col gap-3">
@@ -295,6 +297,8 @@ const ApartmentMap = () => {
           </div>
         ))}
       </div>
+    </div>
+    </div>
     </div>
   );
 };

@@ -25,8 +25,8 @@ export default function HowItWorksSection() {
   ];
 
   return (
-    <section className="w-full py-16 logoBGWhite">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="w-full  py-16 logoBGWhite">
+      <div className="max-w-8xl mx-auto px-4">
         {/* العنوان */}
         <h2 className="text-3xl font-bold text-center logoText mb-12">
           Ganz einfach zur perfekten Unterkunft

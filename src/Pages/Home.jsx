@@ -11,6 +11,8 @@ import Fragen from "../Mieter/Fragen";
 import VermieterSection from "../Vermeiter/Vermiter";
 import AccommodationPage from "../Components/Sections/AccommodationPage";
 import FeaturesSection from "../Components/Sections/FeaturesSection";
+import Directions from "../Components/Directions";
+import ApartmentMap from "../Components/Map/Map";
 
 
 
@@ -21,7 +23,9 @@ export default function Home(){
         {/* <Hero /> */}
         <Example />
         <AccommodationPage />
-        <Carts /> 
+        {/* <Carts />  */}
+        <Directions />
+        <ApartmentMap />
         <UberUns  />
         <VermieterSection />
         <Fragen />

@@ -44,11 +44,23 @@ const AccommodationPage = () => {
     </p>
   </div>
 
+  <div className="mt-10 text-center">
+    <NavLink
+      to="/mieter"
+      className="inline-block logoBG logoTextWhite px-6 sm:px-6 py-3 sm:py-3 rounded-full text-sm sm:text-md md:text-lg font-semibold shadow-lg hoverLogoMehr hover:scale-105 transition transform"
+    >
+      Unterkunft finden
+    </NavLink>
+    {/* <p className="mt-4 text-xs sm:text-sm text-gray-500">
+      Jetzt Fragebogen ausfüllen und passende Wohnung entdecken
+    </p> */}
+  </div>
+
   {/* Schritte Section */}
   <HowItWorksSection />
 
   {/* CTA */}
-  <div className="mt-10 text-center">
+  {/* <div className="mt-10 text-center">
     <NavLink
       to="/mieter"
       className="inline-block logoBG logoTextWhite px-6 sm:px-6 py-3 sm:py-3 rounded-full text-sm sm:text-md md:text-lg font-semibold shadow-lg hoverLogoMehr hover:scale-105 transition transform"
@@ -58,7 +70,7 @@ const AccommodationPage = () => {
     <p className="mt-4 text-xs sm:text-sm text-gray-500">
       Jetzt Fragebogen ausfüllen und passende Wohnung entdecken
     </p>
-  </div>
+  </div> */}
 </section>
 
     </div>

@@ -12,6 +12,7 @@ import wohnung3 from "../../assets/wohnung3.jpeg";
 import wohnung4 from "../../assets/wohnung4.jpg";
 import hero from "../../assets/hero.jpg";
 import { NavLink } from "react-router-dom";
+import Directions from "../Directions";
 
 const baseWohnungen = [
   {
@@ -91,78 +92,81 @@ export default function Carts() {
 
       <div className="flex justify-center mx-auto mb-10 p-1 md:p-6  rounded-xl shadow w-full h-[80vh]">
       <div className="w-full h-full">
+      <Directions />
       <ApartmentMap />
       </div>
       </div>
 
-      {/* القوائم حسب المنطقة */}
-      <div className="space-y-16">
-        {regions.map((region, idx) => {
-          // هنا نولّد 30 عنصر لكل منطقة
-          const regionItems = makeRegionItems(region.title, 30);
-
-          return (
-            <div key={idx} className="ca">
-              {/* العنوان + الأزرار */}
-            <div className="flex items-center justify-between s:mb-6 mb-2">
-          <h2 className="text-md font-bold px-8 py-2 logoTextWhite logoBG hoverLogoMehr rounded-2xl flex items-center ml-4 gap-2">
-          <NavLink to={`/${region.title}`} className="flex items-center gap-2">
-          {region.title}
-          <FaArrowRight />
-           </NavLink>
-          </h2>
-
-            <div className="flex gap-2">
-              <button
-                ref={(el) => (prevRefs.current[idx] = el)}
-                className="bg-white shadow-md hoverLogoMehr hover:text-white transition text-gray-800 p-3 rounded-full flex items-center justify-center cursor-pointer"
-                aria-label={`prev-${idx}`}
-              >
-                <FaArrowLeft className="w-4 h-4" />
-              </button>
-
-              <button
-                ref={(el) => (nextRefs.current[idx] = el)}
-                className="bg-white shadow-md hoverLogoMehr hover:text-white transition text-gray-800 p-3 rounded-full flex items-center justify-center cursor-pointer"
-                aria-label={`next-${idx}`}
-              >
-                <FaArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-            </div>
-
-              {/* Swiper — نربط الأزرار عبر onBeforeInit */}
-              <Swiper
-                modules={[Navigation]}
-                spaceBetween={20}
-                grabCursor={true}
-                onBeforeInit={(swiper) => {
-                  // ربط عناصر الـ navigation بالأزرار المناسبة
-                  // (prevRefs.current[idx] و nextRefs.current[idx] موجودين لأن الأزرار رُسمت قبل الـ Swiper)
-                  swiper.params.navigation.prevEl = prevRefs.current[idx];
-                  swiper.params.navigation.nextEl = nextRefs.current[idx];
-                }}
-                navigation // نترك الـ navigation فعلية (سيأخذ القيم اللي وضعناها في onBeforeInit)
-                breakpoints={{
-                  320: { slidesPerView: 1 },
-                  640: { slidesPerView: 2 },
-                  1024: { slidesPerView: 3 },
-                  1280: { slidesPerView: 4 },
-                  1600: { slidesPerView: 5 },
-                }}
-              >
-                {regionItems.map((wohnung, i) => (
-                  <SwiperSlide key={i}>
-                    <div className="p-2">
-                      <WohnungCart wohnung={wohnung} />
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          );
-        })}
-      </div>
+   
+   
     </div>
   );
 }
+
+
+  //  <div className="space-y-16">
+  //       {regions.map((region, idx) => {
+        
+  //         const regionItems = makeRegionItems(region.title, 30);
+
+  //         return (
+  //           <div key={idx} className="ca">
+           
+  //           <div className="flex items-center justify-between s:mb-6 mb-2">
+  //         <h2 className="text-md font-bold px-8 py-2 logoTextWhite logoBG hoverLogoMehr rounded-2xl flex items-center ml-4 gap-2">
+  //         <NavLink to={`/${region.title}`} className="flex items-center gap-2">
+  //         {region.title}
+  //         <FaArrowRight />
+  //          </NavLink>
+  //         </h2>
+
+  //           <div className="flex gap-2">
+  //             <button
+  //               ref={(el) => (prevRefs.current[idx] = el)}
+  //               className="bg-white shadow-md hoverLogoMehr hover:text-white transition text-gray-800 p-3 rounded-full flex items-center justify-center cursor-pointer"
+  //               aria-label={`prev-${idx}`}
+  //             >
+  //               <FaArrowLeft className="w-4 h-4" />
+  //             </button>
+
+  //             <button
+  //               ref={(el) => (nextRefs.current[idx] = el)}
+  //               className="bg-white shadow-md hoverLogoMehr hover:text-white transition text-gray-800 p-3 rounded-full flex items-center justify-center cursor-pointer"
+  //               aria-label={`next-${idx}`}
+  //             >
+  //               <FaArrowRight className="w-4 h-4" />
+  //             </button>
+  //           </div>
+  //           </div>
+
+           
+  //             <Swiper
+  //               modules={[Navigation]}
+  //               spaceBetween={20}
+  //               grabCursor={true}
+  //               onBeforeInit={(swiper) => {
+  
+  //                 swiper.params.navigation.prevEl = prevRefs.current[idx];
+  //                 swiper.params.navigation.nextEl = nextRefs.current[idx];
+  //               }}
+  //               navigation 
+  //               breakpoints={{
+  //                 320: { slidesPerView: 1 },
+  //                 640: { slidesPerView: 2 },
+  //                 1024: { slidesPerView: 3 },
+  //                 1280: { slidesPerView: 4 },
+  //                 1600: { slidesPerView: 5 },
+  //               }}
+  //             >
+  //               {regionItems.map((wohnung, i) => (
+  //                 <SwiperSlide key={i}>
+  //                   <div className="p-2">
+  //                     <WohnungCart wohnung={wohnung} />
+  //                   </div>
+  //                 </SwiperSlide>
+  //               ))}
+  //             </Swiper>
+  //           </div>
+  //         );
+  //       })}
+  //     </div>
